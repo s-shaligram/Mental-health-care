@@ -4,16 +4,18 @@ Group - 18
 Group members-
 
 1. Name - Sameer Shaligram
-Student ID - 1121367
+   Student ID - 1121367
 
-2.Name - Shiwantha Viraj
-Student ID - 1128316
+2. Name - Shiwantha Viraj
+   Student ID - 1128316
+
+3. Name - Kavin Ranawella
+   Student ID - 1123583
 
 App name - Mind2.0
+App description -
 
-App description - 
-
-"Discover a Better You with mind2.0". 
+"Discover a Better You with mind2.0".
 Introducing our mobile app for improving mental health—a thorough resource for anyone wishing to do so. Our app offers daily mood tracking, self-evaluation, and individualised treatment recommendations for mental illnesses. Utilise our app to take charge of your mental health right now.
 
 List of features-
