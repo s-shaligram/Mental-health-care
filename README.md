@@ -20,18 +20,18 @@ Introducing our mobile app for improving mental health—a thorough resource for
 
 List of features-
 
-1. "MindEase: Your All-in-One Mental Health Solution"
+1. "EaseMind: Your All-in-One Mental Health Solution"
 2. "InnerSpace: Your Personal Mental Wellness Companion"
 3. "MoodMaster: Daily Mood Tracking and Mental Health Management"
 4. "MentalCheck: Self-Assessment and Suggestions for Mental Health"
 5. "MindNotify: Get Notified for Your Mental Health Goals"
 6. "MindNight: Dark Theme for Better Sleep and Relaxation"
-7. "MediMind: Find Medical Centres Nearby for Your Mental Health Needs"
+7. "MedicalMind: Find Medical Centres Nearby for Your Mental Health Needs"
 8. "MindQuote: Daily Inspirational Quotes for Mental Wellness"
 9. "MindBlog: Daily Blogs for Mental Health Education and Support"
 10. "MindReminder: Keep Track of Water, Medicine and Mental Health Goals"
 11. "SleepEase: Sleep Tracking for Better Mental Health"
-12. "SatisMind: Track Your Self-Satisfaction and Mental Wellness Progress"
+12. "SatisfyMind: Track Your Self-Satisfaction and Mental Wellness Progress"
 13. "AngerEase: Gamify Your Anger Management for Better Mental Health"
 14. "MindGoal: Set and Analyze Your Mental Health Goals"
 15. "MindTime: Screen Time and Mental Health Tracker"
