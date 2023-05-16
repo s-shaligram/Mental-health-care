@@ -15,7 +15,11 @@ Group members-
 4. Name - Ghanashyam Shingate
    Student ID - 1121761
 
+5. Name - Pushpraj Rajan
+   Student ID - 1120214
+
 App name - Mind2.0
+
 App description -
 
 "Discover a Better You with mind2.0".
