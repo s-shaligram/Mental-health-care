@@ -43,4 +43,8 @@ List of features-
 14. "MindGoal: Set and Analyze Your Mental Health Goals"
 15. "MindTime: Screen Time and Mental Health Tracker"
 16. "MindSafe: Store Emergency Contacts for Your Mental Health Needs"
-17. "MoodTunes: Listen to Music Related to Your Mood and Mental Health".
+17. "MoodTunes: Listen to Music Related to Your Mood and Mental Health"
+18. "GroupChat: Connect with people for chitchat"
+19. "E-books: Calm your mind with reading books"
+20. "MedVault: Save medical reports securely on your device" 
+21. "HowYouFeel: Your own virtual doctor"
