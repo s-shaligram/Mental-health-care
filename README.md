@@ -27,12 +27,12 @@ Introducing our mobile app for improving mental health—a thorough resource for
 
 List of features-
 
-1. "EaseMind: Users will have All-in-One mental health solution."
-2. "InnerSpace: Users can utilize Personal Mental Wellness Companion within the app."
-3. "MoodMaster: Users can use daily mood tracking and mental health management."
-4. "MentalCheck: Users can use self-assessment and suggestions for mental health."
+1. "MindNight: Users can change to dark theme for better sleep and relaxation."
+2. "EaseMind: Users will have All-in-One health suggestions based on their current mental health."
+3. "MoodMaster: Users can use daily mood tracking."
+4. "MentalCheck: Users can use self-assessment to assess their current mental health."
 5. "MindNotify: Users will get notified for mental health goals."
-6. "MindNight: Users can change to dark theme for better sleep and relaxation."
+6. "InnerSpace: Users can utilize Personal Mental Wellness within the app."
 7. "MedicalMind: Users will be able to find medical centres nearby for mental health needs."
 8. "MindQuote: Users can read daily inspirational quotes for motivation."
 9. "MindBlog: Users can use daily blogs for mental health education and support feature."
