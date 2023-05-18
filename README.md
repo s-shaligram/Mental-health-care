@@ -11,7 +11,6 @@ Group members-
 
 3. Name - Kavin Ranawella
    Student ID - 1123583
-   
 4. Name - Ghanashyam Shingate
    Student ID - 1121761
 
@@ -46,5 +45,5 @@ List of features-
 17. "MoodTunes: Users will be able to listen to music related to your mood."
 18. "GroupChat: Users can connect anonymously with people for chitchat."
 19. "E-books: Users can read books or can add own e-books."
-20. "MedVault: Users can save medical reports securely on your device." 
+20. "MedVault: Users can save medical reports securely on your device."
 21. "HowYouFeel: Users will have own virtual doctor."
