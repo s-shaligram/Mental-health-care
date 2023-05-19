@@ -26,7 +26,7 @@ Introducing our mobile app for improving mental health—a thorough resource for
 
 List of features-
 
-1. "MindNight: Users can change to dark theme for better sleep and relaxation."
+1. "MindNight: Users can change to dark theme for better viewing and relaxation."
 2. "EaseMind: Users will have All-in-One health suggestions based on their current mental health."
 3. "MoodMaster: Users can use daily mood tracking."
 4. "MentalCheck: Users can use self-assessment to assess their current mental health."
@@ -47,3 +47,4 @@ List of features-
 19. "E-books: Users can read books or can add own e-books."
 20. "MedVault: Users can save medical reports securely on your device."
 21. "HowYouFeel: Users will have own virtual doctor."
+22. "Delete: Users can delete all personal app data."
