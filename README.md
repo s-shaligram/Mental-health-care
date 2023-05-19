@@ -46,5 +46,5 @@ List of features-
 18. "GroupChat: Users can connect anonymously with people for chitchat."
 19. "E-books: Users can read books or can add own e-books."
 20. "MedVault: Users can save medical reports securely on your device."
-21. "HowYouFeel: Users will have own virtual doctor."
+21. "HowYouFeel: Users will have own virtual assistant to comfort their stress."
 22. "Delete: Users can delete all personal app data."
