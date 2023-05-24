@@ -29,7 +29,7 @@ List of features-
 1. "Users can track their mood day by day."
 2. "Users can change to dark theme for better viewing and relaxation."
 3. "Users can assess their current mental health by answering a questionnaire."
-4. "If users are in stressful condition, they will check steps to get out of that condition."
+4. "If users are in stressful condition, they can check steps to get out of that condition."
 5. "Users will get notified from mental health app."
 6. "Remove all in-app notifications at once."
 7. "Users will be able to find medical centres nearby for mental health needs."
