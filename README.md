@@ -46,3 +46,4 @@ List of features-
 18. "Users can read pdf books already in the app."
 19. "Users can save medical reports securely on your device."
 20. "Users can delete all personal app data."
+21. "Remove all notification at once"
