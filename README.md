@@ -44,7 +44,7 @@ List of features-
 16. "MindSafe: Users can store emergency contacts for immediate mental health assessment."
 17. "MoodTunes: Users will be able to listen to music related to your mood."
 18. "GroupChat: Users can connect anonymously with people for chitchat."
-19. "E-books: Users can read books or can add own e-books."
+19. "Users can read pdf books already in the app."
 20. "MedVault: Users can save medical reports securely on your device."
 21. "HowYouFeel: Users will have own virtual assistant to comfort their stress."
 22. "Users can delete all personal app data."
