@@ -40,11 +40,9 @@ List of features-
 12. "SatisfyMind: Users can track self-satisfaction and mental wellness progress."
 13. "Users can use our simple game GUI which can offer user to take control on his anger like starting count from 1 to 10 while after every count he will see some tips to get his anger in control."
 14. "MindGoal: Users can set and analyze your mental health goals."
-15. "MindTime: Users can track screen time."
+15. "Canlender feature can be added to set appointment by user. "
 16. "MindSafe: Users can store emergency contacts for immediate mental health assessment."
 17. "MoodTunes: Users will be able to listen to music related to your mood."
 18. "Users can read pdf books already in the app."
 19. "Users can save medical reports securely on your device."
-20. "HowYouFeel: Users will have own virtual assistant to comfort their stress."
-21. "Users can delete all personal app data."
-22. Canlender feature can be added to set appointment by user. 
+20. "Users can delete all personal app data."
