@@ -47,3 +47,4 @@ List of features-
 19. "Users can save medical reports securely on your device."
 20. "HowYouFeel: Users will have own virtual assistant to comfort their stress."
 21. "Users can delete all personal app data."
+22. Canlender feature can be added to set appointment by user. 
