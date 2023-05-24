@@ -42,7 +42,7 @@ List of features-
 14. "MindGoal: Users can set and analyze your mental health goals."
 15. "Canlender feature can be added to set appointment by user. "
 16. "Users can store emergency contacts for immediate mental health assessment."
-17. ""
+17. "Adding favourites list if something is preferred "
 18. "Users can read pdf books already in the app."
 19. "Users can save medical reports securely on your device."
 20. "Users can delete all personal app data."
