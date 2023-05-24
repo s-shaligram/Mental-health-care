@@ -38,7 +38,7 @@ List of features-
 10. "MindReminder: Users can keep track of water, medicine, etc."
 11. "SleepEase: Users will be able to track sleep for better mental health."
 12. "SatisfyMind: Users can track self-satisfaction and mental wellness progress."
-13. "Users can  Game for anger management."
+13. "Users can use our simple game gui which can offer user to take control on his anger like strting count from 1 to 10 while after every count he will see some tips to get his anger in controll"
 14. "MindGoal: Users can set and analyze your mental health goals."
 15. "MindTime: Users can track screen time."
 16. "MindSafe: Users can store emergency contacts for immediate mental health assessment."
