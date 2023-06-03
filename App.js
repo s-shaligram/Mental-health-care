@@ -1,7 +1,7 @@
 import {NavigationContainer} from "@react-navigation/native";
 import Tabs from "./navigation/tabs";
 
-// dummy change
+// dummy changes
 
 export default function App() {
 
