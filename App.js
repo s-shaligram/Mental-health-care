@@ -1,32 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import * as SplashScreen from 'expo-splash-screen';
-import MoodTracker from './MoodTrack/moodtracker';
+import {NavigationContainer} from "@react-navigation/native";
+import Tabs from "./navigation/tabs";
 
 export default function App() {
 
-  // SplashScreen.preventAutoHideAsync()
-  // .then((prevented) => {
-  //   console.log('Prevented:', prevented);
-  // })
-  // .catch((error) => {
-  //   console.log('Prevent error:', error);
-  // });
-
   return (
-    <View style={styles.container}>
-      
-      <StatusBar style="auto" />
-      <MoodTracker/>
-    </View>
+      <NavigationContainer>
+        <Tabs></Tabs>
+      </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
