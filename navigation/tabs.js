@@ -2,6 +2,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import Home from "../src/screens/Home";
 import More from "../src/screens/More";
+import Active from "../src/screens/Active";
+import Calm from "../src/screens/Calm";
+import Track from "../src/screens/Track";
 
 const Tab = createBottomTabNavigator();
 
@@ -47,7 +50,7 @@ const Tabs = () => {
     >
       <Tab.Screen
         name="Active"
-        component={Home}
+        component={Active}
         options={{
           tabBarIcon: ({ focused }) => (
             <View
@@ -78,7 +81,7 @@ const Tabs = () => {
       />
         <Tab.Screen
             name="Calm"
-            component={More}
+            component={Calm}
             options={{
                 tabBarIcon: ({ focused }) => (
                     <View
@@ -110,7 +113,7 @@ const Tabs = () => {
         />
         <Tab.Screen
             name="Home"
-            component={More}
+            component={Home}
             options={{
                 tabBarIcon: ({ focused }) => (
                     <Image
@@ -128,7 +131,7 @@ const Tabs = () => {
 
         <Tab.Screen
             name="Track"
-            component={More}
+            component={Track}
             options={{
                 tabBarIcon: ({ focused }) => (
                     <View
