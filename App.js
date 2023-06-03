@@ -5,7 +5,6 @@ import TempNavigation from './src/components/temp_navigation';
 export default function App() {
   return (
     <View style={styles.container}>
-      
       <TempNavigation></TempNavigation>
       <StatusBar style="auto" />
     </View>
