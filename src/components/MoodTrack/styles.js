@@ -3,13 +3,13 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
       padding: 30,
-      borderRadius: 10,
-      borderWidth: 0.5,
+      // borderRadius: 10,
+      // borderWidth: 0.5,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#f8f8f8',
-      marginBottom: 400,
-      borderColor: 'blue'
+      // backgroundColor: '#f8f8f8',
+      // marginBottom: 0,
+      // borderColor: 'blue'
     },
     title: {
       fontSize: 24,

@@ -3,19 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 
 function More() {
     return (
-        <ScrollView>
-            <View style={styles.container}>
-                <View style={styles.line} />
-                <Text style={styles.title}>Text 01</Text>
-                <View style={styles.line} />
-            </View>
-
-            <View style={styles.container}>
-                <View style={styles.line} />
-                <Text style={styles.title}>Text 02</Text>
-                <View style={styles.line} />
-            </View>
-        </ScrollView>
+        <></>
     );
 }
 
