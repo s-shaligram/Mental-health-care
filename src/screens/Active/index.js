@@ -1,21 +1,24 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import styles from "./style";
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import GameOne from "./GameOne";
+import ActiveHome from "./ActiveHome";
+const Stack = createStackNavigator();
 
-export default function Home() {
-  const [count, setCount] = useState(0);
-
-  const incrementCount = () => {
-    setCount(count + 1);
-  };
-
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello Ghanashyam</Text>
-      <Text style={styles.text}>Count: {count}</Text>
-      <TouchableOpacity onPress={incrementCount} style={styles.button}>
-        <Text style={styles.buttonText}>Increment</Text>
-      </TouchableOpacity>
-    </View>
-  );
+function Active() {
+    return (
+        <Stack.Navigator initialRoutName="ActiveHome">
+            <Stack.Screen
+                name="ActiveHome"
+                component={ActiveHome}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="GameOne"
+                component={GameOne}
+                options={{ headerShown: false }}
+            />
+        </Stack.Navigator>
+    );
 }
+
+export default Active;

@@ -1,43 +1,30 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import ScreenA from "./ScreenA";
+import ScreenB from "./ScreenB";
+import CalmHome from "./CalmHome";
+const Stack = createStackNavigator();
 
-function Home() {
+function Calm() {
     return (
-        <ScrollView>
-            <View style={styles.container}>
-                <View style={styles.line} />
-                <Text style={styles.title}>Text 01</Text>
-                <View style={styles.line} />
-            </View>
-
-            <View style={styles.container}>
-                <View style={styles.line} />
-                <Text style={styles.title}>Text 02</Text>
-                <View style={styles.line} />
-            </View>
-        </ScrollView>
+        <Stack.Navigator initialRoutName="CalmHome">
+            <Stack.Screen
+                name="CalmHome"
+                component={CalmHome}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="ScreenA"
+                component={ScreenA}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="ScreenB"
+                component={ScreenB}
+                options={{ headerShown: false }}
+            />
+        </Stack.Navigator>
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        marginVertical: 10,
-    },
-    line: {
-        flex: 1,
-        height: 1,
-        backgroundColor: "#ccc",
-        marginHorizontal: 10,
-    },
-    title: {
-        fontSize: 18,
-        fontWeight: "bold",
-        color: "#555",
-        marginHorizontal: 10,
-    },
-});
-
-export default Home;
+export default Calm;
