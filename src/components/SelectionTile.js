@@ -7,13 +7,7 @@ const SelectionTile = (props) => {
     <TouchableOpacity
         style={styles.container}
       onPress={() => {
-        navigation.navigate(routeTo, {
-          data1: {},
-          data2: {
-            dataField1: 1,
-            dataField2: "kav"
-          },
-        });
+        navigation.navigate(routeTo);
       }}
     >
       <View>
@@ -27,12 +21,13 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     borderRadius: 5,
-    padding: 10,
+    paddingLeft: 25,
     flexDirection: "row",
     alignItems: "center",
     marginTop: 10,
+    marginBottom: 5,
     marginStart: 10,
-    height: 90,
+    height: 60,
     marginEnd: 10,
     shadowColor: "#000",
     shadowOffset: {

@@ -1,8 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import ScreenA from "../Calm/ScreenA";
-import ScreenB from "../Calm/ScreenB";
 import HomeHome from "./HomeHome";
+import TrackMedicine from "./TrackMedicine";
 
 const Stack = createStackNavigator();
 
@@ -15,13 +14,8 @@ function Home() {
                 options={{ headerShown: false }}
             />
             <Stack.Screen
-                name="ScreenA"
-                component={ScreenA}
-                options={{ headerShown: false }}
-            />
-            <Stack.Screen
-                name="ScreenB"
-                component={ScreenB}
+                name="TrackMedicine"
+                component={TrackMedicine}
                 options={{ headerShown: false }}
             />
         </Stack.Navigator>

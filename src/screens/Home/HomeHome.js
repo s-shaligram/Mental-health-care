@@ -7,8 +7,7 @@ function HomeHome({navigation}) {
     return (
         <ScrollView>
             <View style={styles.container}><MoodTracker/></View>
-            <SelectionTile name={"Selection A"} routeTo={'ScreenA'} navigation={navigation}/>
-            <SelectionTile name={"Selection B"} routeTo={'ScreenB'} navigation={navigation}/>
+            <SelectionTile name={"Track my medicine"} routeTo={'TrackMedicine'} navigation={navigation}/>
         </ScrollView>
     );
 }
