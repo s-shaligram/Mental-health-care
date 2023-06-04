@@ -94,6 +94,7 @@ const Active = () => {
   return (
     <View style={styles.container}>
       <View style={styles.avatarsContainer}>{renderAvatars()}</View>
+      <Text>Changes from Shiwantha</Text>
       <Text style={styles.count}>{count}</Text>
       <Text style={styles.text}>{randomTexts[randomIndex]}</Text>
       <Text>Hello</Text>
