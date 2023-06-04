@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 
-function Home() {
+function Track() {
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Home;
+export default Track;
