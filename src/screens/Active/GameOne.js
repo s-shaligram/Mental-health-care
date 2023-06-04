@@ -1,46 +1,3 @@
-// import React, { useState } from "react";
-// import { View, Text, TouchableOpacity } from "react-native";
-// import styles from "./style";
-
-// export default function Active() {
-//   const [count, setCount] = useState(0);
-
-//   const incrementCount = () => {
-//     setCount(count + 1);
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.text}>Hello Ghanashyam</Text>
-//       <Text style={styles.text}>Count: {count}</Text>
-//       <TouchableOpacity onPress={incrementCount} style={styles.button}>
-//         <Text style={styles.buttonText}>Increment</Text>
-//       </TouchableOpacity>
-//     </View>
-//   );
-// }
-
-// import React, { useState } from "react";
-// import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-// import styles from "./style";
-
-// export default function Home() {
-//   const [count, setCount] = useState(0);
-
-//   const incrementCount = () => {
-//     setCount(count + 1);
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.text}>Hello Ghanashyam</Text>
-//       <Text style={styles.text}>Count: {count}</Text>
-//       <TouchableOpacity onPress={incrementCount} style={styles.button}>
-//         <Text style={styles.buttonText}>Increment</Text>
-//       </TouchableOpacity>
-//     </View>
-//   );
-// }
 import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import styles from "./style";
@@ -94,10 +51,8 @@ const Active = () => {
   return (
     <View style={styles.container}>
       <View style={styles.avatarsContainer}>{renderAvatars()}</View>
-      <Text>Changes from Shiwantha</Text>
       <Text style={styles.count}>{count}</Text>
       <Text style={styles.text}>{randomTexts[randomIndex]}</Text>
-      <Text>Hello</Text>
       <TouchableOpacity
         onPress={incrementCount}
         disabled={count >= 10}
