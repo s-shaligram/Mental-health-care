@@ -14,13 +14,25 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "jsEngine": "hermes",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier":"com.expo.Mind2.0",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBIzcdSK_WvyncEetqauVSLIhBjhMOMHTE"
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBERtCzGMk0NwOswtH6-4ReY9r2OSc3-qA"
+        }
       }
     },
     "web": {
