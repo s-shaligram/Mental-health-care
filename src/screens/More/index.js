@@ -1,20 +1,15 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
+import NearByMedicalCenter from "../../components/nearByMedicalCenter";
 
 function More() {
     return (
         <ScrollView>
             <View style={styles.container}>
-                <View style={styles.line} />
-                <Text style={styles.title}>Text 01</Text>
-                <View style={styles.line} />
+               <NearByMedicalCenter></NearByMedicalCenter>
             </View>
 
-            <View style={styles.container}>
-                <View style={styles.line} />
-                <Text style={styles.title}>Text 02</Text>
-                <View style={styles.line} />
-            </View>
+         
         </ScrollView>
     );
 }
