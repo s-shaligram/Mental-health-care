@@ -75,13 +75,6 @@ const NearByMedicalCenter = () => {
               title={marker.title}
             />
             ))
-            
-            // <Marker
-            //   coordinate={{
-            //     latitude: currentLocation.latitude,
-            //     longitude: currentLocation.longitude,
-            //   }}
-            // />
           )}
         </MapView>
       )}
