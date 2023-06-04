@@ -1,36 +1,31 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
-import MoodTracker from "../../components/MoodTrack/moodtracker";
+import { createStackNavigator } from "@react-navigation/stack";
+import ScreenA from "../Calm/ScreenA";
+import ScreenB from "../Calm/ScreenB";
+import HomeHome from "./HomeHome";
+
+const Stack = createStackNavigator();
 
 function Home() {
     return (
-        <ScrollView>
-            <View style={styles.container}>
-                <MoodTracker/>
-            </View>
-        </ScrollView>
+        <Stack.Navigator initialRoutName="HomeHome">
+            <Stack.Screen
+                name="HomeHome"
+                component={HomeHome}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="ScreenA"
+                component={ScreenA}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="ScreenB"
+                component={ScreenB}
+                options={{ headerShown: false }}
+            />
+        </Stack.Navigator>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        marginVertical: 10,
-    },
-    line: {
-        flex: 1,
-        height: 1,
-        backgroundColor: "#ccc",
-        marginHorizontal: 10,
-    },
-    title: {
-        fontSize: 18,
-        fontWeight: "bold",
-        color: "#555",
-        marginHorizontal: 10,
-    },
-});
 
 export default Home;
