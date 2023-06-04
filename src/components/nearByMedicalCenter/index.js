@@ -38,6 +38,13 @@ const NearByMedicalCenter = () => {
     return null;
   }
 
+  const markers = [
+    { id: 1, coordinate: { latitude: 42.9849, longitude: -81.2453 }, title: 'Marker 1' },
+    { id: 2, coordinate: { latitude: 42.9840, longitude: -81.2330 }, title: 'Marker 2' },
+    { id: 3, coordinate: { latitude: 42.9771, longitude: -81.2453 }, title: 'Marker 3' },
+  ];
+  
+
   const initialRegion = currentLocation
     ? {
         latitude: currentLocation.latitude,
@@ -59,15 +66,22 @@ const NearByMedicalCenter = () => {
           provider={PROVIDER_GOOGLE}
           style={styles.map}
           initialRegion={initialRegion}
-          region={initialRegion}
-        >
+          region={initialRegion}>
           {currentLocation && (
-            <Marker
-              coordinate={{
-                latitude: currentLocation.latitude,
-                longitude: currentLocation.longitude,
-              }}
+            markers.map(marker=>(
+              <Marker
+              key={marker.id}
+              coordinate={marker.coordinate}
+              title={marker.title}
             />
+            ))
+            
+            // <Marker
+            //   coordinate={{
+            //     latitude: currentLocation.latitude,
+            //     longitude: currentLocation.longitude,
+            //   }}
+            // />
           )}
         </MapView>
       )}

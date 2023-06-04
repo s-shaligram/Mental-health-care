@@ -16,7 +16,13 @@
     ],
     "jsEngine": "hermes",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier":"com.expo.Mind2.0",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBIzcdSK_WvyncEetqauVSLIhBjhMOMHTE"
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
