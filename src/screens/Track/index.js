@@ -1,21 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 
-function Home() {
+function Track() {
     return (
-        <ScrollView>
-            <View style={styles.container}>
-                <View style={styles.line} />
-                <Text style={styles.title}>Text 01</Text>
-                <View style={styles.line} />
-            </View>
-
-            <View style={styles.container}>
-                <View style={styles.line} />
-                <Text style={styles.title}>Text 02</Text>
-                <View style={styles.line} />
-            </View>
-        </ScrollView>
+       <></>
     );
 }
 
@@ -40,4 +28,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Home;
+export default Track;
