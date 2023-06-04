@@ -30,9 +30,7 @@ export default function App() {
 
   const onLayoutRootView = useCallback(async () => {
     if (appIsReady) {
-     
-      console.log('appIsReady and Splash Screen loading')
-      // await SplashScreen.hideAsync();
+        await SplashScreen.hideAsync();
     }
   }, [appIsReady]);
 

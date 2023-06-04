@@ -1,15 +1,15 @@
 {
   "expo": {
     "name": "Mind2.0",
-    "slug": "Mind2",
+    "slug": "Mind2.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.jpg",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#000000"
+      "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -18,9 +18,7 @@
       "supportsTablet": true,
       "bundleIdentifier":"com.expo.Mind2.0",
       "config": {
-        "googleMaps": {
-          "apiKey": "AIzaSyBIzcdSK_WvyncEetqauVSLIhBjhMOMHTE"
-        }
+        "googleMapsApiKey": "AIzaSyBIzcdSK_WvyncEetqauVSLIhBjhMOMHTE"
       }
     },
     "android": {
