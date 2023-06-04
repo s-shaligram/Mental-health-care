@@ -96,6 +96,7 @@ const Active = () => {
       <View style={styles.avatarsContainer}>{renderAvatars()}</View>
       <Text style={styles.count}>{count}</Text>
       <Text style={styles.text}>{randomTexts[randomIndex]}</Text>
+      <Text>Hello</Text>
       <TouchableOpacity
         onPress={incrementCount}
         disabled={count >= 10}
