@@ -1,23 +1,20 @@
-import {NavigationContainer} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import Tabs from "./navigation/tabs";
-import React, {useCallback, useEffect, useState} from 'react';
-import { Text,View } from 'react-native';
-import * as SplashScreen from 'expo-splash-screen';
-
+import React, { useCallback, useEffect, useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
 
 // dummy change
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  
   const [appIsReady, setAppIsReady] = useState(false);
 
   useEffect(() => {
     async function prepare() {
       try {
-    
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise((resolve) => setTimeout(resolve, 2000));
       } catch (e) {
         console.warn(e);
       } finally {
@@ -38,7 +35,6 @@ export default function App() {
       // performed layout.
 
       await SplashScreen.hideAsync();
-      
     }
   }, [appIsReady]);
 
@@ -55,25 +51,18 @@ export default function App() {
   // );
   // }
 
-
-
   return (
-
-    <View 
-    style={{ flex: 1 }}
-    onLayout={onLayoutRootView}>
-    
-      
-    {/* <Text>SplashScreen Demo! 👋</Text> */}
-
     <NavigationContainer>
-      <Tabs></Tabs> 
+      <Tabs></Tabs>
     </NavigationContainer>
-
-    
-    </View>
-    
-
-
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "red",
+    // flexDirection: "row",
+    // alignItems: "center",
+    // justifyContent: "center",
+    // marginVertical: 5,
+  },
+});

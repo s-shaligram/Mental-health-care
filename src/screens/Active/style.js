@@ -19,10 +19,23 @@ const styles = StyleSheet.create({
     textShadowRadius: 2,
   },
   avatar: {
-    width: 150, // Customize the width as per your requirement
-    height: 150, // Customize the height as per your requirement
+    width: 140, // Customize the width as per your requirement
+    height: 140, // Customize the height as per your requirement
     borderRadius: 25, // Customize the borderRadius as per your preference
-    marginBottom: 90,
+    marginBottom: 60,
+    padding: 30,
+    marginTop: 10,
+    marginHorizontal: 10,
+  },
+  progressBar: {
+    position: "absolute",
+    borderWidth: 3,
+    borderColor: "red",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 50,
+    backgroundColor: "white",
   },
   button: {
     backgroundColor: "#FFA500",
