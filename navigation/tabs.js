@@ -6,6 +6,7 @@ import More from "../src/screens/More";
 import Active from "../src/screens/Active";
 import Calm from "../src/screens/Calm";
 import Track from "../src/screens/Track";
+import Mind2Header from "../src/components/Mind2Header";
 
 const Tab = createBottomTabNavigator();
 
@@ -30,7 +31,9 @@ const Tabs = () => {
                 name="Active"
                 component={Active}
                 options={{
-                    tabBarIcon: ({focused}) => (
+                    headerTitle: () => (<Mind2Header screenName={"Active"} showLogo={false}/>),
+                    headerStyle: {height: 70},
+                   tabBarIcon: ({focused}) => (
                         <View
                             style={{
                                 alignItems: "center",
@@ -57,6 +60,8 @@ const Tabs = () => {
                 name="Calm"
                 component={Calm}
                 options={{
+                    headerTitle: () => (<Mind2Header screenName={"Calm"} showLogo={false}/>),
+                    headerStyle: {height: 70},
                     tabBarIcon: ({focused}) => (
                         <View
                             style={{
@@ -85,6 +90,8 @@ const Tabs = () => {
                 name="Home"
                 component={Home}
                 options={{
+                    headerTitle: () => (<Mind2Header screenName={"Mind 2.0"}/>),
+                    headerStyle: {height: 70},
                     tabBarIcon: ({focused}) => (
                         <Icon
                             name={focused ? "ios-home" : "ios-home-outline"}
@@ -100,6 +107,8 @@ const Tabs = () => {
                 name="Track"
                 component={Track}
                 options={{
+                    headerTitle: () => (<Mind2Header screenName={"Track"} showLogo={false}/>),
+                    headerStyle: {height: 70},
                     tabBarIcon: ({focused}) => (
                         <View
                             style={{
@@ -129,6 +138,8 @@ const Tabs = () => {
                 name="More"
                 component={More}
                 options={{
+                    headerTitle: () => (<Mind2Header screenName={"More"} showLogo={false}/>),
+                    headerStyle: {height: 70},
                     tabBarIcon: ({focused}) => (
                         <View
                             style={{
