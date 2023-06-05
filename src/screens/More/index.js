@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import NearByMedicalCenter from "../../components/nearByMedicalCenter";
+import NearByMedicalCenter from "../../components/NearByMedicalCenter/index";
 import MoreHome from "./MoreHome";
 const Stack = createStackNavigator();
 
