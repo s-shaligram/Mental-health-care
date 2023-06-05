@@ -15,9 +15,9 @@ const randomTexts = [
   "You are awesome",
 ];
 const avatars = [
-  require("/Users/ghanashyamshingate/Desktop/Fanshawe Level3/Capstone Project/Mental-health-care/assets/KeepGoing.png"),
-  require("/Users/ghanashyamshingate/Desktop/Fanshawe Level3/Capstone Project/Mental-health-care/assets/HappyEmotion.jpg"),
-  require("/Users/ghanashyamshingate/Desktop/Fanshawe Level3/Capstone Project/Mental-health-care/assets/fun.avif"),
+  // require("/Users/ghanashyamshingate/Desktop/Fanshawe Level3/Capstone Project/Mental-health-care/assets/KeepGoing.png"),
+  // require("/Users/ghanashyamshingate/Desktop/Fanshawe Level3/Capstone Project/Mental-health-care/assets/HappyEmotion.jpg"),
+  // require("/Users/ghanashyamshingate/Desktop/Fanshawe Level3/Capstone Project/Mental-health-care/assets/fun.avif"),
 ];
 const Active = () => {
   const [count, setCount] = useState(0);
