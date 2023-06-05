@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     fontSize: 70,
     marginBottom: 40,
     fontWeight: "bold",
-    color: "#1D741B", // Customize the color as per your preference
+    color: "#1D741B", // Green
     textShadowColor: "#000000",
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 2,
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   button: {
-    backgroundColor: "#FFA500",
+    backgroundColor: "#FFA500", //Orange
     padding: 10,
     borderRadius: 5,
   },

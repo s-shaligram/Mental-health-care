@@ -36,13 +36,6 @@ const avatars = [
 const Active = () => {
   const [count, setCount] = useState(0);
   const [randomIndex, setRandomIndex] = useState(0);
-
-  // const incrementCount = () => {
-  //   if (count < 10) {
-  //     setCount(count + 1);
-  //     setRandomIndex(Math.floor(Math.random() * randomTexts.length));
-  //   }
-  // };
   const countRef = useRef(count);
 
   const incrementCount = () => {
@@ -94,18 +87,6 @@ const Active = () => {
   };
 
   return (
-    // <View style={styles.container}>
-    //   <View style={styles.avatarsContainer}>{renderAvatars()}</View>
-    //   <Text style={styles.count}>{count}</Text>
-    //   <Text style={styles.text}>{randomTexts[randomIndex]}</Text>
-    //   <TouchableOpacity
-    //     onPress={incrementCount}
-    //     disabled={count >= 10}
-    //     style={[styles.button, count >= 10 && styles.buttonDisabled]}
-    //   >
-    //     <Text style={styles.buttonText}>Press Me</Text>
-    //   </TouchableOpacity>
-    // </View>
     <View style={styles.container}>
       <View style={styles.avatarsContainer}>{renderAvatars()}</View>
       <Text style={styles.count}>{count}</Text>
