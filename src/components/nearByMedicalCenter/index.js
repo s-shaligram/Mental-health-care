@@ -64,7 +64,7 @@ console.log(markers)
       };
 
       const handlePhoneNumberLongPress = (mobileNumber) => {
-       console.log("on long press/..........")
+       console.log("on long press/......")
         const url = `tel:${mobileNumber}`;
         Linking.openURL(url);
       };    
