@@ -1,6 +1,8 @@
-#Node
 node_modules
-
-#Expo
 .expo
-/package-lock.json
+/.expo/
+package-lock.json
+.idea/workspace.xml
+.idea/vcs.xml
+.DS_Store
+
