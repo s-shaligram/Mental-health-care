@@ -7,7 +7,7 @@ const Mind2Header = (props) => {
       <View style={{ flexDirection: "row", alignItems: "center" }}>
           {showLogo &&
               <Image
-                  source={require('../../assets/favicon.png')}
+                  source={require('../../assets/icon.png')}
                   style={{ width: 30, height: 30, margin: 5 }}
                   resizeMode="contain"
             />

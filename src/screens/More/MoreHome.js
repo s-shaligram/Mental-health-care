@@ -5,7 +5,7 @@ import SelectionTile from "../../components/SelectionTile";
 function MoreHome({navigation}) {
     return (
         <ScrollView>
-            <SelectionTile name={"Near by medical centers"} routeTo={'NearByMedicalCenter'} navigation={navigation}/>
+            <SelectionTile name={"📍 View nearby medical centers"} routeTo={'NearByMedicalCenter'} navigation={navigation}/>
         </ScrollView>
     );
 }

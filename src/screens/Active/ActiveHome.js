@@ -5,7 +5,7 @@ import SelectionTile from "../../components/SelectionTile";
 function ActiveHome({navigation}) {
     return (
         <ScrollView>
-            <SelectionTile name={"Game One"} routeTo={'GameOne'} navigation={navigation}/>
+            <SelectionTile name={"🎲 Calm down game"} routeTo={'GameOne'} navigation={navigation}/>
         </ScrollView>
     );
 }
