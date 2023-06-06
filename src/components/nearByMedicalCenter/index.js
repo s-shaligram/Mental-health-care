@@ -53,14 +53,14 @@ console.log(markers)
     ? {
         latitude: currentLocation.latitude,
         longitude: currentLocation.longitude,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
+        latitudeDelta: 0.3,
+        longitudeDelta: 0.3,
       }
     : {
-        latitude: 43.676075,
-        longitude: -79.452860,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
+        latitude: 42.9938722,
+        longitude: -81.1722225,
+        latitudeDelta: 0.5,
+        longitudeDelta: 0.5,
       };
 
       const handlePhoneNumberLongPress = (mobileNumber) => {
