@@ -47,7 +47,7 @@ const MoodTracker = () => {
             handleMoodText('😞');
         }}
         >
-          <Text style={styles.emojiText}>😞</Text>
+        <Text style={styles.emojiText}>😞</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.emoji}

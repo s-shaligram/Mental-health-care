@@ -9,11 +9,11 @@ function HomeHome({ navigation }) {
       <View style={styles.container}>
         <MoodTracker />
       </View>
-      <SelectionTile
-        name={"Track my medicine"}
+      {/* <SelectionTile
+        name={"💊 Track my medicine"}
         routeTo={"TrackMedicine"}
         navigation={navigation}
-      />
+      /> */}
     </ScrollView>
   );
 }
