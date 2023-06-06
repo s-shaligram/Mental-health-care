@@ -14,14 +14,11 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "jsEngine": "hermes",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier":"com.expo.Mind2.0",
       "config": {
-        "googleMaps": {
-          "apiKey": "AIzaSyBIzcdSK_WvyncEetqauVSLIhBjhMOMHTE"
-        }
+        "googleMapsApiKey": "AIzaSyBIzcdSK_WvyncEetqauVSLIhBjhMOMHTE"
       }
     },
     "android": {

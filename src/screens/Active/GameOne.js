@@ -1,48 +1,12 @@
-// import React, { useState } from "react";
-// import { View, Text, TouchableOpacity } from "react-native";
-// import styles from "./style";
-
-// export default function Active() {
-//   const [count, setCount] = useState(0);
-
-//   const incrementCount = () => {
-//     setCount(count + 1);
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.text}>Hello Ghanashyam</Text>
-//       <Text style={styles.text}>Count: {count}</Text>
-//       <TouchableOpacity onPress={incrementCount} style={styles.button}>
-//         <Text style={styles.buttonText}>Increment</Text>
-//       </TouchableOpacity>
-//     </View>
-//   );
-// }
-
-// import React, { useState } from "react";
-// import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-// import styles from "./style";
-
-// export default function Home() {
-//   const [count, setCount] = useState(0);
-
-//   const incrementCount = () => {
-//     setCount(count + 1);
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.text}>Hello Ghanashyam</Text>
-//       <Text style={styles.text}>Count: {count}</Text>
-//       <TouchableOpacity onPress={incrementCount} style={styles.button}>
-//         <Text style={styles.buttonText}>Increment</Text>
-//       </TouchableOpacity>
-//     </View>
-//   );
-// }
-import React, { useState } from "react";
-import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
+import React, { useState, useRef } from "react";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  Alert,
+} from "react-native";
 import styles from "./style";
 
 const randomTexts = [
@@ -58,27 +22,58 @@ const randomTexts = [
   "You are awesome",
 ];
 const avatars = [
-  // require("/Users/ghanashyamshingate/Desktop/Fanshawe Level3/Capstone Project/Mental-health-care/assets/KeepGoing.png"),
-  // require("/Users/ghanashyamshingate/Desktop/Fanshawe Level3/Capstone Project/Mental-health-care/assets/HappyEmotion.jpg"),
-  // require("/Users/ghanashyamshingate/Desktop/Fanshawe Level3/Capstone Project/Mental-health-care/assets/fun.avif"),
+  require("./../../../assets/Avatar/one.jpg"),
+  require("./../../../assets/Avatar/two.jpg"),
+  require("./../../../assets/Avatar/three.jpg"),
+  require("./../../../assets/Avatar/four.jpg"),
+  require("./../../../assets/Avatar/five.jpg"),
+  require("./../../../assets/Avatar/six.jpg"),
+  require("./../../../assets/Avatar/seven.jpg"),
+  require("./../../../assets/Avatar/eight.jpg"),
+  require("./../../../assets/Avatar/nine.jpg"),
+  require("./../../../assets/Avatar/ten.jpg"),
 ];
 const Active = () => {
   const [count, setCount] = useState(0);
   const [randomIndex, setRandomIndex] = useState(0);
+  const countRef = useRef(count);
 
   const incrementCount = () => {
     if (count < 10) {
       setCount(count + 1);
       setRandomIndex(Math.floor(Math.random() * randomTexts.length));
+    } else if (count === 9) {
+      setCount(count + 1);
     }
   };
+
+  const handlePress = () => {
+    if (count === 10) {
+      Alert.alert(
+        "Congratulations!",
+        "Great job! Do you want to start the count again?",
+        [
+          { text: "Cancel", style: "cancel" },
+          { text: "Yes", onPress: resetCount },
+        ]
+      );
+    }
+  };
+
+  const resetCount = () => {
+    setCount(0);
+  };
+
   const renderAvatars = () => {
     const avatarViews = [];
-
     if (count > 0) {
       const lastAvatarIndex = Math.min(count - 1, avatars.length - 1);
-
+      const progressBarColor = `rgb(${255 - count * 25}, ${count * 25}, 0)`;
       avatarViews.push(
+        <View
+          key="progressBar"
+          style={[styles.progressBar, { borderColor: progressBarColor }]}
+        />,
         <Image
           key={lastAvatarIndex}
           source={avatars[lastAvatarIndex]}
@@ -101,8 +96,15 @@ const Active = () => {
         disabled={count >= 10}
         style={[styles.button, count >= 10 && styles.buttonDisabled]}
       >
-        <Text style={styles.buttonText}>Press Me</Text>
+        <Text style={styles.buttonText}>
+          {count === 10 ? "Great Job!" : "Press Me"}
+        </Text>
       </TouchableOpacity>
+      {count === 10 && (
+        <TouchableOpacity onPress={handlePress} style={styles.resetButton}>
+          <Text style={styles.resetButtonText}>Reset Count</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

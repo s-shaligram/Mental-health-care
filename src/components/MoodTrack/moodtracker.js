@@ -23,7 +23,7 @@ const MoodTracker = () => {
         setMoodText('Calm down and let it go. 🙂🙃')
     }
     else if(selectedText === '😌'){
-        setMoodText('☮️ Peace ☮️')
+        setMoodText('Peace ☮️')
     }
   };
 

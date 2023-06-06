@@ -1,6 +1,6 @@
-import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {Text, View, TouchableOpacity} from "react-native";
-import Icon from 'react-native-vector-icons/Ionicons';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Text, View, TouchableOpacity } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 import Home from "../src/screens/Home";
 import More from "../src/screens/More";
 import Active from "../src/screens/Active";
@@ -38,11 +38,11 @@ const Tabs = () => {
                             <Icon
                                 name={focused ? "ios-flame" : "ios-flame-outline"}
                                 size={25}
-                                color={focused ? "#0A7BF8" : "#555"}
+                                color={focused ? "#1D741B" : "#555"}
                             />
                             <Text
                                 style={{
-                                    color: focused ? "#0A7BF8" : "#555",
+                                    color: focused ? "#1D741B" : "#555",
                                     fontSize: 12,
                                 }}
                             >Active
@@ -67,11 +67,11 @@ const Tabs = () => {
             {/*                <Icon*/}
             {/*                    name={focused ? "ios-moon" : "ios-moon-outline"}*/}
             {/*                    size={25}*/}
-            {/*                    color={focused ? "#0A7BF8" : "#555"}*/}
+            {/*                    color={focused ? "#1D741B" : "#555"}*/}
             {/*                />*/}
             {/*                <Text*/}
             {/*                    style={{*/}
-            {/*                        color: focused ? "#0A7BF8" : "#555",*/}
+            {/*                        color: focused ? "#1D741B" : "#555",*/}
             {/*                        fontSize: 12,*/}
             {/*                    }}*/}
             {/*                >*/}
@@ -114,12 +114,12 @@ const Tabs = () => {
             {/*                <Icon*/}
             {/*                    name={focused ? "ios-compass" : "ios-compass-outline"}*/}
             {/*                    size={25}*/}
-            {/*                    color={focused ? "#0A7BF8" : "#555"}*/}
+            {/*                    color={focused ? "#1D741B" : "#555"}*/}
             {/*                />*/}
 
             {/*                <Text*/}
             {/*                    style={{*/}
-            {/*                        color: focused ? "#0A7BF8" : "#555",*/}
+            {/*                        color: focused ? "#1D741B" : "#555",*/}
             {/*                        fontSize: 12,*/}
             {/*                    }}*/}
             {/*                >*/}
@@ -145,46 +145,46 @@ const Tabs = () => {
                             <Icon
                                 name={focused ? "ios-menu" : "ios-menu-outline"}
                                 size={25}
-                                color={focused ? "#0A7BF8" : "#555"}
+                                color={focused ? "#1D741B" : "#555"}
                             />
 
-                            <Text
-                                style={{
-                                    color: focused ? "#0A7BF8" : "#555",
-                                    fontSize: 12,
-                                }}
-                            >
-                                More
-                            </Text>
-                        </View>
-                    ),
+              <Text
+                style={{
+                  color: focused ? "#1D741B" : "#555",
+                  fontSize: 12,
                 }}
-            />
-        </Tab.Navigator>
-    );
+              >
+                More
+              </Text>
+            </View>
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
 };
 
 export default Tabs;
 
-const CustomTabBarButton = ({children, onPress}) => (
-    <TouchableOpacity
-        style={{
-            justifyContent: "center",
-            alignContent: "center",
-            margin: 15
-        }}
-        onPress={onPress}
+const CustomTabBarButton = ({ children, onPress }) => (
+  <TouchableOpacity
+    style={{
+      justifyContent: "center",
+      alignContent: "center",
+      margin: 15,
+    }}
+    onPress={onPress}
+  >
+    <View
+      style={{
+        bottom: 6,
+        width: 70,
+        height: 70,
+        borderRadius: 35,
+        backgroundColor: "#1D741B",
+      }}
     >
-        <View
-            style={{
-                bottom: 6,
-                width: 70,
-                height: 70,
-                borderRadius: 35,
-                backgroundColor: "#0A7BF8",
-            }}
-        >
-            {children}
-        </View>
-    </TouchableOpacity>
+      {children}
+    </View>
+  </TouchableOpacity>
 );
