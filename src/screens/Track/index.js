@@ -20,40 +20,6 @@ const Track = () => {
                     <Text style={styles.title} >Mood during the week</Text>
                     <View style={styles.line} />
                 </View>
-                <View style={styles.medicineTrackerContainer}>
-                    {medicationTaken.map((taken, index) => {
-                        const dayName = moment().subtract(6 - index, 'days').format('ddd');
-                        const isCurrentDay = index === todayIndex;
-
-                        if (taken === undefined) {
-                            return (
-                                <View style={styles.dayContainer} key={index}>
-                                    <FontAwesome
-                                        name={'square'}
-                                        size={24}
-                                        color={'#a6a6a6'}
-                                    />
-                                    <Text style={[styles.dayText, isCurrentDay && styles.currentDayText]}>
-                                        {dayName}
-                                    </Text>
-                                </View>
-                            );
-                        }
-
-                        return (
-                            <View style={styles.dayContainer} key={index}>
-                                <FontAwesome
-                                    name={taken ? 'check-square' : 'square'}
-                                    size={24}
-                                    color={taken ? '#1D741B' : '#FF0000'}
-                                />
-                                <Text style={[styles.dayText, isCurrentDay && styles.currentDayText]}>
-                                    {dayName}
-                                </Text>
-                            </View>
-                        );
-                    })}
-                </View>
 
                 {/*Medicine Tracker*/}
                 {medicineTrackerEnabled && <View style={styles.separator}>
