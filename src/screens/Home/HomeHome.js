@@ -1,31 +1,31 @@
 import React from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
-import SelectionTile from "../../components/SelectionTile";
+import {ScrollView, StyleSheet, View} from "react-native";
 import MoodTracker from "../../components/MoodTrack/moodtracker";
+import MedicineTracker from "../../components/MedicineTrack/MedicineTracker";
+import {useGlobalContext} from "../../hooks/useGlobalContext";
 
-function HomeHome({ navigation }) {
-  return (
-    <ScrollView>
-      <View style={styles.container}>
-        <MoodTracker />
-      </View>
-      {/* <SelectionTile
-        name={"💊 Track my medicine"}
-        routeTo={"TrackMedicine"}
-        navigation={navigation}
-      /> */}
-    </ScrollView>
-  );
+function HomeHome({navigation}) {
+    const {medicineTrackerEnabled} = useGlobalContext();
+
+    return (
+        <ScrollView>
+            <View style={styles.container}>
+                <MoodTracker/>
+            </View>
+            {medicineTrackerEnabled && <View style={styles.container2}>
+                <MedicineTracker/>
+            </View>}
+        </ScrollView>
+    );
 }
 
 export default HomeHome;
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#FFA500",
-    // flexDirection: "row",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // marginVertical: 5,
-  },
+    container: {
+        backgroundColor: "#FFA500",
+    },
+    container2: {
+        // backgroundColor: "#FFA500",
+    },
 });
