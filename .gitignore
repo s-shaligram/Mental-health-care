@@ -5,4 +5,4 @@ package-lock.json
 .idea/workspace.xml
 .idea/vcs.xml
 .DS_Store
-
+.idea/
