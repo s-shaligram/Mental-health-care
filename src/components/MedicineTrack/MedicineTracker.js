@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import {View, Text, TouchableOpacity, Animated} from 'react-native';
 import styles from './styles';
 import {useGlobalContext} from "../../hooks/useGlobalContext";
+import moment from "moment/moment";
 
 const MedicineTracker = () => {
     const [intakeState, setIntakeState] = useState(false);
@@ -52,12 +53,17 @@ const MedicineTracker = () => {
     const recordData = (taken) => {
         setIntakeState(true);
         let rec = {
-                date: new Date(),
-                dataRecorded: true,
-                medicineTaken: taken
+            date: moment().day(),
+            medicineTaken: taken
         };
 
-        setMedicalRecords(prevRecords => [...prevRecords, rec]);
+        setMedicalRecords(prevRecords => prevRecords.map((day) => {
+            if (day.date === moment().day()) {
+                return rec; // Replace with the desired value
+            } else {
+                return day; // Return the original value if the condition is not met
+            }
+        }));
     };
 
     return (
