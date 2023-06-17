@@ -1,13 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {FontAwesome} from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import moment from 'moment';
 import {useGlobalContext} from "../../hooks/useGlobalContext";
 
 const Track = () => {
-        const {medicineTrackerEnabled} = useGlobalContext();
-
-        const medicationTaken = [true, false, true, false, true, true, undefined];
+        let {medicineTrackerEnabled, medicalRecords} = useGlobalContext();
 
         const todayIndex = moment().day(); // Get the index of the current day (0 - Sunday, 1 - Monday, etc.)
 
@@ -16,30 +15,26 @@ const Track = () => {
 
                 {/*Mood Tracker*/}
                 <View style={styles.separator}>
-                    <View style={styles.line} />
-                    <Text style={styles.title} >Mood during the week</Text>
-                    <View style={styles.line} />
+                    <View style={styles.line}/>
+                    <Text style={styles.title}>Mood during the week</Text>
+                    <View style={styles.line}/>
                 </View>
 
                 {/*Medicine Tracker*/}
                 {medicineTrackerEnabled && <View style={styles.separator}>
-                    <View style={styles.line} />
-                    <Text style={styles.title} >Medicine intake for the week</Text>
-                    <View style={styles.line} />
+                    <View style={styles.line}/>
+                    <Text style={styles.title}>Medicine intake for the week</Text>
+                    <View style={styles.line}/>
                 </View>}
                 {medicineTrackerEnabled && <View style={styles.medicineTrackerContainer}>
-                    {medicationTaken.map((taken, index) => {
+                    {medicalRecords.map((state, index) => {
                         const dayName = moment().subtract(6 - index, 'days').format('ddd');
                         const isCurrentDay = index === todayIndex;
 
-                        if (taken === undefined) {
+                        if (state.medicineTaken === undefined) {
                             return (
                                 <View style={styles.dayContainer} key={index}>
-                                    <FontAwesome
-                                        name={'square'}
-                                        size={24}
-                                        color={'#a6a6a6'}
-                                    />
+                                    <Feather name="square" size={34} color={'#dadada'} />
                                     <Text style={[styles.dayText, isCurrentDay && styles.currentDayText]}>
                                         {dayName}
                                     </Text>
@@ -49,10 +44,10 @@ const Track = () => {
 
                         return (
                             <View style={styles.dayContainer} key={index}>
-                                <FontAwesome
-                                    name={taken ? 'check-square' : 'square'}
-                                    size={24}
-                                    color={taken ? '#1D741B' : '#FF0000'}
+                                <Feather
+                                    name={state.medicineTaken ? 'check-square' : 'x-square'}
+                                    size={34}
+                                    color={state.medicineTaken ? '#2aa627' : '#ff5959'}
                                 />
                                 <Text style={[styles.dayText, isCurrentDay && styles.currentDayText]}>
                                     {dayName}
@@ -89,13 +84,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     dayContainer: {
+        marginTop: 8,
         alignItems: 'center',
     },
     emptyDayContainer: {
         width: 40,
         height: 40,
         backgroundColor: '#ddd',
-        borderRadius: 10,
+        borderRadius: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
