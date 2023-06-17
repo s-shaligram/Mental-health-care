@@ -4,8 +4,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 import Home from "../src/screens/Home";
 import More from "../src/screens/More";
 import Active from "../src/screens/Active";
-import Calm from "../src/screens/Calm";
-import Track from "../src/screens/Track";
 import Mind2Header from "../src/components/Mind2Header";
 
 const Tab = createBottomTabNavigator();

@@ -1,76 +1,106 @@
-import React, {useState} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import React, {useState, useEffect, useRef} from 'react';
+import {View, Text, TouchableOpacity, Animated} from 'react-native';
 import styles from './styles';
+import {useGlobalContext} from "../../hooks/useGlobalContext";
 
 const MedicineTracker = () => {
-    const [intakeState, setIntakeState] = useState();
-    const [responseText, setResponseText] = useState('');
+    const [intakeState, setIntakeState] = useState(false);
+    const [showResponse, setShowResponse] = useState(false);
+    const responseText = `Response was recorded..!`;
+    const fadeAnim = useRef(new Animated.Value(1)).current;
+
+    const {medicalRecords, setMedicalRecords} = useGlobalContext();
+
+
 
     const randomWelcomeMessage = () => {
         let arr = [
-            `Hope you didn\'t forget your medicine for today`,
+            `Hope you didn't forget your medicine for today`,
             `Just checking, have you already taken your medicine today?`,
             `Hey there! Remember to take your medicine today, did you get a chance to?`,
             `Did you remember to take your medicine today? It's important to stay on track!`,
             `Reminder! Have you taken your medicine yet?`,
             `Quick question: have you checked off your medicine for today? Don't want you to miss it!`
-        ]
-        return arr[Math.floor(Math.random()*arr.length)]
+        ];
+        return arr[Math.floor(Math.random() * arr.length)];
     };
 
-    const handleIntakeStateChange = (intakeState) => {
-        setIntakeState(intakeState);
-    };
+    useEffect(() => {
+        if (intakeState) {
+            setShowResponse(true);
+            const timer = setTimeout(() => {
+                setShowResponse(false);
+            }, 1000);
 
-
-    const handleResponseText = (selectedText) => {
-        if (selectedText === '😄') {
-            setResponseText('Keep it up!! 😊');
-        } else if (selectedText === '😞') {
-            setResponseText('Everything will be fine, no need to worry!')
-        } else if (selectedText === '😠') {
-            setResponseText('Calm down and let it go. 🙂🙃')
-        } else if (selectedText === '😌') {
-            setResponseText('Peace ☮️')
+            return () => clearTimeout(timer);
         }
+    }, [intakeState]);
+
+    useEffect(() => {
+        if (!showResponse) {
+            Animated.timing(fadeAnim, {
+                toValue: 0,
+                duration: 1000,
+                useNativeDriver: true,
+            }).start();
+        } else {
+            // setMedicalRecords('heeeeeeey')
+            Animated.timing(fadeAnim, {
+                toValue: 1,
+                duration: 0,
+                useNativeDriver: true,
+            }).start();
+        }
+    }, [showResponse]);
+
+    const recordData = (taken) => {
+        setIntakeState(true);
+        let rec = [
+            {
+                date: new Date(),
+                dataRecorded: true,
+                medicineTaken: taken
+            }
+        ]
+
+        setMedicalRecords(rec);
     };
 
     return (
-        <View style={styles.container}>
-            <View style={styles.emojiContainer}>
-                <TouchableOpacity
-                    style={styles.emoji}
-                    onPress={() => {
-                        handleIntakeStateChange('😄');
-                        handleResponseText('😄');
-                    }}
+        <>
+            {intakeState === false ? (
+                <View style={styles.container}>
+                    <Text style={styles.welcome}>{randomWelcomeMessage()}</Text>
+                    <View style={styles.emojiContainer}>
+                        <TouchableOpacity
+                            style={styles.emoji}
+                            onPress={() => {
+                                recordData(true);
+                            }}
+                        >
+                            <Text style={styles.emojiText}>👍</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.emoji}
+                            onPress={() => {
+                                recordData(false);
+                            }}
+                        >
+                            <Text style={styles.emojiText}>👎</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            ) : (
+                <Animated.View
+                    style={[
+                        {backgroundColor: '#1D741B'},
+                        {opacity: fadeAnim},
+                    ]}
                 >
-                    <Text style={styles.emojiText}>😄</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.emoji}
-                    onPress={() => {
-                        handleIntakeStateChange('😞');
-                        handleResponseText('😞');
-                    }}
-                >
-                    <Text style={styles.emojiText}>😞</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.emoji}
-                    onPress={() => {
-                        handleIntakeStateChange('😠');
-                        handleResponseText('😠');
-                    }}
-                >
-                    <Text style={styles.emojiText}>😠</Text>
-                </TouchableOpacity>
-
-            </View>
-            <Text style={styles.selectedOption}>
-                {intakeState ? responseText : randomWelcomeMessage()}
-            </Text>
-        </View>
+                    <Text style={styles.selectedOption}>{responseText}</Text>
+                </Animated.View>
+            )}
+        </>
     );
 };
 

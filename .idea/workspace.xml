@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61c8dc3d-7206-4ad4-b800-2bc3297f9945" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/MedicineTrack/MedicineTracker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MedicineTrack/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useGlobalContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/tabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/tabs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MedicineTrack/MedicineTracker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MedicineTrack/MedicineTracker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MedicineTrack/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MedicineTrack/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Home/HomeHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Home/HomeHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Home/TrackMedicine.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Home/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -9,7 +9,7 @@ function HomeHome({navigation}) {
             <View style={styles.container}>
                 <MoodTracker/>
             </View>
-            <View style={styles.container}>
+            <View style={styles.container2}>
                 <MedicineTracker/>
             </View>
         </ScrollView>
@@ -21,5 +21,8 @@ export default HomeHome;
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#FFA500",
+    },
+    container2: {
+        // backgroundColor: "#FFA500",
     },
 });

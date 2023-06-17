@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     emojiContainer: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginBottom: 5,
+        marginTop: 8,
     },
     emoji: {
         padding: 10,
@@ -30,10 +30,19 @@ const styles = StyleSheet.create({
     emojiText: {
         fontSize: 30,
     },
-    selectedOption: {
-        fontSize: 18,
+    welcome: {
+        fontSize: 15,
         marginTop: 10,
+        fontWeight: 'bold',
+        textAlign: "center",
         color: '#333333',
+    },
+    selectedOption: {
+        fontSize: 15,
+        margin: 7,
+        fontWeight: 'bold',
+        textAlign: "center",
+        color: '#dcdcdc',
     },
 });
 
