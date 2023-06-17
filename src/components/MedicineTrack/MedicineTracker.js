@@ -8,10 +8,7 @@ const MedicineTracker = () => {
     const [showResponse, setShowResponse] = useState(false);
     const responseText = `Response was recorded..!`;
     const fadeAnim = useRef(new Animated.Value(1)).current;
-
-    const {medicalRecords, setMedicalRecords} = useGlobalContext();
-
-
+    const {setMedicalRecords} = useGlobalContext();
 
     const randomWelcomeMessage = () => {
         let arr = [
@@ -44,7 +41,6 @@ const MedicineTracker = () => {
                 useNativeDriver: true,
             }).start();
         } else {
-            // setMedicalRecords('heeeeeeey')
             Animated.timing(fadeAnim, {
                 toValue: 1,
                 duration: 0,
@@ -55,15 +51,13 @@ const MedicineTracker = () => {
 
     const recordData = (taken) => {
         setIntakeState(true);
-        let rec = [
-            {
+        let rec = {
                 date: new Date(),
                 dataRecorded: true,
                 medicineTaken: taken
-            }
-        ]
+        };
 
-        setMedicalRecords(rec);
+        setMedicalRecords(prevRecords => [...prevRecords, rec]);
     };
 
     return (

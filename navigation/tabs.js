@@ -5,6 +5,8 @@ import Home from "../src/screens/Home";
 import More from "../src/screens/More";
 import Active from "../src/screens/Active";
 import Mind2Header from "../src/components/Mind2Header";
+import Track from "../src/screens/Track";
+import Calm from "../src/screens/Calm";
 
 const Tab = createBottomTabNavigator();
 
@@ -49,36 +51,36 @@ const Tabs = () => {
                     ),
                 }}
             />
-            {/*<Tab.Screen*/}
-            {/*    name="Calm"*/}
-            {/*    component={Calm}*/}
-            {/*    options={{*/}
-            {/*        headerTitle: () => (<Mind2Header screenName={"Calm"} showLogo={false}/>),*/}
-            {/*        headerStyle: {height: 70},*/}
-            {/*        tabBarIcon: ({focused}) => (*/}
-            {/*            <View*/}
-            {/*                style={{*/}
-            {/*                    alignItems: "center",*/}
-            {/*                    justifyContent: "center",*/}
-            {/*                }}*/}
-            {/*            >*/}
-            {/*                <Icon*/}
-            {/*                    name={focused ? "ios-moon" : "ios-moon-outline"}*/}
-            {/*                    size={25}*/}
-            {/*                    color={focused ? "#1D741B" : "#555"}*/}
-            {/*                />*/}
-            {/*                <Text*/}
-            {/*                    style={{*/}
-            {/*                        color: focused ? "#1D741B" : "#555",*/}
-            {/*                        fontSize: 12,*/}
-            {/*                    }}*/}
-            {/*                >*/}
-            {/*                    Calm*/}
-            {/*                </Text>*/}
-            {/*            </View>*/}
-            {/*        ),*/}
-            {/*    }}*/}
-            {/*/>*/}
+            <Tab.Screen
+                name="Calm"
+                component={Calm}
+                options={{
+                    headerTitle: () => (<Mind2Header screenName={"Calm"} showLogo={false}/>),
+                    headerStyle: {height: 70},
+                    tabBarIcon: ({focused}) => (
+                        <View
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <Icon
+                                name={focused ? "ios-moon" : "ios-moon-outline"}
+                                size={25}
+                                color={focused ? "#1D741B" : "#555"}
+                            />
+                            <Text
+                                style={{
+                                    color: focused ? "#1D741B" : "#555",
+                                    fontSize: 12,
+                                }}
+                            >
+                                Calm
+                            </Text>
+                        </View>
+                    ),
+                }}
+            />
             <Tab.Screen
                 name="Home"
                 component={Home}
@@ -96,37 +98,37 @@ const Tabs = () => {
                 }}
             />
 
-            {/*<Tab.Screen*/}
-            {/*    name="Track"*/}
-            {/*    component={Track}*/}
-            {/*    options={{*/}
-            {/*        headerTitle: () => (<Mind2Header screenName={"Track"} showLogo={false}/>),*/}
-            {/*        headerStyle: {height: 70},*/}
-            {/*        tabBarIcon: ({focused}) => (*/}
-            {/*            <View*/}
-            {/*                style={{*/}
-            {/*                    alignItems: "center",*/}
-            {/*                    justifyContent: "center",*/}
-            {/*                }}*/}
-            {/*            >*/}
-            {/*                <Icon*/}
-            {/*                    name={focused ? "ios-compass" : "ios-compass-outline"}*/}
-            {/*                    size={25}*/}
-            {/*                    color={focused ? "#1D741B" : "#555"}*/}
-            {/*                />*/}
+            <Tab.Screen
+                name="Track"
+                component={Track}
+                options={{
+                    headerTitle: () => (<Mind2Header screenName={"Track"} showLogo={false}/>),
+                    headerStyle: {height: 70},
+                    tabBarIcon: ({focused}) => (
+                        <View
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <Icon
+                                name={focused ? "ios-compass" : "ios-compass-outline"}
+                                size={25}
+                                color={focused ? "#1D741B" : "#555"}
+                            />
 
-            {/*                <Text*/}
-            {/*                    style={{*/}
-            {/*                        color: focused ? "#1D741B" : "#555",*/}
-            {/*                        fontSize: 12,*/}
-            {/*                    }}*/}
-            {/*                >*/}
-            {/*                    Track*/}
-            {/*                </Text>*/}
-            {/*            </View>*/}
-            {/*        ),*/}
-            {/*    }}*/}
-            {/*/>*/}
+                            <Text
+                                style={{
+                                    color: focused ? "#1D741B" : "#555",
+                                    fontSize: 12,
+                                }}
+                            >
+                                Track
+                            </Text>
+                        </View>
+                    ),
+                }}
+            />
             <Tab.Screen
                 name="More"
                 component={More}

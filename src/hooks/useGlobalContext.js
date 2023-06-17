@@ -1,10 +1,18 @@
 import React, { createContext, useContext, useState } from 'react';
 
 const useHook = () => {
-    const [medicalRecords, setMedicalRecords] = useState();
-    const [moodRecords, setMoodRecords] = useState();
+    const [medicalRecords, setMedicalRecords] = useState([]);
+    const [moodRecords, setMoodRecords] = useState([]);
+    const [medicineTrackerEnabled, setMedicineTrackerEnabled] = useState(true);
 
-    return { medicalRecords, setMedicalRecords, moodRecords, setMoodRecords };
+    return {
+        medicalRecords,
+        setMedicalRecords,
+        moodRecords,
+        setMoodRecords,
+        medicineTrackerEnabled,
+        setMedicineTrackerEnabled
+    };
 };
 
 export const GContext = createContext({});
