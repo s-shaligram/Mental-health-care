@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61c8dc3d-7206-4ad4-b800-2bc3297f9945" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/SleepTrack/SleepTracker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SleepTrack/styles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MedicineTrack/MedicineTracker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MedicineTrack/MedicineTracker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hooks/useGlobalContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useGlobalContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Home/HomeHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Home/HomeHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Home/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Track/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Track/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -1,26 +1,20 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {View, Text, TouchableOpacity, Animated} from 'react-native';
+import { View, Text, Button, TouchableOpacity, Animated } from 'react-native';
+import Slider from '@react-native-community/slider';
 import styles from './styles';
 import {useGlobalContext} from "../../hooks/useGlobalContext";
 import moment from "moment/moment";
 
-const MedicineTracker = () => {
+const SleepTracker = () => {
     const [intakeState, setIntakeState] = useState(false);
     const [showResponse, setShowResponse] = useState(false);
-    const responseText = `Response was recorded..!`;
+    const responseText = `Hours were recorded..!`;
     const fadeAnim = useRef(new Animated.Value(1)).current;
-    const {setMedicalRecords} = useGlobalContext();
+    const {setSleepRecords} = useGlobalContext();
+    const [sliderValue, setSliderValue] = useState(0);
 
-    const randomWelcomeMessage = () => {
-        let arr = [
-            `Hope you didn't forget your medicine for today`,
-            `Just checking, have you already taken your medicine today?`,
-            `Hey there! Remember to take your medicine today, did you get a chance to?`,
-            `Did you remember to take your medicine today? It's important to stay on track!`,
-            `Reminder! Have you taken your medicine yet?`,
-            `Quick question: have you checked off your medicine for today? Don't want you to miss it!`
-        ];
-        return arr[Math.floor(Math.random() * arr.length)];
+    const getWelcomeMessage = () => {
+        return "Good morning! How many hours did you sleep last night?";
     };
 
     useEffect(() => {
@@ -50,14 +44,14 @@ const MedicineTracker = () => {
         }
     }, [showResponse]);
 
-    const recordData = (taken) => {
+    const recordData = () => {
         setIntakeState(true);
         let rec = {
             date: moment().day(),
-            medicineTaken: taken
+            sleepHours: sliderValue
         };
 
-        setMedicalRecords(prevRecords => prevRecords.map((day) => {
+        setSleepRecords(prevRecords => prevRecords.map((day) => {
             if (day.date === moment().day()) {
                 return rec;
             } else {
@@ -70,23 +64,29 @@ const MedicineTracker = () => {
         <>
             {intakeState === false ? (
                 <View style={styles.container}>
-                    <Text style={styles.welcome}>{randomWelcomeMessage()}</Text>
-                    <View style={styles.emojiContainer}>
+                    <Text style={styles.welcome}>{getWelcomeMessage()}</Text>
+                    <View style={styles.scaleContainer}>
                         <TouchableOpacity
-                            style={styles.emoji}
-                            onPress={() => {
-                                recordData(true);
-                            }}
+                            style={styles.sliderContainer}
+                            activeOpacity={0.8}
+                            // onPress={() => {
+                            //     recordData(sliderValue);
+                            // }}
                         >
-                            <Text style={styles.emojiText}>👍</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.emoji}
-                            onPress={() => {
-                                recordData(false);
-                            }}
-                        >
-                            <Text style={styles.emojiText}>👎</Text>
+                            <Slider
+                                style={styles.slider}
+                                minimumValue={0}
+                                maximumValue={12}
+                                step={1}
+                                value={sliderValue}
+                                onValueChange={(value) => setSliderValue(value)}
+                            />
+                            <View style={styles.sliderValueContainer}>
+                                <Text style={styles.sliderValueText}>{sliderValue}</Text>
+                            </View>
+                            <TouchableOpacity style={styles.button} onPress={recordData}>
+                                <Text style={styles.buttonText}>Done</Text>
+                            </TouchableOpacity>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -104,4 +104,4 @@ const MedicineTracker = () => {
     );
 };
 
-export default MedicineTracker;
+export default SleepTracker;
