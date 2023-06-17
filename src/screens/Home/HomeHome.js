@@ -3,12 +3,16 @@ import {ScrollView, StyleSheet, View} from "react-native";
 import MoodTracker from "../../components/MoodTrack/moodtracker";
 import MedicineTracker from "../../components/MedicineTrack/MedicineTracker";
 import {useGlobalContext} from "../../hooks/useGlobalContext";
+import SleepTracker from "../../components/SleepTrack/SleepTracker";
 
 function HomeHome({navigation}) {
-    const {medicineTrackerEnabled} = useGlobalContext();
+    const {medicineTrackerEnabled, sleepTrackerEnabled} = useGlobalContext();
 
     return (
         <ScrollView>
+            {sleepTrackerEnabled && <View style={styles.container2}>
+                <SleepTracker/>
+            </View>}
             <View style={styles.container}>
                 <MoodTracker/>
             </View>
