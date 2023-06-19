@@ -4,6 +4,7 @@ import * as SplashScreen from "expo-splash-screen";
 import {View} from "react-native";
 import React, {useCallback, useEffect, useState} from "react";
 import {CommonProvider} from "./src/hooks/useGlobalContext";
+import { DarkModeProvider } from "./DarkModeContext";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -36,6 +37,7 @@ export default function App() {
     }
 
     return (
+        <DarkModeProvider>
         <View
             style={{
                 flex: 1,
@@ -48,5 +50,6 @@ export default function App() {
                 </NavigationContainer>
             </CommonProvider>
         </View>
+        </DarkModeProvider>
     );
 }

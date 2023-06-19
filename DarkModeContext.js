@@ -4,20 +4,20 @@ import { Appearance } from 'react-native-appearance';
 export const DarkModeContext = createContext();
 
 export function DarkModeProvider({ children }) {
-  const [darkModeEnabled, setDarkModeEnabled] = useState(
+  const [isDarkMode, setIsDarkMode] = useState(
     Appearance.getColorScheme() === 'dark'
   );
 
   useEffect(() => {
     const subscription = Appearance.addChangeListener(({ colorScheme }) => {
-      setDarkModeEnabled(colorScheme === 'dark');
+      setIsDarkMode(colorScheme === 'dark');
     });
 
     return () => subscription.remove();
   }, []);
 
   return (
-    <DarkModeContext.Provider value={darkModeEnabled}>
+    <DarkModeContext.Provider value={isDarkMode}>
       {children}
     </DarkModeContext.Provider>
   );
