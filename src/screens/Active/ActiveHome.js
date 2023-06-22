@@ -6,6 +6,7 @@ function ActiveHome({navigation}) {
     return (
         <ScrollView>
             <SelectionTile name={"🎲 Calm down game"} routeTo={'GameOne'} navigation={navigation}/>
+            <SelectionTile name={"View Daily Goals"} routeTo={'ViewGoalsButton'} navigation={navigation}/>
         </ScrollView>
     );
 }
