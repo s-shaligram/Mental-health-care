@@ -15,12 +15,11 @@ import Tabs from "./navigation/tabs";
 import GoalSettingScreen from "./src/screens/GoalSetting/GoalSettingScreen";
 import store from "./redux/store";
 import { setGoals } from "./redux/actions";
-import {CommonProvider} from "./src/hooks/useGlobalContext";
-//import {View, Appearance} from "react-native";
-//import React, {useCallback, useEffect, useState} from "react";
-import { EventRegister } from 'react-native-event-listeners';
-import darkMode from './styles/darkMode';
-import themeContext from './styles/themeContext';
+import { CommonProvider } from "./src/hooks/useGlobalContext";
+import * as Notifications from 'expo-notifications';
+import * as Permissions from 'expo-permissions';
+import LocalNotification from './src/components/Notifications/LocalNotification'
+
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
@@ -68,6 +67,9 @@ export default function App() {
   useEffect(() => {
     loadGoalsFromStorage();
   }, []);
+
+
+
 
   const saveGoalsToStorage = async (goals, checkedItems) => {
     try {
@@ -180,38 +182,88 @@ export default function App() {
       </Provider>
     </View>
   );
-          }
-  const styles = StyleSheet.create({
-    drawerContainer: {
-      position: "absolute",
-      bottom: 0,
-      left: 0,
-      right: 0,
-      height: "75%", // Occupies 3/4 of the screen
-      backgroundColor: "white",
-      borderTopLeftRadius: 10,
-      borderTopRightRadius: 10,
-      paddingHorizontal: 10,
-      paddingTop: 10,
-    },
-    drawerHandle: {
-      position: "absolute",
-      top: 10,
-      left: "50%",
-      width: 40,
-      height: 5,
-      marginTop: -2.5,
-      backgroundColor: "gray",
-      borderRadius: 10,
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    handleBar: {
-      width: 20,
-      height: 3,
-      backgroundColor: "white",
-      borderRadius: 2,
-    },
-  });
+}
+
+const styles = StyleSheet.create({
+  drawerContainer: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: "75%", // Occupies 3/4 of the screen
+    backgroundColor: "white",
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    paddingHorizontal: 10,
+    paddingTop: 10,
+  },
+  drawerHandle: {
+    position: "absolute",
+    top: 10,
+    left: "50%",
+    width: 40,
+    height: 5,
+    marginTop: -2.5,
+    backgroundColor: "gray",
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  handleBar: {
+    width: 20,
+    height: 3,
+    backgroundColor: "white",
+    borderRadius: 2,
+  },
+});
+
+// useEffect(() => {
+//     //registerForPushNotificationsAsync();
+//     // Handle incoming notifications while the app is running
+// //Notifications.addNotificationReceivedListener(handleNotification);
+//   }, []);
+
+
+
+//     async function registerForPushNotificationsAsync() {
+//         const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+//         if (status !== 'granted') {
+//           console.log('Notification permissions denied!');
+//           return;
+//         }
+//         // Save the device's push notification token for later use
+//         const token = (await Notifications.getExpoPushTokenAsync()).data;
+//         console.log('Notification token:', token);
+//       }
+
+//       async function scheduleNotification() {
+//         console.log("Getting called.....!")
+//         await Notifications.scheduleNotificationAsync({
+//           content: {
+//             title: 'My Notification',
+//             body: 'This is my local notification!',
+//           },
+//           trigger: {
+//             seconds: 5, // Delay in seconds before showing the notification
+//           },
+//         });
+//       }
+
+//        function handleNotification(notification) {
+//     console.log('Received notification:', notification);
+
+//     Notifications.setNotificationHandler({
+//         handleNotification: async () => ({
+//           shouldShowAlert: true,
+//           shouldPlaySound: true,
+//           shouldSetBadge: true,
+//         }),
+//       });
   
-         
+//       Notifications.presentNotificationAsync({
+//         title: notification.request.content.title,
+//         body: notification.request.content.body,
+//         data: notification.request.content.data,
+//       });
+//     // Handle the notification as per your app's logic
+//   }
