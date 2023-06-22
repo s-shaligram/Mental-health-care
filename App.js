@@ -16,6 +16,9 @@ import GoalSettingScreen from "./src/screens/GoalSetting/GoalSettingScreen";
 import store from "./redux/store";
 import { setGoals } from "./redux/actions";
 import { CommonProvider } from "./src/hooks/useGlobalContext";
+import * as Notifications from 'expo-notifications';
+import * as Permissions from 'expo-permissions';
+import LocalNotification from './src/components/Notifications/LocalNotification'
 
 SplashScreen.preventAutoHideAsync();
 export default function App() {
@@ -53,6 +56,9 @@ export default function App() {
   useEffect(() => {
     loadGoalsFromStorage();
   }, []);
+
+
+
 
   const saveGoalsToStorage = async (goals, checkedItems) => {
     try {
@@ -196,3 +202,54 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
 });
+
+// useEffect(() => {
+//     //registerForPushNotificationsAsync();
+//     // Handle incoming notifications while the app is running
+// //Notifications.addNotificationReceivedListener(handleNotification);
+//   }, []);
+
+
+
+//     async function registerForPushNotificationsAsync() {
+//         const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+//         if (status !== 'granted') {
+//           console.log('Notification permissions denied!');
+//           return;
+//         }
+//         // Save the device's push notification token for later use
+//         const token = (await Notifications.getExpoPushTokenAsync()).data;
+//         console.log('Notification token:', token);
+//       }
+
+//       async function scheduleNotification() {
+//         console.log("Getting called.....!")
+//         await Notifications.scheduleNotificationAsync({
+//           content: {
+//             title: 'My Notification',
+//             body: 'This is my local notification!',
+//           },
+//           trigger: {
+//             seconds: 5, // Delay in seconds before showing the notification
+//           },
+//         });
+//       }
+
+//        function handleNotification(notification) {
+//     console.log('Received notification:', notification);
+
+//     Notifications.setNotificationHandler({
+//         handleNotification: async () => ({
+//           shouldShowAlert: true,
+//           shouldPlaySound: true,
+//           shouldSetBadge: true,
+//         }),
+//       });
+  
+//       Notifications.presentNotificationAsync({
+//         title: notification.request.content.title,
+//         body: notification.request.content.body,
+//         data: notification.request.content.data,
+//       });
+//     // Handle the notification as per your app's logic
+//   }
