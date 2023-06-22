@@ -15,7 +15,7 @@ import Tabs from "./navigation/tabs";
 import GoalSettingScreen from "./src/screens/GoalSetting/GoalSettingScreen";
 import store from "./redux/store";
 import { setGoals } from "./redux/actions";
-import {CommonProvider} from "./src/hooks/useGlobalContext";
+import { CommonProvider } from "./src/hooks/useGlobalContext";
 
 SplashScreen.preventAutoHideAsync();
 export default function App() {
@@ -24,20 +24,20 @@ export default function App() {
   const [animation, setAnimation] = useState(new Animated.Value(0));
   const [userGoals, setUserGoals] = useState(null);
 
-    useEffect(() => {
-        async function prepare() {
-            try {
-                await new Promise((resolve) => setTimeout(resolve, 2000));
-            } catch (e) {
-                console.warn(e);
-            } finally {
-                // Tell the application to render
-                setAppIsReady(true);
-            }
-        }
+  useEffect(() => {
+    async function prepare() {
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        // Tell the application to render
+        setAppIsReady(true);
+      }
+    }
 
-        prepare().then();
-    }, []);
+    prepare().then();
+  }, []);
 
   const loadGoalsFromStorage = async () => {
     try {
@@ -69,8 +69,9 @@ export default function App() {
   const checkGoalSettingStatus = async () => {
     try {
       const lastSetDate = await AsyncStorage.getItem("lastSetDate");
+      console.log(lastSetDate);
       if (lastSetDate && moment().isSame(moment(lastSetDate), "day")) {
-        setShowGoalSetting(true);
+        setShowGoalSetting(false);
       } else {
         setShowGoalSetting(true);
       }
@@ -122,9 +123,9 @@ export default function App() {
     }
   }, [appIsReady]);
 
-    if (!appIsReady) {
-        return null;
-    }
+  if (!appIsReady) {
+    return null;
+  }
 
   const drawerTranslateY = animation.interpolate({
     inputRange: [0, 1],

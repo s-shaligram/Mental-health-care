@@ -107,16 +107,12 @@ const ViewGoalsButton = () => {
         </TouchableOpacity>
       ) : (
         <Text style={{ fontSize: 18, marginTop: 20 }}>
-          You have not set any goals today.
+          Oops!! It looks either you haven't set any goals or deleted it.
         </Text>
       )}
 
-      <Button
-        style={styles.button}
-        title="Delete Goals"
-        onPress={deleteGoals}
-      />
-      <Button title="View Goals" onPress={handleViewGoals} />
+      <Button title="Delete Goals" onPress={deleteGoals} color={"#FFA500"} />
+      <Button title="View Goals" onPress={handleViewGoals} color={"#1D741B"} />
 
       <ScrollView style={styles.scrollView}>
         {goalInfo.length > 0 && (
@@ -179,9 +175,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
     elevation: 3,
-  },
-  button: {
-    backgroundColor: "#FFA500",
   },
   scrollView: {
     marginTop: 20,
