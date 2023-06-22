@@ -16,6 +16,7 @@ import GoalSettingScreen from "./src/screens/GoalSetting/GoalSettingScreen";
 import store from "./redux/store";
 import { setGoals } from "./redux/actions";
 import { CommonProvider } from "./src/hooks/useGlobalContext";
+import { EventRegister } from 'react-native-event-listeners';
 import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
 import LocalNotification from './src/components/Notifications/LocalNotification'
@@ -24,7 +25,8 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
     const [appIsReady, setAppIsReady] = useState(false);
-
+    const [showGoalSetting ,setShowGoalSetting] = useState(false);
+    const [animation,setAnimation] = useState(new Animated.Value(0));
     const[theme, setTheme] = useState(false);
 
     useEffect(() => {
