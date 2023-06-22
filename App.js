@@ -134,9 +134,12 @@ export default function App() {
   return (
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <Provider store={store}>
+        <CommonProvider>
+
         <NavigationContainer>
           <Tabs />
         </NavigationContainer>
+        </CommonProvider>
         <TouchableOpacity style={styles.drawerHandle} onPress={toggleDrawer}>
           <View style={styles.handleBar} />
         </TouchableOpacity>
