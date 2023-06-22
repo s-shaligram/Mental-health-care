@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { Provider } from "react-redux";
-import { NavigationContainer } from "@react-navigation/native";
+import {NavigationContainer, DarkTheme, DefaultTheme} from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import moment from "moment";
 import Tabs from "./navigation/tabs";
@@ -17,6 +17,8 @@ import store from "./redux/store";
 import { setGoals } from "./redux/actions";
 import { CommonProvider } from "./src/hooks/useGlobalContext";
 import { EventRegister } from 'react-native-event-listeners';
+import themeContext from "./styles/themeContext";
+import darkMode from "./styles/darkMode";
 import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
 import LocalNotification from './src/components/Notifications/LocalNotification'
@@ -27,6 +29,7 @@ export default function App() {
     const [appIsReady, setAppIsReady] = useState(false);
     const [showGoalSetting ,setShowGoalSetting] = useState(false);
     const [animation,setAnimation] = useState(new Animated.Value(0));
+    const [userGoals,setUserGoals] = useState(null);
     const[theme, setTheme] = useState(false);
 
     useEffect(() => {
