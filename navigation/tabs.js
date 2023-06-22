@@ -7,17 +7,23 @@ import Active from "../src/screens/Active";
 import Mind2Header from "../src/components/Mind2Header";
 import Track from "../src/screens/Track";
 import Calm from "../src/screens/Calm";
-
+import { useContext,useState } from "react";
+//import themeContext from "../../../styles/themeContext";
+import themeContext from "../styles/themeContext";
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
+    const [theme, setTheme] = useState("light"); // Initial theme state (e.g., "light" or "dark")
+    //const theme = useContext(themeContext);
     return (
+       // <themeContext.Provider value={theme}>
         <Tab.Navigator initialRouteName="Home"
                        screenOptions={{
                            tabBarShowLabel: false,
                            tabBarStyle: {
-                               position: "absolute",
-                               backgroundColor: "#ffffff",
+                               //position: "absolute",
+                               //backgroundColor:theme?.background,
+                               //backgroundColor: theme?.background,
                                height: 60,
                            },
                        }}
@@ -161,30 +167,59 @@ const Tabs = () => {
         }}
       />
     </Tab.Navigator>
+    //</themeContext.Provider>
   );
 };
 
 export default Tabs;
 
-const CustomTabBarButton = ({ children, onPress }) => (
-  <TouchableOpacity
-    style={{
-      justifyContent: "center",
-      alignContent: "center",
-      margin: 15,
-    }}
-    onPress={onPress}
-  >
-    <View
-      style={{
-        bottom: 6,
-        width: 70,
-        height: 70,
-        borderRadius: 35,
-        backgroundColor: "#1D741B",
-      }}
-    >
-      {children}
-    </View>
-  </TouchableOpacity>
-);
+// const CustomTabBarButton = ({ children, onPress }) => (
+//   <TouchableOpacity
+//     style={{
+//       justifyContent: "center",
+//       alignContent: "center",
+//       margin: 15,
+//     }}
+//     onPress={onPress}
+//   >
+//     <View
+//       style={{
+//         bottom: 6,
+//         width: 70,
+//         height: 70,
+//         borderRadius: 35,
+//         backgroundColor: "#1D741B",
+//       }}
+//     >
+//       {children}
+//     </View>
+//   </TouchableOpacity>
+// );
+const CustomTabBarButton = ({ children, onPress }) => {
+    const theme = useContext(themeContext);
+  
+    return (
+      <TouchableOpacity
+        style={{
+          justifyContent: "center",
+          alignContent: "center",
+          margin: 15,
+        }}
+        onPress={onPress}
+      >
+        <View
+          style={{
+            bottom: 6,
+            width: 70,
+            height: 70,
+            borderRadius: 35,
+            backgroundColor: "#1D741B"
+            //backgroundColor: theme?.background, // Use the theme's background color dynamically
+          }}
+        >
+          {children}
+        </View>
+      </TouchableOpacity>
+    );
+  };
+  

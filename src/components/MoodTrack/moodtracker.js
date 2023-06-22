@@ -39,7 +39,7 @@ const MoodTracker = () => {
       newData.push({ mood: selectedMood }); // Add the new mood entry
 
       await AsyncStorage.setItem(currentDate, JSON.stringify(newData)); // Save the updated data
-      console.log('Mood saved successfully.');
+      console.log('Mood saved successfully.', newData);
     } catch (error) {
       console.log('Error saving mood:', error);
     }

@@ -3,9 +3,14 @@ import {View, Text, StyleSheet, Dimensions, ScrollView} from 'react-native';
 import {LineChart} from 'react-native-chart-kit';
 import {Feather} from '@expo/vector-icons';
 import moment from 'moment';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useGlobalContext} from "../../hooks/useGlobalContext";
+import { useState, useEffect } from 'react';
 
 const Track = () => {
+
+
+
     const {
         medicineTrackerEnabled,
         sleepTrackerEnabled,
