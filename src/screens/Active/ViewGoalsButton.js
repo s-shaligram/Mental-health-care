@@ -107,7 +107,7 @@ const ViewGoalsButton = () => {
         </TouchableOpacity>
       ) : (
         <Text style={{ fontSize: 18, marginTop: 20 }}>
-          You have not set any goals today.
+          Oops!! It looks either you haven't set any goals or deleted it.
         </Text>
       )}
 

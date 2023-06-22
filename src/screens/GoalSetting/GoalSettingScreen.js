@@ -11,9 +11,6 @@ import { connect } from "react-redux";
 import { setGoals } from "../././../../redux/actions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-//import { Modal } from "react-native-modal";
-//import { BlurView } from "@react-native-community/blur";
-
 const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
   const [goals, setGoals] = useState("");
   const [checkedItems, setCheckedItems] = useState([]);
@@ -78,9 +75,7 @@ const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
           value={goals}
           onChangeText={setGoals}
         />
-        {/* <Text style={styles.selectionInfo}>
-          *Select from below or Enter your goal
-        </Text> */}
+
         <Text style={styles.checklistHeader}>Checklist for Daily Goals:</Text>
         <TouchableOpacity
           style={styles.checklistItemContainer}
@@ -313,12 +308,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 5,
   },
-  //   selectionInfo: {
-  //     fontSize: 15,
-  //     fontWeight: "regular",
-  //     marginTop: 0,
-  //     marginBottom: 0,
-  //   },
+
   checklistItemContainer: {
     flexDirection: "row",
     alignItems: "center",
