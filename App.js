@@ -8,7 +8,11 @@ import {
 } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { Provider } from "react-redux";
-import {NavigationContainer, DarkTheme, DefaultTheme} from "@react-navigation/native";
+import {
+  NavigationContainer,
+  DarkTheme,
+  DefaultTheme,
+} from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import moment from "moment";
 import Tabs from "./navigation/tabs";
@@ -16,32 +20,32 @@ import GoalSettingScreen from "./src/screens/GoalSetting/GoalSettingScreen";
 import store from "./redux/store";
 import { setGoals } from "./redux/actions";
 import { CommonProvider } from "./src/hooks/useGlobalContext";
-import { EventRegister } from 'react-native-event-listeners';
+import { EventRegister } from "react-native-event-listeners";
 import themeContext from "./styles/themeContext";
 import darkMode from "./styles/darkMode";
-import * as Notifications from 'expo-notifications';
-import * as Permissions from 'expo-permissions';
-import LocalNotification from './src/components/Notifications/LocalNotification'
+import * as Notifications from "expo-notifications";
+import * as Permissions from "expo-permissions";
+import LocalNotification from "./src/components/Notifications/LocalNotification";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-    const [appIsReady, setAppIsReady] = useState(false);
-    const [showGoalSetting ,setShowGoalSetting] = useState(false);
-    const [animation,setAnimation] = useState(new Animated.Value(0));
-    const [userGoals,setUserGoals] = useState(null);
-    const[theme, setTheme] = useState(false);
+  const [appIsReady, setAppIsReady] = useState(false);
+  const [showGoalSetting, setShowGoalSetting] = useState(false);
+  const [animation, setAnimation] = useState(new Animated.Value(0));
+  const [userGoals, setUserGoals] = useState(null);
+  const [theme, setTheme] = useState(false);
 
-    useEffect(() => {
-        const listener = EventRegister.addEventListener('ChangeTheme', (data) => {
-            setTheme(data);
-            console.log(data);
-        })
+  useEffect(() => {
+    const listener = EventRegister.addEventListener("ChangeTheme", (data) => {
+      setTheme(data);
+      console.log(data);
+    });
 
-        return ()=> {
-            EventRegister.removeAllListeners(listener);
-        }
-    }, [theme]);
+    return () => {
+      EventRegister.removeAllListeners(listener);
+    };
+  }, [theme]);
 
   useEffect(() => {
     async function prepare() {
@@ -73,9 +77,6 @@ export default function App() {
     loadGoalsFromStorage();
   }, []);
 
-
-
-
   const saveGoalsToStorage = async (goals, checkedItems) => {
     try {
       const data = {
@@ -93,7 +94,7 @@ export default function App() {
       const lastSetDate = await AsyncStorage.getItem("lastSetDate");
       console.log(lastSetDate);
       if (lastSetDate && moment().isSame(moment(lastSetDate), "day")) {
-        setShowGoalSetting(false);
+        setShowGoalSetting(true);
       } else {
         setShowGoalSetting(true);
       }
@@ -156,16 +157,15 @@ export default function App() {
   return (
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <Provider store={store}>
-      <CommonProvider>
-                {/* <themeContext.Provider value={darkMode === true ? darkMode.dark : darkMode.light}>
+        <CommonProvider>
+          {/* <themeContext.Provider value={darkMode === true ? darkMode.dark : darkMode.light}>
                     <NavigationContainer theme={darkMode === true ? DarkTheme : DefaultTheme}> */}
-                    <themeContext.Provider value={theme ? darkMode.dark : darkMode.light}>
-                    <NavigationContainer theme={theme ? DarkTheme : DefaultTheme}>
-
-                        <Tabs></Tabs>
-                    </NavigationContainer>
-                </themeContext.Provider>
-            </CommonProvider>
+          <themeContext.Provider value={theme ? darkMode.dark : darkMode.light}>
+            <NavigationContainer theme={theme ? DarkTheme : DefaultTheme}>
+              <Tabs></Tabs>
+            </NavigationContainer>
+          </themeContext.Provider>
+        </CommonProvider>
         <TouchableOpacity style={styles.drawerHandle} onPress={toggleDrawer}>
           <View style={styles.handleBar} />
         </TouchableOpacity>
@@ -228,8 +228,6 @@ const styles = StyleSheet.create({
 // //Notifications.addNotificationReceivedListener(handleNotification);
 //   }, []);
 
-
-
 //     async function registerForPushNotificationsAsync() {
 //         const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
 //         if (status !== 'granted') {
@@ -264,7 +262,7 @@ const styles = StyleSheet.create({
 //           shouldSetBadge: true,
 //         }),
 //       });
-  
+
 //       Notifications.presentNotificationAsync({
 //         title: notification.request.content.title,
 //         body: notification.request.content.body,

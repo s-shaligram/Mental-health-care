@@ -177,9 +177,10 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   scrollView: {
-    marginTop: 20,
+    backgroundColor: "#fff",
+    marginTop: 0,
     marginBottom: 30,
-    maxHeight: 428, // Adjust the maximum height as needed
+    maxHeight: 600, // Adjust the maximum height as needed
     padding: 8,
   },
 });
