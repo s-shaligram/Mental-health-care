@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { Provider } from "react-redux";
-import { NavigationContainer } from "@react-navigation/native";
+import {NavigationContainer, DarkTheme, DefaultTheme} from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import moment from "moment";
 import Tabs from "./navigation/tabs";
@@ -16,16 +16,32 @@ import GoalSettingScreen from "./src/screens/GoalSetting/GoalSettingScreen";
 import store from "./redux/store";
 import { setGoals } from "./redux/actions";
 import { CommonProvider } from "./src/hooks/useGlobalContext";
+import { EventRegister } from 'react-native-event-listeners';
+import themeContext from "./styles/themeContext";
+import darkMode from "./styles/darkMode";
 import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
 import LocalNotification from './src/components/Notifications/LocalNotification'
 
 SplashScreen.preventAutoHideAsync();
+
 export default function App() {
-  const [appIsReady, setAppIsReady] = useState(false);
-  const [showGoalSetting, setShowGoalSetting] = useState(false);
-  const [animation, setAnimation] = useState(new Animated.Value(0));
-  const [userGoals, setUserGoals] = useState(null);
+    const [appIsReady, setAppIsReady] = useState(false);
+    const [showGoalSetting ,setShowGoalSetting] = useState(false);
+    const [animation,setAnimation] = useState(new Animated.Value(0));
+    const [userGoals,setUserGoals] = useState(null);
+    const[theme, setTheme] = useState(false);
+
+    useEffect(() => {
+        const listener = EventRegister.addEventListener('ChangeTheme', (data) => {
+            setTheme(data);
+            console.log(data);
+        })
+
+        return ()=> {
+            EventRegister.removeAllListeners(listener);
+        }
+    }, [theme]);
 
   useEffect(() => {
     async function prepare() {
@@ -132,7 +148,6 @@ export default function App() {
   if (!appIsReady) {
     return null;
   }
-
   const drawerTranslateY = animation.interpolate({
     inputRange: [0, 1],
     outputRange: [500, 0],
@@ -141,12 +156,16 @@ export default function App() {
   return (
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <Provider store={store}>
-        <CommonProvider>
+      <CommonProvider>
+                {/* <themeContext.Provider value={darkMode === true ? darkMode.dark : darkMode.light}>
+                    <NavigationContainer theme={darkMode === true ? DarkTheme : DefaultTheme}> */}
+                    <themeContext.Provider value={theme ? darkMode.dark : darkMode.light}>
+                    <NavigationContainer theme={theme ? DarkTheme : DefaultTheme}>
 
-        <NavigationContainer>
-          <Tabs />
-        </NavigationContainer>
-        </CommonProvider>
+                        <Tabs></Tabs>
+                    </NavigationContainer>
+                </themeContext.Provider>
+            </CommonProvider>
         <TouchableOpacity style={styles.drawerHandle} onPress={toggleDrawer}>
           <View style={styles.handleBar} />
         </TouchableOpacity>
