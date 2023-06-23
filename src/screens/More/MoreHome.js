@@ -6,6 +6,8 @@ function MoreHome({navigation}) {
     return (
         <ScrollView>
             <SelectionTile name={"📍 View nearby medical centers"} routeTo={'NearByMedicalCenter'} navigation={navigation}/>
+            <SelectionTile name={"🔔 View Notifications"} routeTo={'Notifications'} navigation={navigation}/>
+            
         </ScrollView>
     );
 }
