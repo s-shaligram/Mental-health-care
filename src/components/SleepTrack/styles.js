@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         width: 300,
         height: 20,
         backgroundColor: '#fff',
-
+        borderRadius: 10,
     },
     sliderValue: {
         marginTop: 10,
