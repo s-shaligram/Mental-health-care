@@ -10,8 +10,21 @@ function ScreenA() {
     const [darkMode, setDarkMode] = useState(false);
 
     return (
-        <View style={{backgroundColor:theme.backgroundColor}}>
-            <Text style={{color:theme.color}}>Change Theme</Text>
+      <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        paddingHorizontal: 20,
+      }}
+    >
+
+        <View style={{backgroundColor:theme.backgroundColor,
+          borderRadius: 10,
+          padding: 16,
+          flexDirection: "row",
+          alignItems: "center",}}>
+            <Text style={{color:theme.color, marginRight: 8}}>Change Theme</Text>
             <Switch
             value={darkMode}
             onValueChange={(value) => {
@@ -19,6 +32,7 @@ function ScreenA() {
                 EventRegister.emit('ChangeTheme', value);
             }}
             />
+        </View>
         </View>
     );
 }

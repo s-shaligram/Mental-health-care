@@ -25,15 +25,19 @@ const Tabs = () => {
                                //backgroundColor:theme?.background,
                                //backgroundColor: theme?.background,
                                height: 60,
+                               backgroundColor: "#999999"
                            },
+                           
                        }}
         >
             <Tab.Screen
                 name="Active"
                 component={Active}
                 options={{
-                    headerTitle: () => (<Mind2Header screenName={"Active"} showLogo={false}/>),
-                    headerStyle: {height: 70},
+                    headerTitle: () => (<Mind2Header screenName={"Active"} showLogo={false} backgroundColor={"#999999"}/>),
+                    headerStyle: {height: 90,backgroundColor: "#999999"},
+                    // headerTintColor: "#999999",
+                    // headerPressColor: "#999999",
                    tabBarIcon: ({focused}) => (
                         <View
                             style={{
@@ -62,7 +66,7 @@ const Tabs = () => {
                 component={Calm}
                 options={{
                     headerTitle: () => (<Mind2Header screenName={"Calm"} showLogo={false}/>),
-                    headerStyle: {height: 70},
+                    headerStyle: {height: 90,backgroundColor: "#999999"},
                     tabBarIcon: ({focused}) => (
                         <View
                             style={{
@@ -92,7 +96,7 @@ const Tabs = () => {
                 component={Home}
                 options={{
                     headerTitle: () => (<Mind2Header screenName={"Mind 2.0"}/>),
-                    headerStyle: {height: 70},
+                    headerStyle: {height: 90,backgroundColor: "#999999"},
                     tabBarIcon: ({focused}) => (
                         <Icon
                             name={focused ? "ios-home" : "ios-home-outline"}
@@ -109,7 +113,7 @@ const Tabs = () => {
                 component={Track}
                 options={{
                     headerTitle: () => (<Mind2Header screenName={"Track"} showLogo={false}/>),
-                    headerStyle: {height: 70},
+                    headerStyle: {height: 90,backgroundColor: "#999999"},
                     tabBarIcon: ({focused}) => (
                         <View
                             style={{
@@ -140,7 +144,7 @@ const Tabs = () => {
                 component={More}
                 options={{
                     headerTitle: () => (<Mind2Header screenName={"More"} showLogo={false}/>),
-                    headerStyle: {height: 70},
+                    headerStyle: {height: 90,backgroundColor: "#999999"},
                     tabBarIcon: ({focused}) => (
                         <View
                             style={{

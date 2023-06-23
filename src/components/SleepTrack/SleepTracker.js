@@ -4,6 +4,8 @@ import Slider from '@react-native-community/slider';
 import styles from './styles';
 import {useGlobalContext} from "../../hooks/useGlobalContext";
 import moment from "moment/moment";
+import themeContext from '../../../styles/themeContext';
+import darkMode from '../../../styles/darkMode';
 
 const SleepTracker = () => {
     const [intakeState, setIntakeState] = useState(false);
@@ -12,11 +14,12 @@ const SleepTracker = () => {
     const fadeAnim = useRef(new Animated.Value(1)).current;
     const {setSleepRecords} = useGlobalContext();
     const [sliderValue, setSliderValue] = useState(0);
+    const[theme, setTheme] = useState();
 
     const getWelcomeMessage = () => {
-        return "Good morning! How many hours did you sleep last night?";
+        return <View><Text style ={{color:theme ? "#000" : "#0000"}}>"Good morning! How many hours did you sleep last night?"</Text></View>;
     };
-
+   // color:theme ? "#0000" : "#000"
     useEffect(() => {
         if (intakeState) {
             setShowResponse(true);
