@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import styles from './styles';
+import React, { useState, useEffect } from "react";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import styles from "./styles";
 
 const MoodTracker = () => {
   const [mood, setMood] = useState(null);
-  const [moodText, setMoodText] = useState('');
+  const [moodText, setMoodText] = useState("");
   const [moodData, setMoodData] = useState([]);
 
   const handleMoodSelection = async (selectedMood) => {
@@ -15,20 +15,20 @@ const MoodTracker = () => {
   };
 
   const handleMoodText = (selectedText) => {
-    if (selectedText === '😄') {
-      setMoodText('Keep it up!! 😊');
-    } else if (selectedText === '😞') {
-      setMoodText('Everything will be fine, no need to worry!');
-    } else if (selectedText === '😠') {
-      setMoodText('Calm down and let it go. 🙂🙃');
-    } else if (selectedText === '😌') {
-      setMoodText('Peace ☮️');
+    if (selectedText === "😄") {
+      setMoodText("Keep it up!! 😊");
+    } else if (selectedText === "😞") {
+      setMoodText("Everything will be fine, no need to worry!");
+    } else if (selectedText === "😠") {
+      setMoodText("Calm down and let it go. 🙂🙃");
+    } else if (selectedText === "😌") {
+      setMoodText("Peace ☮️");
     }
   };
 
   const saveMood = async (selectedMood) => {
     try {
-      const currentDate = new Date().toISOString().split('T')[0]; // Get the current date
+      const currentDate = new Date().toISOString().split("T")[0]; // Get the current date
       const existingData = await AsyncStorage.getItem(currentDate); // Retrieve existing data for the current date
 
       let newData = [];
@@ -39,15 +39,15 @@ const MoodTracker = () => {
       newData.push({ mood: selectedMood }); // Add the new mood entry
 
       await AsyncStorage.setItem(currentDate, JSON.stringify(newData)); // Save the updated data
-      console.log('Mood saved successfully.', newData);
+      console.log("Mood saved successfully.", newData);
     } catch (error) {
-      console.log('Error saving mood:', error);
+      console.log("Error saving mood:", error);
     }
   };
 
   const retrieveMoodData = async () => {
     try {
-      const currentDate = new Date().toISOString().split('T')[0]; // Get the current date
+      const currentDate = new Date().toISOString().split("T")[0]; // Get the current date
       const existingData = await AsyncStorage.getItem(currentDate); // Retrieve existing data for the current date
 
       if (existingData) {
@@ -55,7 +55,7 @@ const MoodTracker = () => {
         setMoodData(parsedData);
       }
     } catch (error) {
-      console.log('Error retrieving mood data:', error);
+      console.log("Error retrieving mood data:", error);
     }
   };
 
@@ -69,25 +69,25 @@ const MoodTracker = () => {
         <View style={styles.emojiContainer}>
           <TouchableOpacity
             style={styles.emoji}
-            onPress={() => handleMoodSelection('😄')}
+            onPress={() => handleMoodSelection("😄")}
           >
             <Text style={styles.emojiText}>😄</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.emoji}
-            onPress={() => handleMoodSelection('😞')}
+            onPress={() => handleMoodSelection("😞")}
           >
             <Text style={styles.emojiText}>😞</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.emoji}
-            onPress={() => handleMoodSelection('😠')}
+            onPress={() => handleMoodSelection("😠")}
           >
             <Text style={styles.emojiText}>😠</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.emoji}
-            onPress={() => handleMoodSelection('😌')}
+            onPress={() => handleMoodSelection("😌")}
           >
             <Text style={styles.emojiText}>😌</Text>
           </TouchableOpacity>
@@ -101,9 +101,9 @@ const MoodTracker = () => {
     <View style={styles.container}>
       {renderMoodSelection()}
       <Text style={styles.selectedMood}>
-        {mood ? moodText : 'How are you today?'}
+        {mood ? moodText : "How are you today?"}
       </Text>
-      {/* <Text style={styles.savedMoods}>Saved Moods:</Text>
+      {/* <Text style={styles.savedMoods}>Mood in this week</Text>
       <View style={styles.moodDataContainer}>
         {moodData.map((entry, index) => (
           <Text key={index} style={styles.moodDataText}>
