@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     marginTop: 0,
     marginBottom: 30,
-    maxHeight: 428, // Adjust the maximum height as needed
+    maxHeight: 600, // Adjust the maximum height as needed
     padding: 8,
   },
 });
