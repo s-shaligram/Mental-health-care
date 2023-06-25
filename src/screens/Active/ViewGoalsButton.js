@@ -13,6 +13,7 @@ const ViewGoalsButton = () => {
   const [goals, setGoals] = useState([]);
   const [goalText, setGoalText] = useState("");
   const [goalInfo, setGoalInfo] = useState([]);
+  const [isListVisible, setListVisible] = useState(false);
 
   useEffect(() => {
     retrieveGoals();
@@ -38,6 +39,7 @@ const ViewGoalsButton = () => {
   };
 
   const handleViewGoals = () => {
+
     setGoalInfo([
       {
         title: "Practice Mindfulness or Meditation",
@@ -75,6 +77,7 @@ const ViewGoalsButton = () => {
           "Set a goal to be aware of negative thoughts or self-talk and practice challenging and reframing them. This can involve techniques like cognitive restructuring, positive affirmations, or seeking professional help if needed.",
       },
     ]);
+    setListVisible(!isListVisible);
   };
 
   const deleteGoals = async () => {
@@ -115,7 +118,7 @@ const ViewGoalsButton = () => {
       <Button title="View Goals" onPress={handleViewGoals} color={"#1D741B"} />
 
       <ScrollView style={styles.scrollView}>
-        {goalInfo.length > 0 && (
+        {isListVisible && (
           <View>
             {goalInfo.map((goal, index) => (
               <View key={index}>

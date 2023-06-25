@@ -7,13 +7,13 @@ import moment from "moment/moment";
 import themeContext from "../../../styles/themeContext";
 
 const SleepTracker = () => {
-    const theme = useContext(themeContext);
+    // const theme = useContext(themeContext);
 
     const [intakeState, setIntakeState] = useState(false);
     const [showResponse, setShowResponse] = useState(false);
     const responseText = `Hours were recorded..!`;
     const fadeAnim = useRef(new Animated.Value(1)).current;
-    const {setSleepRecords} = useGlobalContext();
+    const {setSleepRecords, theme} = useGlobalContext();
     const [sliderValue, setSliderValue] = useState(0);
 
     const getWelcomeMessage = () => {

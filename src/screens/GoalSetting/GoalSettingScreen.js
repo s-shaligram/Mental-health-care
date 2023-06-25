@@ -63,12 +63,12 @@ const GoalSettingScreen = ({onFinishGoalSetting, setShowGoalSetting}) => {
     const GoalList = () => {
         return <View style={styles.container}>
             <View style={styles.header}>
+                <Text style={styles.title}>Set Your Daily Goal</Text>
                 <TouchableOpacity onPress={handleClose} style={styles.closeButton}>
                     <AntDesign name="close" size={24} color="black"/>
                 </TouchableOpacity>
             </View>
             <View style={styles.content}>
-                <Text style={styles.title}>Set Your Daily Goal</Text>
                 <TextInput
                     style={styles.input}
                     placeholder="Select from below or Enter your goal"
@@ -258,11 +258,12 @@ const styles = StyleSheet.create({
     container: {
         position: "absolute",
         bottom: 0,
+        top: 55,
+        margin: 10,
         width: "100%",
-        height: "75%",
+        height: "100%",
         backgroundColor: "#fff",
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
+        borderRadius: 20,
         paddingHorizontal: 20,
         paddingTop: 20,
         shadowColor: "#000",
@@ -275,11 +276,11 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     header: {
-        alignItems: "flex-end",
+        flexDirection: "row",
+        marginBottom: 20,
+        justifyContent: "space-between"
     },
     closeButton: {
-        paddingHorizontal: 10,
-        paddingTop: 10,
     },
     content: {
         flex: 1,
@@ -287,7 +288,6 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: "bold",
-        marginBottom: 20,
     },
     input: {
         width: "100%",
@@ -303,25 +303,27 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 5,
-        marginTop: 13,
+        marginTop: 90,
     },
     buttonText: {
         color: "#fff",
         fontSize: 16,
         fontWeight: "bold",
         textAlign: "center",
+
         marginTop: 5,
     },
     checklistHeader: {
         fontSize: 18,
         fontWeight: "bold",
-        marginTop: 5,
+        marginTop: 25,
         marginBottom: 5,
     },
 
     checklistItemContainer: {
         flexDirection: "row",
         alignItems: "center",
+        marginTop: 17,
         marginVertical: 5,
     },
     checklistItem: {
