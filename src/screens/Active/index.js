@@ -16,12 +16,12 @@ function Active() {
       <Stack.Screen
         name="GameOne"
         component={GameOne}
-        options={{ headerShown: true }}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="ViewGoalsButton"
         component={ViewGoalsButton}
-        options={{ headerShown: true }}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );

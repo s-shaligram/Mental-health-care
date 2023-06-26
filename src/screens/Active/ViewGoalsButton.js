@@ -129,7 +129,11 @@ const ViewGoalsButton = () => {
       )}
 
       <Button title="Delete Goals" onPress={deleteGoals} color={"#FFA500"} />
-      <Button title="View Goals" onPress={handleViewGoals} color={"#1D741B"} />
+      <Button
+        title="Goal Breakdown"
+        onPress={handleViewGoals}
+        color={"#1D741B"}
+      />
 
       <ScrollView style={{ ...styles.scrollView }}>
         {isListVisible && (

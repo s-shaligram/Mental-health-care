@@ -161,9 +161,9 @@ export default function App() {
           {/* <themeContext.Provider value={darkMode === true ? darkMode.dark : darkMode.light}>
                     <NavigationContainer theme={darkMode === true ? DarkTheme : DefaultTheme}> */}
           {/*<themeContext.Provider value={theme ? darkMode.dark : darkMode.light}>*/}
-            <NavigationContainer>
-              <Tabs></Tabs>
-            </NavigationContainer>
+          <NavigationContainer>
+            <Tabs></Tabs>
+          </NavigationContainer>
           {/*</themeContext.Provider>*/}
         </CommonProvider>
         <TouchableOpacity style={styles.drawerHandle} onPress={toggleDrawer}>
