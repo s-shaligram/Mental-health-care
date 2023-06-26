@@ -192,7 +192,7 @@ export default function App() {
 const styles = StyleSheet.create({
   drawerContainer: {
     position: "absolute",
-    height: "80%",
+    height: "78%",
     backgroundColor: "white",
     borderRadius: 10,
     paddingHorizontal: 10,
