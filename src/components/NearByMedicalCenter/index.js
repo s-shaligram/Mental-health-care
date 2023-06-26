@@ -68,9 +68,17 @@ const NearByMedicalCenter = () => {
 
   useEffect(() => {
     if (locationPermission) {
-      const getCurrentLocation = async () => {
-        const { coords } = await Location.getCurrentPositionAsync();
-        setCurrentLocation(coords);
+      const getCurrentLocation =  () => {
+        //const { coords } = await Location.getCurrentPositionAsync();
+        setCurrentLocation({
+          "accuracy": 21.600000381469727,
+          "altitude": 82.9000015258789,
+          "altitudeAccuracy": 68.10995483398438,
+          "heading": 0,
+          "latitude": 43.0140985,
+          "longitude": -81.1990796,
+          "speed": 0,
+        });
       };
 
       getCurrentLocation();
@@ -85,14 +93,14 @@ const NearByMedicalCenter = () => {
 
   const initialRegion = currentLocation
     ? {
-        latitude: currentLocation.latitude,
-        longitude: currentLocation.longitude,
+        latitude: 43.0140985,
+        longitude: -81.1990796,
         latitudeDelta: 0.3,
         longitudeDelta: 0.3,
       }
     : {
-        latitude: 42.9938722,
-        longitude: -81.1722225,
+        latitude: 43.0140985,
+        longitude: -81.1990796,
         latitudeDelta: 0.5,
         longitudeDelta: 0.5,
       };
@@ -110,6 +118,9 @@ const NearByMedicalCenter = () => {
           provider={PROVIDER_GOOGLE}
           style={styles.map}
           initialRegion={initialRegion}
+          //zoomEnabled={false}
+          minZoomLevel = {12}
+          scrollEnabled={false} 
           region={initialRegion}>
           {currentLocation && (
             markers.map(marker=>(
@@ -143,8 +154,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   calloutStyles:{
-    width: 200, // Customize the width according to your needs
-   height:50,
+    width: 210, // Customize the width according to your needs
+   height:80,
   }
 });
 
