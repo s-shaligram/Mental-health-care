@@ -21,6 +21,7 @@ const Track = () => {
     sleepTrackerEnabled,
     sleepRecords,
     medicalRecords,
+    theme
   } = useGlobalContext();
   const screenWidth = Dimensions.get("window").width;
   const screenHeight = Dimensions.get("window").height;
@@ -80,7 +81,7 @@ const Track = () => {
   }, []);
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={{...styles.container, backgroundColor: theme.background}}>
       {/* Mood Tracker */}
       <View style={styles.separator}>
         <View style={styles.line} />
