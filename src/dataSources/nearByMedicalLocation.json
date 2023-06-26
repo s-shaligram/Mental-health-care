@@ -11,172 +11,55 @@
   {
     "id": 2,
     "coordinate": {
-      "latitude": 42.9872,
-      "longitude": -81.2773
+      "latitude": 42.9857864,
+      "longitude": -81.242092
     },
-    "title": "Family Medical Center",
-    "mobileNumber": "987-654-3210"
+    "title": "London Health Sciences Centre - University Hospital",
+    "mobileNumber": "111-222-3333"
   },
   {
     "id": 3,
     "coordinate": {
-      "latitude": 42.9837,
-      "longitude": -81.2497
+      "latitude": 42.963434,
+      "longitude": -81.256064
     },
-    "title": "London Central Medical Center",
-    "mobileNumber": "555-123-4567"
+    "title": "Memorial Hospital",
+    "mobileNumber": "444-555-6666"
   },
   {
     "id": 4,
     "coordinate": {
-      "latitude": 42.9911,
-      "longitude": -81.2924
+      "latitude": 42.946798,
+      "longitude": -81.365546
     },
-    "title": "London Dental Clinic",
-    "mobileNumber": "555-987-6543"
+    "title": "St. Joseph's Health Care London",
+    "mobileNumber": "777-888-9999"
   },
   {
     "id": 5,
     "coordinate": {
-      "latitude": 42.9823,
-      "longitude": -81.237
+      "latitude": 42.979310,
+      "longitude": -81.219185
     },
-    "title": "London Eye Specialist",
-    "mobileNumber": "777-123-4567"
+    "title": "London Medical Clinic",
+    "mobileNumber": "555-666-7777"
   },
   {
     "id": 6,
     "coordinate": {
-      "latitude": 42.9876,
-      "longitude": -81.2912
+      "latitude": 42.982172,
+      "longitude": -81.229524
     },
-    "title": "London Veterinary Hospital",
-    "mobileNumber": "888-555-1234"
-  },
-  {
-    "id": 7,
-    "coordinate": {
-      "latitude": 42.9934,
-      "longitude": -81.2621
-    },
-    "title": "London Pharmacy",
-    "mobileNumber": "999-999-9999"
-  },
-  {
-    "id": 8,
-    "coordinate": {
-      "latitude": 42.9922,
-      "longitude": -81.2676
-    },
-    "title": "London Chiropractic Clinic",
-    "mobileNumber": "222-333-4444"
-  },
-  {
-    "id": 9,
-    "coordinate": {
-      "latitude": 42.9905,
-      "longitude": -81.2607
-    },
-    "title": "London Urgent Care",
-    "mobileNumber": "444-444-5555"
-  },
-  {
-    "id": 10,
-    "coordinate": {
-      "latitude": 42.9949,
-      "longitude": -81.3058
-    },
-    "title": "London Optometry Clinic",
-    "mobileNumber": "666-777-8888"
-  },
-  {
-    "id": 11,
-    "coordinate": {
-      "latitude": 42.9822,
-      "longitude": -81.2672
-    },
-    "title": "London Physical Therapy Center",
-    "mobileNumber": "123-456-7890"
-  },
-  {
-    "id": 12,
-    "coordinate": {
-      "latitude": 42.992,
-      "longitude": -81.2875
-    },
-    "title": "London Diagnostic Imaging",
-    "mobileNumber": "555-555-5555"
-  },
-  {
-    "id": 13,
-    "coordinate": {
-      "latitude": 42.9981,
-      "longitude": -81.2397
-    },
-    "title": "London Children's Clinic",
+    "title": "Downtown Medical Center",
     "mobileNumber": "999-888-7777"
   },
   {
-    "id": 14,
+    "id": 3,
     "coordinate": {
-      "latitude": 42.9939,
-      "longitude": -81.2644
+      "latitude": 42.9604823,
+      "longitude": -81.2252139
     },
-    "title": "London Women's Health Center",
-    "mobileNumber": "777-777-7777"
-  },
-  {
-    "id": 15,
-    "coordinate": {
-      "latitude": 42.9986,
-      "longitude": -81.2622
-    },
-    "title": "London Dermatology Clinic",
-    "mobileNumber": "123-123-1234"
-  },
-  {
-    "id": 16,
-    "coordinate": {
-      "latitude": 42.9963,
-      "longitude": -81.2715
-    },
-    "title": "London Podiatry Clinic",
-    "mobileNumber": "888-999-0000"
-  },
-  {
-    "id": 17,
-    "coordinate": {
-      "latitude": 42.9938,
-      "longitude": -81.3014
-    },
-    "title": "London Speech Therapy Center",
-    "mobileNumber": "111-222-3333"
-  },
-  {
-    "id": 18,
-    "coordinate": {
-      "latitude": 42.9936,
-      "longitude": -81.2636
-    },
-    "title": "London Cardiology Clinic",
+    "title": "Victoria Children's Hospital",
     "mobileNumber": "444-555-6666"
-  },
-  {
-    "id": 19,
-    "coordinate": {
-      "latitude": 42.9933,
-      "longitude": -81.2617
-    },
-    "title": "London Pain Management Center",
-    "mobileNumber": "777-888-9999"
-  },
-  {
-    "id": 20,
-    "coordinate": {
-      "latitude": 42.9875,
-      "longitude": -81.2995
-    },
-    "title": "London Sleep Disorders Clinic",
-    "mobileNumber": "222-333-4444"
   }
 ]

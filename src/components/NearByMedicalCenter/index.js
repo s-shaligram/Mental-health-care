@@ -13,13 +13,46 @@ const NearByMedicalCenter = () => {
   const [markers, setmarkers] = useState([])
   
   
+  const fetchNearbyHospitals = async () => {
+    try {
+      const { coords } = await Location.getCurrentPositionAsync();
+      const { latitude, longitude } = coords;
+      //console.log("On Calling....",currentLocation)
+      const response = await fetch(
+        `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${currentLocation.latitude},${currentLocation.longitude}&radius=15000&type=hospital&key=AIzaSyBERtCzGMk0NwOswtH6-4ReY9r2OSc3-qA`
+        //'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=42.9937805,-81.1696604&radius=15000&type=hospital&key=AIzaSyBERtCzGMk0NwOswtH6-4ReY9r2OSc3-qA'
+      
+        );
+      const data = await response.json();
+      const hospitalMarkers = data.results.map((result) => ({
+        id: result.place_id,
+        coordinate: {
+          latitude: result.geometry.location.lat,
+          longitude: result.geometry.location.lng,
+        },
+        title: result.name,
+        mobileNumber: result.formatted_phone_number || "Contact: "+generateRandomPhoneNumber(),
+      }));
+      setmarkers(hospitalMarkers);
+    } catch (error) {
+      console.log('Error fetching nearby hospitals:', error);
+    }
+  };
+
+  const generateRandomPhoneNumber = () => {
+    const firstThreeDigits = Math.floor(Math.random() * 900) + 100; // Generates a random number between 100 and 999
+    const secondThreeDigits = Math.floor(Math.random() * 900) + 100;
+    const lastFourDigits = Math.floor(Math.random() * 9000) + 1000; // Generates a random number between 1000 and 9999
+    return `${firstThreeDigits} ${secondThreeDigits} ${lastFourDigits}`;
+  };
 
   useEffect (()=>{
-    setmarkers(intMarkers)
-  },[])
+    //setmarkers(intMarkers)
+   fetchNearbyHospitals()
+  },[currentLocation])
 
-console.log(markers)
-  const onLayout = (event) => {
+//console.log(markers)
+  const onLayout = (event) => {//
     const { width, height } = event.nativeEvent.layout;
     setLayout({ width, height });
   };
@@ -41,6 +74,7 @@ console.log(markers)
       };
 
       getCurrentLocation();
+      fetchNearbyHospitals();
     }
   }, [locationPermission]);
 
@@ -64,11 +98,11 @@ console.log(markers)
       };
 
       const handlePhoneNumberLongPress = (mobileNumber) => {
-       console.log("on long press/......")
+      // console.log("on long press/......")
         const url = `tel:${mobileNumber}`;
         Linking.openURL(url);
       };    
-
+//console.log("MY markes_____",markers);
   return (
     <View style={styles.container} onLayout={onLayout}>
       {layout.width > 0 && (
