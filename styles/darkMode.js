@@ -1,5 +1,4 @@
 const darkMode = {
-
     light:{
         theme:'light',
         color:'black',

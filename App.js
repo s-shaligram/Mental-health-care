@@ -34,18 +34,18 @@ export default function App() {
   const [showGoalSetting, setShowGoalSetting] = useState(false);
   const [animation, setAnimation] = useState(new Animated.Value(0));
   const [userGoals, setUserGoals] = useState(null);
-  const [theme, setTheme] = useState(false);
+  // const [theme, setTheme] = useState(false);
 
-  useEffect(() => {
-    const listener = EventRegister.addEventListener("ChangeTheme", (data) => {
-      setTheme(data);
-      console.log(data);
-    });
-
-    return () => {
-      EventRegister.removeAllListeners(listener);
-    };
-  }, [theme]);
+  // useEffect(() => {
+  //   const listener = EventRegister.addEventListener("ChangeTheme", (data) => {
+  //     setTheme(data);
+  //     console.log(data);
+  //   });
+  //
+  //   return () => {
+  //     EventRegister.removeAllListeners(listener);
+  //   };
+  // }, [theme]);
 
   useEffect(() => {
     async function prepare() {
@@ -160,11 +160,11 @@ export default function App() {
         <CommonProvider>
           {/* <themeContext.Provider value={darkMode === true ? darkMode.dark : darkMode.light}>
                     <NavigationContainer theme={darkMode === true ? DarkTheme : DefaultTheme}> */}
-          <themeContext.Provider value={theme ? darkMode.dark : darkMode.light}>
-            <NavigationContainer theme={theme ? DarkTheme : DefaultTheme}>
-              <Tabs></Tabs>
-            </NavigationContainer>
-          </themeContext.Provider>
+          {/*<themeContext.Provider value={theme ? darkMode.dark : darkMode.light}>*/}
+          <NavigationContainer>
+            <Tabs></Tabs>
+          </NavigationContainer>
+          {/*</themeContext.Provider>*/}
         </CommonProvider>
         <TouchableOpacity style={styles.drawerHandle} onPress={toggleDrawer}>
           <View style={styles.handleBar} />
@@ -192,15 +192,10 @@ export default function App() {
 const styles = StyleSheet.create({
   drawerContainer: {
     position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: "75%", // Occupies 3/4 of the screen
+    height: "78%",
     backgroundColor: "white",
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    borderRadius: 10,
     paddingHorizontal: 10,
-    paddingTop: 10,
   },
   drawerHandle: {
     position: "absolute",

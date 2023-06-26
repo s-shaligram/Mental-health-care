@@ -8,12 +8,14 @@ import {
   ScrollView,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useGlobalContext } from "../../hooks/useGlobalContext";
 
 const ViewGoalsButton = () => {
   const [goals, setGoals] = useState([]);
   const [goalText, setGoalText] = useState("");
   const [goalInfo, setGoalInfo] = useState([]);
-
+  const [isListVisible, setListVisible] = useState(false);
+  const { theme } = useGlobalContext();
   useEffect(() => {
     retrieveGoals();
   }, []);
@@ -75,6 +77,7 @@ const ViewGoalsButton = () => {
           "Set a goal to be aware of negative thoughts or self-talk and practice challenging and reframing them. This can involve techniques like cognitive restructuring, positive affirmations, or seeking professional help if needed.",
       },
     ]);
+    setListVisible(!isListVisible);
   };
 
   const deleteGoals = async () => {
@@ -89,11 +92,23 @@ const ViewGoalsButton = () => {
   };
 
   return (
-    <View>
+    <View style={{ backgroundColor: theme.background }}>
       {goals.length > 0 ? (
         <TouchableOpacity>
-          <View style={styles.container}>
-            <Text style={{ fontSize: 18, marginTop: 20, fontWeight: "bold" }}>
+          <View
+            style={{
+              ...styles.container,
+              backgroundColor: theme.background,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 18,
+                marginTop: 20,
+                fontWeight: "bold",
+                color: theme.color,
+              }}
+            >
               Your Today's Goals:
             </Text>
           </View>
@@ -101,7 +116,9 @@ const ViewGoalsButton = () => {
           <View style={styles.container1}>
             <Text>{goalText}</Text>
             {goals.map((goal, index) => (
-              <Text key={index}>{goal}</Text>
+              <Text key={index} style={{ fontSize: 18, fontWeight: "bold" }}>
+                {index + 1}.{goal}
+              </Text>
             ))}
           </View>
         </TouchableOpacity>
@@ -112,20 +129,37 @@ const ViewGoalsButton = () => {
       )}
 
       <Button title="Delete Goals" onPress={deleteGoals} color={"#FFA500"} />
-      <Button title="View Goals" onPress={handleViewGoals} color={"#1D741B"} />
+      <Button
+        title="Goal Breakdown"
+        onPress={handleViewGoals}
+        color={"#1D741B"}
+      />
 
-      <ScrollView style={styles.scrollView}>
-        {goalInfo.length > 0 && (
+      <ScrollView style={{ ...styles.scrollView }}>
+        {isListVisible && (
           <View>
             {goalInfo.map((goal, index) => (
               <View key={index}>
-                <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 18,
+                    color: theme.color,
+                  }}
+                >
                   {goal.title}
                 </Text>
-                <Text style={{ fontSize: 16, marginTop: 10 }}>
+                <Text
+                  style={{ fontSize: 16, marginTop: 10, color: theme.color }}
+                >
                   {goal.description}
                 </Text>
-                <View style={{ borderBottomWidth: 1, marginVertical: 10 }} />
+                <View
+                  style={{
+                    borderBottomWidth: 1,
+                    marginVertical: 10,
+                  }}
+                />
               </View>
             ))}
           </View>
@@ -137,7 +171,7 @@ const ViewGoalsButton = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
     borderRadius: 5,
     paddingLeft: 25,
     flexDirection: "column",
@@ -156,30 +190,52 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
     elevation: 3,
   },
+  // container1: {
+  //   backgroundColor: "#fff",
+  //   borderRadius: 5,
+  //   paddingLeft: 25,
+  //   flexDirection: "column",
+  //   alignItems: "center",
+  //   marginTop: 10,
+  //   marginBottom: 5,
+  //   marginStart: 10,
+  //   height: 160,
+  //   marginEnd: 10,
+  //   shadowColor: "#000",
+  //   shadowOffset: {
+  //     width: 0,
+  //     height: 1,
+  //   },
+  //   shadowOpacity: 0.22,
+  //   shadowRadius: 2.22,
+  //   elevation: 3,
+  // },
   container1: {
     backgroundColor: "#fff",
-    borderRadius: 5,
-    paddingLeft: 25,
+    borderRadius: 10,
+    // paddingHorizontal: 25,
+    // paddingVertical: 5,
+    padding: 5,
     flexDirection: "column",
     alignItems: "center",
     marginTop: 10,
-    marginBottom: 5,
-    marginStart: 10,
-    height: 160,
-    marginEnd: 10,
+    marginBottom: 10,
+    marginHorizontal: 10,
+    minHeight: 60,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: 2,
     },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
-    elevation: 3,
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
+
   scrollView: {
-    backgroundColor: "#fff",
+    //backgroundColor: "#fff",
     marginTop: 0,
-    marginBottom: 30,
+    marginBottom: 0,
     maxHeight: 600, // Adjust the maximum height as needed
     padding: 8,
   },

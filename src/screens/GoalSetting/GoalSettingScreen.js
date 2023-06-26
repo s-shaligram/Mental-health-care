@@ -60,187 +60,205 @@ const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
     }
   };
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={handleClose} style={styles.closeButton}>
-          <AntDesign name="close" size={24} color="black" />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.content}>
-        <Text style={styles.title}>Set Your Daily Goal</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Select from below or Enter your goal"
-          value={goals}
-          onChangeText={setGoals}
-        />
+  const GoalList = () => {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}> Set Your Daily Goal</Text>
+          <TouchableOpacity onPress={handleClose} style={styles.closeButton}>
+            <AntDesign name="close" size={24} color="black" />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.content}>
+          {/* <TextInput
+                    style={styles.input}
+                    placeholder="Select from below or Enter your goal"
+                    value={goals}
+                    onChangeText={setGoals}
+                /> */}
 
-        <Text style={styles.checklistHeader}>Checklist for Daily Goals:</Text>
-        <TouchableOpacity
-          style={styles.checklistItemContainer}
-          onPress={() => handleCheckItem("Practice Mindfulness or Meditation")}
-        >
-          <FontAwesome
-            name={
-              checkedItems.includes("Practice Mindfulness or Meditation")
-                ? "check-square-o"
-                : "square-o"
+          <Text style={styles.checklistHeader}>Checklist for Daily Goals:</Text>
+          <TouchableOpacity
+            style={styles.checklistItemContainer}
+            onPress={() =>
+              handleCheckItem("Practice Mindfulness or Meditation")
             }
-            size={20}
-            color={
-              checkedItems.includes("Practice Mindfulness or Meditation")
-                ? "#1D741B"
-                : "#000"
+          >
+            <FontAwesome
+              name={
+                checkedItems.includes("Practice Mindfulness or Meditation")
+                  ? "check-square-o"
+                  : "square-o"
+              }
+              size={20}
+              color={
+                checkedItems.includes("Practice Mindfulness or Meditation")
+                  ? "#1D741B"
+                  : "#000"
+              }
+            />
+            <Text style={styles.checklistItem}>
+              Practice Mindfulness or Meditation
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.checklistItemContainer}
+            onPress={() => handleCheckItem("Engage in Physical Exercise")}
+          >
+            <FontAwesome
+              name={
+                checkedItems.includes("Engage in Physical Exercise")
+                  ? "check-square-o"
+                  : "square-o"
+              }
+              size={20}
+              color={
+                checkedItems.includes("Engage in Physical Exercise")
+                  ? "#1D741B"
+                  : "#000"
+              }
+            />
+            <Text style={styles.checklistItem}>
+              Engage in Physical Exercise
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.checklistItemContainer}
+            onPress={() => handleCheckItem("Connect with Loved Ones")}
+          >
+            <FontAwesome
+              name={
+                checkedItems.includes("Connect with Loved Ones")
+                  ? "check-square-o"
+                  : "square-o"
+              }
+              size={20}
+              color={
+                checkedItems.includes("Connect with Loved Ones")
+                  ? "#1D741B"
+                  : "#000"
+              }
+            />
+            <Text style={styles.checklistItem}>Connect with Loved Ones</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.checklistItemContainer}
+            onPress={() => handleCheckItem("Practice Gratitude")}
+          >
+            <FontAwesome
+              name={
+                checkedItems.includes("Practice Gratitude")
+                  ? "check-square-o"
+                  : "square-o"
+              }
+              size={20}
+              color={
+                checkedItems.includes("Practice Gratitude") ? "#1D741B" : "#000"
+              }
+            />
+            <Text style={styles.checklistItem}>Practice Gratitude</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.checklistItemContainer}
+            onPress={() => handleCheckItem("Engage in Creative Activities")}
+          >
+            <FontAwesome
+              name={
+                checkedItems.includes("Engage in Creative Activities")
+                  ? "check-square-o"
+                  : "square-o"
+              }
+              size={20}
+              color={
+                checkedItems.includes("Engage in Creative Activities")
+                  ? "#1D741B"
+                  : "#000"
+              }
+            />
+            <Text style={styles.checklistItem}>
+              Engage in Creative Activities
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.checklistItemContainer}
+            onPress={() => handleCheckItem("Prioritize Self-Care")}
+          >
+            <FontAwesome
+              name={
+                checkedItems.includes("Prioritize Self-Care")
+                  ? "check-square-o"
+                  : "square-o"
+              }
+              size={20}
+              color={
+                checkedItems.includes("Prioritize Self-Care")
+                  ? "#1D741B"
+                  : "#000"
+              }
+            />
+            <Text style={styles.checklistItem}>Prioritize Self-Care</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.checklistItemContainer}
+            onPress={() =>
+              handleCheckItem("Monitor and Challenge Negative Thoughts")
             }
-          />
-          <Text style={styles.checklistItem}>
-            Practice Mindfulness or Meditation
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.checklistItemContainer}
-          onPress={() => handleCheckItem("Engage in Physical Exercise")}
-        >
-          <FontAwesome
-            name={
-              checkedItems.includes("Engage in Physical Exercise")
-                ? "check-square-o"
-                : "square-o"
-            }
-            size={20}
-            color={
-              checkedItems.includes("Engage in Physical Exercise")
-                ? "#1D741B"
-                : "#000"
-            }
-          />
-          <Text style={styles.checklistItem}>Engage in Physical Exercise</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.checklistItemContainer}
-          onPress={() => handleCheckItem("Connect with Loved Ones")}
-        >
-          <FontAwesome
-            name={
-              checkedItems.includes("Connect with Loved Ones")
-                ? "check-square-o"
-                : "square-o"
-            }
-            size={20}
-            color={
-              checkedItems.includes("Connect with Loved Ones")
-                ? "#1D741B"
-                : "#000"
-            }
-          />
-          <Text style={styles.checklistItem}>Connect with Loved Ones</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.checklistItemContainer}
-          onPress={() => handleCheckItem("Practice Gratitude")}
-        >
-          <FontAwesome
-            name={
-              checkedItems.includes("Practice Gratitude")
-                ? "check-square-o"
-                : "square-o"
-            }
-            size={20}
-            color={
-              checkedItems.includes("Practice Gratitude") ? "#1D741B" : "#000"
-            }
-          />
-          <Text style={styles.checklistItem}>Practice Gratitude</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.checklistItemContainer}
-          onPress={() => handleCheckItem("Engage in Creative Activities")}
-        >
-          <FontAwesome
-            name={
-              checkedItems.includes("Engage in Creative Activities")
-                ? "check-square-o"
-                : "square-o"
-            }
-            size={20}
-            color={
-              checkedItems.includes("Engage in Creative Activities")
-                ? "#1D741B"
-                : "#000"
-            }
-          />
-          <Text style={styles.checklistItem}>
-            Engage in Creative Activities
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.checklistItemContainer}
-          onPress={() => handleCheckItem("Prioritize Self-Care")}
-        >
-          <FontAwesome
-            name={
-              checkedItems.includes("Prioritize Self-Care")
-                ? "check-square-o"
-                : "square-o"
-            }
-            size={20}
-            color={
-              checkedItems.includes("Prioritize Self-Care") ? "#1D741B" : "#000"
-            }
-          />
-          <Text style={styles.checklistItem}>Prioritize Self-Care</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.checklistItemContainer}
-          onPress={() =>
-            handleCheckItem("Monitor and Challenge Negative Thoughts")
-          }
-        >
-          <FontAwesome
-            name={
-              checkedItems.includes("Monitor and Challenge Negative Thoughts")
-                ? "check-square-o"
-                : "square-o"
-            }
-            size={20}
-            color={
-              checkedItems.includes("Monitor and Challenge Negative Thoughts")
-                ? "#1D741B"
-                : "#000"
-            }
-          />
-          <Text style={styles.checklistItem}>
-            Monitor and Challenge Negative Thoughts
-          </Text>
-        </TouchableOpacity>
-        {/* Repeat the above TouchableOpacity block for other checklist items */}
-        <TouchableOpacity style={styles.button} onPress={handleFinish}>
-          <Text style={styles.buttonText}>Finish</Text>
-        </TouchableOpacity>
-        {showCancelModal && (
-          <View style={styles.modalContainer}>
-            <View style={styles.modalContent}>
-              <Text style={styles.modalText}>
-                Are you sure you want to cancel goal setting?
-              </Text>
-              <TouchableOpacity
-                style={styles.modalContinueButton}
-                onPress={() => handleCancelOption("continue")}
-              >
-                <Text style={styles.modalOptionText}>Continue with goals</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.modalExitButton}
-                onPress={() => handleCancelOption("exit")}
-              >
-                <Text style={styles.modalOptionText}>Exit</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        )}
+          >
+            <FontAwesome
+              name={
+                checkedItems.includes("Monitor and Challenge Negative Thoughts")
+                  ? "check-square-o"
+                  : "square-o"
+              }
+              size={20}
+              color={
+                checkedItems.includes("Monitor and Challenge Negative Thoughts")
+                  ? "#1D741B"
+                  : "#000"
+              }
+            />
+            <Text style={styles.checklistItem}>
+              Monitor and Challenge Negative Thoughts
+            </Text>
+          </TouchableOpacity>
+          {/* Repeat the above TouchableOpacity block for other checklist items */}
+          <TouchableOpacity style={styles.button} onPress={handleFinish}>
+            <Text style={styles.buttonText}>Finish</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    );
+  };
+
+  const CancelDialog = () => {
+    return (
+      <View style={styles.modalContainer}>
+        <View style={styles.modalContent}>
+          <Text style={styles.modalText}>
+            Are you sure you want to cancel goal setting?
+          </Text>
+          <TouchableOpacity
+            style={styles.modalContinueButton}
+            onPress={() => handleCancelOption("continue")}
+          >
+            <Text style={styles.modalOptionText}>Continue with goals</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.modalExitButton}
+            onPress={() => handleCancelOption("exit")}
+          >
+            <Text style={styles.modalOptionText}>Exit</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  };
+
+  return (
+    <>
+      {!showCancelModal && <GoalList />}
+      {showCancelModal && <CancelDialog />}
+    </>
   );
 };
 
@@ -248,11 +266,12 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     bottom: 0,
+    top: 55,
+    margin: 10,
     width: "100%",
-    height: "75%",
+    height: "100%",
     backgroundColor: "#fff",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderRadius: 20,
     paddingHorizontal: 20,
     paddingTop: 20,
     shadowColor: "#000",
@@ -265,19 +284,17 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   header: {
-    alignItems: "flex-end",
+    flexDirection: "row",
+    marginBottom: 20,
+    justifyContent: "space-between",
   },
-  closeButton: {
-    paddingHorizontal: 10,
-    paddingTop: 10,
-  },
+  closeButton: {},
   content: {
     flex: 1,
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 20,
   },
   input: {
     width: "100%",
@@ -293,26 +310,28 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
-    marginTop: 13,
+    marginTop: 30,
   },
   buttonText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
+
     marginTop: 5,
   },
   checklistHeader: {
     fontSize: 18,
     fontWeight: "bold",
-    marginTop: 5,
+    marginTop: 25,
     marginBottom: 5,
   },
 
   checklistItemContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 5,
+    marginTop: 1,
+    marginVertical: 15,
   },
   checklistItem: {
     fontSize: 16,
@@ -325,6 +344,7 @@ const styles = StyleSheet.create({
     //backgroundColor: "rgba(0, 0, 0, 0.5)",
     backgroundColor: "white",
     shadowColor: "grey",
+    marginTop: 600,
     shadowOffset: {
       width: 0,
       height: 2,

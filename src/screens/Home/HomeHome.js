@@ -6,17 +6,17 @@ import {useGlobalContext} from "../../hooks/useGlobalContext";
 import SleepTracker from "../../components/SleepTrack/SleepTracker";
 
 function HomeHome({navigation}) {
-    const {medicineTrackerEnabled, sleepTrackerEnabled} = useGlobalContext();
+    const {medicineTrackerEnabled, sleepTrackerEnabled, theme} = useGlobalContext();
 
     return (
         <ScrollView>
-            {sleepTrackerEnabled && <View style={styles.container2}>
+            {sleepTrackerEnabled && <View style={{...styles.container2, backgroundColor: theme.background}}>
                 <SleepTracker/>
             </View>}
             <View style={styles.container}>
                 <MoodTracker/>
             </View>
-            {medicineTrackerEnabled && <View style={styles.container2}>
+            {medicineTrackerEnabled && <View style={{...styles.container2, backgroundColor: theme.background}}>
                 <MedicineTracker/>
             </View>}
         </ScrollView>

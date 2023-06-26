@@ -7,7 +7,19 @@
     <list default="true" id="61c8dc3d-7206-4ad4-b800-2bc3297f9945" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/tabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/tabs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MedicineTrack/MedicineTracker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MedicineTrack/MedicineTracker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SleepTrack/SleepTracker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SleepTrack/SleepTracker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useGlobalContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useGlobalContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Active/ActiveHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Active/ActiveHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Active/ViewGoalsButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Active/ViewGoalsButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Calm/CalmHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Calm/CalmHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Calm/ScreenA.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Calm/ScreenA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/GoalSetting/GoalSettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/GoalSetting/GoalSettingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Home/HomeHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Home/HomeHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/More/MoreHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/More/MoreHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Track/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Track/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/darkMode.js" beforeDir="false" afterPath="$PROJECT_DIR$/styles/darkMode.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,20 +42,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/kavinranawella/Documents/Fanshawe/Sem3/capstone/app/Mental-health-care/src/components",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kavinranawella/Documents/Fanshawe/Sem3/capstone/app/Mental-health-care/src/components&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components" />
@@ -59,6 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1687460896520</updated>
       <workItem from="1687460897824" duration="1937000" />
+      <workItem from="1687727111802" duration="7800000" />
     </task>
     <servers />
   </component>
