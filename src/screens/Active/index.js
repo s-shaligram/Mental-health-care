@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import GameOne from "./GameOne";
+import ViewGoalsButton from "./ViewGoalsButton";
 import ActiveHome from "./ActiveHome";
 const Stack = createStackNavigator();
 
@@ -15,7 +16,12 @@ function Active() {
       <Stack.Screen
         name="GameOne"
         component={GameOne}
-        options={{ headerShown: false }}
+        options={{ headerShown: true, headerTitle: "Active" }}
+      />
+      <Stack.Screen
+        name="ViewGoalsButton"
+        component={ViewGoalsButton}
+        options={{ headerShown: true, headerTitle: "Active" }}
       />
     </Stack.Navigator>
   );
