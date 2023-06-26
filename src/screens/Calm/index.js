@@ -16,13 +16,13 @@ function Calm() {
       <Stack.Screen
         name="ChangeTheme"
         component={ChangeTheme}
-        options={{ headerShown: true }}
+        options={{ headerShown: true, headerTitle: "Calm" }}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="ScreenB"
         component={ScreenB}
         options={{ headerShown: false }}
-      />
+      /> */}
     </Stack.Navigator>
   );
 }

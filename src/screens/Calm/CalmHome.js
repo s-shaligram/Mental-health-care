@@ -15,11 +15,11 @@ function CalmHome({ navigation }) {
         routeTo={"ChangeTheme"}
         navigation={navigation}
       />
-      <SelectionTile
+      {/* <SelectionTile
         name={"Selection B"}
         routeTo={"ScreenB"}
         navigation={navigation}
-      />
+      /> */}
     </ScrollView>
   );
 }
