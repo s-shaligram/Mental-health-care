@@ -17,7 +17,7 @@ const NearByMedicalCenter = () => {
     try {
       const { coords } = await Location.getCurrentPositionAsync();
       const { latitude, longitude } = coords;
-      console.log("On Calling....",currentLocation)
+      //console.log("On Calling....",currentLocation)
       const response = await fetch(
         `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${currentLocation.latitude},${currentLocation.longitude}&radius=15000&type=hospital&key=AIzaSyBERtCzGMk0NwOswtH6-4ReY9r2OSc3-qA`
         //'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=42.9937805,-81.1696604&radius=15000&type=hospital&key=AIzaSyBERtCzGMk0NwOswtH6-4ReY9r2OSc3-qA'
@@ -51,7 +51,7 @@ const NearByMedicalCenter = () => {
    fetchNearbyHospitals()
   },[currentLocation])
 
-console.log(markers)
+//console.log(markers)
   const onLayout = (event) => {//
     const { width, height } = event.nativeEvent.layout;
     setLayout({ width, height });
@@ -98,11 +98,11 @@ console.log(markers)
       };
 
       const handlePhoneNumberLongPress = (mobileNumber) => {
-       console.log("on long press/......")
+      // console.log("on long press/......")
         const url = `tel:${mobileNumber}`;
         Linking.openURL(url);
       };    
-console.log("MY markes_____",markers);
+//console.log("MY markes_____",markers);
   return (
     <View style={styles.container} onLayout={onLayout}>
       {layout.width > 0 && (
