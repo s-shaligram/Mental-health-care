@@ -7,18 +7,12 @@ import moment from "moment/moment";
 import themeContext from "../../../styles/themeContext";
 
 const SleepTracker = () => {
-    // const theme = useContext(themeContext);
-
     const [intakeState, setIntakeState] = useState(false);
     const [showResponse, setShowResponse] = useState(false);
     const responseText = `Hours were recorded..!`;
     const fadeAnim = useRef(new Animated.Value(1)).current;
     const {setSleepRecords, theme} = useGlobalContext();
     const [sliderValue, setSliderValue] = useState(0);
-
-    const getWelcomeMessage = () => {
-        return "Good morning! How many hours did you sleep last night?";
-    };
 
     useEffect(() => {
         if (intakeState) {
@@ -72,9 +66,6 @@ const SleepTracker = () => {
                         <TouchableOpacity
                             style={styles.sliderContainer}
                             activeOpacity={0.8}
-                            // onPress={() => {
-                            //     recordData(sliderValue);
-                            // }}
                         >
                             <Slider
                                 style={styles.slider}
