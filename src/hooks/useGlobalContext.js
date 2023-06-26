@@ -3,10 +3,39 @@ import moment from "moment/moment";
 import darkMode from "../../styles/darkMode";
 
 const useHook = () => {
-    const [moodRecords, setMoodRecords] = useState([]);
     const [medicineTrackerEnabled, setMedicineTrackerEnabled] = useState(true);
     const [sleepTrackerEnabled, setSleepTrackerEnabled] = useState(true);
     const [theme, setTheme] = useState(darkMode.light);
+    const [moodRecords, setMoodRecords] = useState([
+        {
+            date: (moment().day()-6),
+            mood: '😄'
+        },
+        {
+            date: (moment().day()-5),
+            mood: '😞'
+        },
+        {
+            date: (moment().day()-4),
+            mood: '😠'
+        },
+        {
+            date: (moment().day()-3),
+            mood: '😌'
+        },
+        {
+            date: (moment().day()-2),
+            mood: '😠'
+        },
+        {
+            date: (moment().day()-1),
+            mood: '😄'
+        },
+        {
+            date: (moment().day()),
+            mood: undefined
+        }
+    ]);
     const [medicalRecords, setMedicalRecords] = useState([
         {
             date: (moment().day()-6),
