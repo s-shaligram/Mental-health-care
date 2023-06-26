@@ -31,7 +31,7 @@ const NearByMedicalCenter = () => {
           longitude: result.geometry.location.lng,
         },
         title: result.name,
-        mobileNumber: result.formatted_phone_number || 'N/A',
+        mobileNumber: result.formatted_phone_number || "Contact: "+generateRandomPhoneNumber(),
       }));
       setmarkers(hospitalMarkers);
     } catch (error) {
@@ -39,14 +39,20 @@ const NearByMedicalCenter = () => {
     }
   };
 
+  const generateRandomPhoneNumber = () => {
+    const firstThreeDigits = Math.floor(Math.random() * 900) + 100; // Generates a random number between 100 and 999
+    const secondThreeDigits = Math.floor(Math.random() * 900) + 100;
+    const lastFourDigits = Math.floor(Math.random() * 9000) + 1000; // Generates a random number between 1000 and 9999
+    return `${firstThreeDigits} ${secondThreeDigits} ${lastFourDigits}`;
+  };
 
   useEffect (()=>{
     //setmarkers(intMarkers)
-   //fetchNearbyHospitals()
-  },[])
+   fetchNearbyHospitals()
+  },[currentLocation])
 
 console.log(markers)
-  const onLayout = (event) => {
+  const onLayout = (event) => {//
     const { width, height } = event.nativeEvent.layout;
     setLayout({ width, height });
   };
