@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState,useContext } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Button } from 'react-native';
 import styles from './styles';
+import {NotificationContext}  from '../../hooks/useNotificationContext';
 
 const MoodTracker = () => {
   const [mood, setMood] = useState();
+  const   {scheduleNotification} = useContext(NotificationContext);
 
   const handleMoodSelection = (selectedMood) => {
     setMood(selectedMood);
@@ -29,7 +31,6 @@ const MoodTracker = () => {
 
   return (
     <View style={styles.container}>
-      
       <View style={styles.emojiContainer}>
         <TouchableOpacity
           style={styles.emoji}

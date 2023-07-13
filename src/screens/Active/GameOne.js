@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useContext } from "react";
 import {
   StyleSheet,
   View,
@@ -8,6 +8,7 @@ import {
   Alert,
 } from "react-native";
 import styles from "./style";
+import { NotificationContext } from "../../hooks/useNotificationContext";
 
 const randomTexts = [
   "Keep going!",
@@ -37,7 +38,7 @@ const Active = () => {
   const [count, setCount] = useState(0);
   const [randomIndex, setRandomIndex] = useState(0);
   const countRef = useRef(count);
-
+  const   {scheduleNotification} = useContext(NotificationContext);
   const incrementCount = () => {
     if (count < 10) {
       setCount(count + 1);
@@ -47,8 +48,9 @@ const Active = () => {
     }
   };
 
-  const handlePress = () => {
+  const handlePress = async () => {
     if (count === 10) {
+     await scheduleNotification("CDG","Clam down Game","Congratulations..you have completed the game",3)
       Alert.alert(
         "Congratulations!",
         "Great job! Do you want to start the count again?",
@@ -62,6 +64,7 @@ const Active = () => {
 
   const resetCount = () => {
     setCount(0);
+    
   };
 
   const renderAvatars = () => {
