@@ -12,6 +12,8 @@ import {
 import styles from "./style";
 import { useGlobalContext } from "../../hooks/useGlobalContext";
 import { NotificationContext } from "../../hooks/useNotificationContext";
+const { width, height } = Dimensions.get("window");
+const android = Platform.OS == "android";
 
 const randomTexts = [
   "Keep going!",
