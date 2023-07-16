@@ -8,6 +8,7 @@ import {
   Alert,
 } from "react-native";
 import styles from "./style";
+import { useGlobalContext } from "../../hooks/useGlobalContext";
 import { NotificationContext } from "../../hooks/useNotificationContext";
 
 const randomTexts = [
@@ -38,6 +39,7 @@ const Active = () => {
   const [count, setCount] = useState(0);
   const [randomIndex, setRandomIndex] = useState(0);
   const countRef = useRef(count);
+  const { theme } = useGlobalContext();
   const   {scheduleNotification} = useContext(NotificationContext);
   const incrementCount = async () => {
     if (count < 10) {
@@ -91,7 +93,7 @@ const Active = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={{ ...styles.container, backgroundColor: theme.background }}>
       <View style={styles.avatarsContainer}>{renderAvatars()}</View>
       <Text style={styles.count}>{count}</Text>
       <Text style={styles.text}>{randomTexts[randomIndex]}</Text>
@@ -106,7 +108,9 @@ const Active = () => {
       </TouchableOpacity>
       {count === 10 && (
         <TouchableOpacity onPress={handlePress} style={styles.resetButton}>
-          <Text style={styles.resetButtonText}>Reset Count</Text>
+          <Text style={{ ...styles.buttonText, color: theme.color }}>
+            Reset Count
+          </Text>
         </TouchableOpacity>
       )}
     </View>

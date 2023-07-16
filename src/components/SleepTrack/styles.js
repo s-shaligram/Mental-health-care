@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
         padding: 30,
         alignItems: 'center',
         justifyContent: 'center',
+        
     },
     title: {
         fontSize: 24,
@@ -14,6 +15,7 @@ const styles = StyleSheet.create({
     sliderValueContainer: {
         alignItems: 'center',
         marginTop: 10,
+        
     },
     sliderValueText: {
         fontSize: 12,
@@ -23,6 +25,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         marginTop: 8,
+        
     },
     welcome: {
         fontSize: 15,
@@ -40,10 +43,13 @@ const styles = StyleSheet.create({
     },
     sliderContainer: {
         alignItems: 'center',
+        borderRadius: 10
     },
     slider: {
         width: 300,
-        height: 50,
+        height: 20,
+        backgroundColor: '#fff',
+
     },
     sliderValue: {
         marginTop: 10,
@@ -51,7 +57,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     button: {
-        backgroundColor: '#2aa627',
+        backgroundColor: '#FFA500',
         borderRadius: 10,
         paddingVertical: 10,
         paddingHorizontal: 20,

@@ -6,25 +6,25 @@ import NotificationList from "../../components/Notifications/NotificationList";
 const Stack = createStackNavigator();
 
 function More() {
-    return (
-        <Stack.Navigator initialRoutName="MoreHome">
-            <Stack.Screen
-                name="MoreHome"
-                component={MoreHome}
-                options={{ headerShown: false }}
-            />
-            <Stack.Screen
-                name="NearByMedicalCenter"
-                component={NearByMedicalCenter}
-                options={{ headerShown: false }}
-            />
-             <Stack.Screen
+  return (
+    <Stack.Navigator initialRoutName="MoreHome">
+      <Stack.Screen
+        name="MoreHome"
+        component={MoreHome}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="NearByMedicalCenter"
+        component={NearByMedicalCenter}
+        options={{ headerShown: true, headerTitle: "More" }}
+      />
+      <Stack.Screen
                 name="Notifications"
                 component={NotificationList}
                 options={{ headerShown: false }}
             />
-        </Stack.Navigator>
-    );
+    </Stack.Navigator>
+  );
 }
 
 export default More;

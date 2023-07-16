@@ -1,15 +1,17 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef, useContext} from 'react';
 import {View, Text, TouchableOpacity, Animated} from 'react-native';
 import styles from './styles';
 import {useGlobalContext} from "../../hooks/useGlobalContext";
 import moment from "moment/moment";
+import themeContext from "../../../styles/themeContext";
 
 const MedicineTracker = () => {
     const [intakeState, setIntakeState] = useState(false);
     const [showResponse, setShowResponse] = useState(false);
     const responseText = `Response was recorded..!`;
     const fadeAnim = useRef(new Animated.Value(1)).current;
-    const {setMedicalRecords} = useGlobalContext();
+    const {setMedicalRecords, theme} = useGlobalContext();
+    // const theme = useContext(themeContext);
 
     const randomWelcomeMessage = () => {
         let arr = [
@@ -70,7 +72,7 @@ const MedicineTracker = () => {
         <>
             {intakeState === false ? (
                 <View style={styles.container}>
-                    <Text style={styles.welcome}>{randomWelcomeMessage()}</Text>
+                    <Text style={{...styles.welcome, color: theme.color}}>{randomWelcomeMessage()}</Text>
                     <View style={styles.emojiContainer}>
                         <TouchableOpacity
                             style={styles.emoji}
