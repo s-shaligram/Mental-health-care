@@ -18,11 +18,11 @@ function More() {
         component={NearByMedicalCenter}
         options={{ headerShown: true, headerTitle: "More" }}
       />
-      {/* <Stack.Screen
+      <Stack.Screen
                 name="Notifications"
                 component={NotificationList}
                 options={{ headerShown: false }}
-            /> */}
+            />
     </Stack.Navigator>
   );
 }
