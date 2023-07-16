@@ -6,9 +6,14 @@ import {
   TouchableOpacity,
   Image,
   Alert,
+  Dimensions,
+  Platform,
 } from "react-native";
 import styles from "./style";
 import { useGlobalContext } from "../../hooks/useGlobalContext";
+
+const { width, height } = Dimensions.get("window");
+const android = Platform.OS == "android";
 const randomTexts = [
   "Keep going!",
   "You can do it",
@@ -22,16 +27,16 @@ const randomTexts = [
   "You are awesome",
 ];
 const avatars = [
-  require("./../../../assets/Avatar/one.jpg"),
-  require("./../../../assets/Avatar/two.jpg"),
-  require("./../../../assets/Avatar/three.jpg"),
-  require("./../../../assets/Avatar/four.jpg"),
-  require("./../../../assets/Avatar/five.jpg"),
-  require("./../../../assets/Avatar/six.jpg"),
-  require("./../../../assets/Avatar/seven.jpg"),
-  require("./../../../assets/Avatar/eight.jpg"),
-  require("./../../../assets/Avatar/nine.jpg"),
-  require("./../../../assets/Avatar/ten.jpg"),
+  require("./../../../assets/Avatar/one.png"),
+  require("./../../../assets/Avatar/two.png"),
+  require("./../../../assets/Avatar/three.png"),
+  require("./../../../assets/Avatar/four.png"),
+  require("./../../../assets/Avatar/five.png"),
+  require("./../../../assets/Avatar/six.png"),
+  require("./../../../assets/Avatar/seven.png"),
+  require("./../../../assets/Avatar/eight.png"),
+  require("./../../../assets/Avatar/nine.png"),
+  require("./../../../assets/Avatar/ten.png"),
 ];
 const Active = () => {
   const [count, setCount] = useState(0);
@@ -88,25 +93,36 @@ const Active = () => {
 
   return (
     <View style={{ ...styles.container, backgroundColor: theme.background }}>
-      <View style={styles.avatarsContainer}>{renderAvatars()}</View>
-      <Text style={styles.count}>{count}</Text>
-      <Text style={styles.text}>{randomTexts[randomIndex]}</Text>
-      <TouchableOpacity
-        onPress={incrementCount}
-        disabled={count >= 10}
-        style={[styles.button, count >= 10 && styles.buttonDisabled]}
+      <View
+        style={{
+          borderRadius: 40,
+          backgroundColor: theme.background,
+          height: android ? height * 0.6 : height * 0.5,
+          width: width * 0.5,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        <Text style={styles.buttonText}>
-          {count === 10 ? "Great Job!" : "Press Me"}
-        </Text>
-      </TouchableOpacity>
-      {count === 10 && (
-        <TouchableOpacity onPress={handlePress} style={styles.resetButton}>
-          <Text style={{ ...styles.buttonText, color: theme.color }}>
-            Reset Count
+        <View>{renderAvatars()}</View>
+        <Text style={styles.count}>{count}</Text>
+        <Text style={styles.text}>{randomTexts[randomIndex]}</Text>
+        <TouchableOpacity
+          onPress={incrementCount}
+          disabled={count >= 10}
+          style={[styles.button, count >= 10 && styles.buttonDisabled]}
+        >
+          <Text style={styles.buttonText}>
+            {count === 10 ? "Great Job!" : "Press Me"}
           </Text>
         </TouchableOpacity>
-      )}
+        {count === 10 && (
+          <TouchableOpacity onPress={handlePress} style={styles.resetButton}>
+            <Text style={{ ...styles.buttonText, color: "#FFA500" }}>
+              Reset Count
+            </Text>
+          </TouchableOpacity>
+        )}
+      </View>
     </View>
   );
 };
