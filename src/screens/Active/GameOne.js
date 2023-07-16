@@ -39,18 +39,19 @@ const Active = () => {
   const [randomIndex, setRandomIndex] = useState(0);
   const countRef = useRef(count);
   const   {scheduleNotification} = useContext(NotificationContext);
-  const incrementCount = () => {
+  const incrementCount = async () => {
     if (count < 10) {
       setCount(count + 1);
       setRandomIndex(Math.floor(Math.random() * randomTexts.length));
     } else if (count === 9) {
       setCount(count + 1);
     }
+
   };
 
   const handlePress = async () => {
     if (count === 10) {
-     await scheduleNotification("CDG","Clam down Game","Congratulations..you have completed the game",3)
+    await scheduleNotification("CDG","Clam down Game","Congratulations..you have completed the game",3)
       Alert.alert(
         "Congratulations!",
         "Great job! Do you want to start the count again?",
