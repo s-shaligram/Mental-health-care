@@ -12,7 +12,7 @@ function MoreHome({ navigation }) {
         routeTo={"NearByMedicalCenter"}
         navigation={navigation}
       />
-      {/* <SelectionTile name={"🔔 View Notifications"} routeTo={'Notifications'} navigation={navigation}/> */}
+      <SelectionTile name={"🔔 View Notifications"} routeTo={'Notifications'} navigation={navigation}/>
     </ScrollView>
   );
 }
