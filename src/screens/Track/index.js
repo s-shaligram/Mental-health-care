@@ -21,12 +21,12 @@ const Track = () => {
     sleepTrackerEnabled,
     sleepRecords,
     medicalRecords,
+    moodRecords,
     theme
   } = useGlobalContext();
   const screenWidth = Dimensions.get("window").width;
   const screenHeight = Dimensions.get("window").height;
   const sleepChartLabels = [];
-  const todayIndex = moment().day();
   for (let i = 0; i <= 6; i++) {
     const dayName = moment()
       .subtract(6 - i, "days")
@@ -82,6 +82,7 @@ const Track = () => {
 
   return (
     <ScrollView style={{...styles.container, backgroundColor: theme.background}}>
+
       {/* Mood Tracker */}
       <View style={styles.separator}>
         <View style={styles.line} />
@@ -89,14 +90,40 @@ const Track = () => {
         <View style={styles.line} />
       </View>
 
-      <View style={styles.moodContainer}>
-        <FlatList
-          data={moodData}
-          keyExtractor={(item, index) => index.toString()}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => <MoodCard mood={item.mood} />}
-        />
+      <View style={styles.trackerContainer}>
+        {moodRecords.map((state, index) => {
+          const dayName = moment()
+              .subtract(6 - index, "days")
+              .format("ddd");
+
+          if (state.mood === undefined) {
+            return (
+                <View style={styles.dayContainer} key={index}>
+                  <Feather name="circle" size={22} color={"#dadada"} />
+                  <Text
+                      style={[
+                        styles.dayText,
+                      ]}
+                  >
+                    {dayName}
+                  </Text>
+                </View>
+            );
+          }
+
+          return (
+              <View style={styles.dayContainer} key={index}>
+                <Text>{state.mood}</Text>
+                <Text
+                    style={[
+                      styles.dayText,
+                    ]}
+                >
+                  {dayName}
+                </Text>
+              </View>
+          );
+        })}
       </View>
 
       {/* Medicine Tracker */}
@@ -113,7 +140,6 @@ const Track = () => {
             const dayName = moment()
               .subtract(6 - index, "days")
               .format("ddd");
-            const isCurrentDay = index === todayIndex;
 
             if (state.medicineTaken === undefined) {
               return (
@@ -122,7 +148,6 @@ const Track = () => {
                   <Text
                     style={[
                       styles.dayText,
-                      isCurrentDay && styles.currentDayText,
                     ]}
                   >
                     {dayName}
@@ -141,7 +166,6 @@ const Track = () => {
                 <Text
                   style={[
                     styles.dayText,
-                    isCurrentDay && styles.currentDayText,
                   ]}
                 >
                   {dayName}
@@ -250,10 +274,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "bold",
     color: "#777",
-  },
-  currentDayText: {
-    fontWeight: "bold",
-    color: "#000",
   },
   sectionHeader: {
     fontSize: 18,

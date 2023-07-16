@@ -2,15 +2,20 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styles from "./styles";
+import moment from "moment";
+import {useGlobalContext} from "../../hooks/useGlobalContext";
 
 const MoodTracker = () => {
   const [mood, setMood] = useState(null);
   const [moodText, setMoodText] = useState("");
-  const [moodData, setMoodData] = useState([]);
+  const {setMoodRecords} = useGlobalContext();
+  // const [moodData, setMoodData] = useState([]);
 
   const handleMoodSelection = async (selectedMood) => {
+    console.log(selectedMood)
+    recordData(selectedMood)
     setMood(selectedMood);
-    await saveMood(selectedMood);
+    // await saveMood(selectedMood);
     handleMoodText(selectedMood);
   };
 
@@ -26,23 +31,19 @@ const MoodTracker = () => {
     }
   };
 
-  const saveMood = async (selectedMood) => {
-    try {
-      const currentDate = new Date().toISOString().split("T")[0]; // Get the current date
-      const existingData = await AsyncStorage.getItem(currentDate); // Retrieve existing data for the current date
+  const recordData = (emoji) => {
+    let rec = {
+      date: moment().day(),
+      mood: emoji
+    };
 
-      let newData = [];
-      if (existingData) {
-        newData = JSON.parse(existingData); // Parse existing data from JSON
+    setMoodRecords(prevRecords => prevRecords.map((day) => {
+      if (day.date === moment().day()) {
+        return rec;
+      } else {
+        return day;
       }
-
-      newData.push({ mood: selectedMood }); // Add the new mood entry
-
-      await AsyncStorage.setItem(currentDate, JSON.stringify(newData)); // Save the updated data
-      console.log("Mood saved successfully.", newData);
-    } catch (error) {
-      console.log("Error saving mood:", error);
-    }
+    }));
   };
 
   const retrieveMoodData = async () => {

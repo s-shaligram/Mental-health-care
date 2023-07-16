@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import {
   StyleSheet,
   View,
@@ -11,9 +11,8 @@ import {
 } from "react-native";
 import styles from "./style";
 import { useGlobalContext } from "../../hooks/useGlobalContext";
+import { NotificationContext } from "../../hooks/useNotificationContext";
 
-const { width, height } = Dimensions.get("window");
-const android = Platform.OS == "android";
 const randomTexts = [
   "Keep going!",
   "You can do it",
@@ -43,7 +42,8 @@ const Active = () => {
   const [randomIndex, setRandomIndex] = useState(0);
   const countRef = useRef(count);
   const { theme } = useGlobalContext();
-  const incrementCount = () => {
+  const { scheduleNotification } = useContext(NotificationContext);
+  const incrementCount = async () => {
     if (count < 10) {
       setCount(count + 1);
       setRandomIndex(Math.floor(Math.random() * randomTexts.length));
@@ -52,8 +52,14 @@ const Active = () => {
     }
   };
 
-  const handlePress = () => {
+  const handlePress = async () => {
     if (count === 10) {
+      await scheduleNotification(
+        "CDG",
+        "Clam down Game",
+        "Congratulations..you have completed the game",
+        3
+      );
       Alert.alert(
         "Congratulations!",
         "Great job! Do you want to start the count again?",

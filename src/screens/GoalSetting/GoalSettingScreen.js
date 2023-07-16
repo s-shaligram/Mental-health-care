@@ -64,7 +64,7 @@ const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>Set Your Daily Goal</Text>
+          <Text style={styles.title}> Set Your Daily Goal</Text>
           <TouchableOpacity onPress={handleClose} style={styles.closeButton}>
             <AntDesign name="close" size={24} color="black" />
           </TouchableOpacity>
@@ -310,7 +310,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
-    marginTop: 80,
+    marginTop: 30,
   },
   buttonText: {
     color: "#fff",
@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
   checklistItemContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: 17,
+    marginTop: 1,
     marginVertical: 15,
   },
   checklistItem: {
