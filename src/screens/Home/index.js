@@ -1,8 +1,6 @@
 import React from "react";
 import {createStackNavigator} from "@react-navigation/stack";
 import HomeHome from "./HomeHome";
-import MedicineTracker from "../../components/MedicineTrack/MedicineTracker";
-import SleepTracker from "../../components/SleepTrack/SleepTracker";
 
 const Stack = createStackNavigator();
 
