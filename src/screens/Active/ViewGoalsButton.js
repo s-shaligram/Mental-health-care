@@ -236,8 +236,9 @@ const styles = StyleSheet.create({
     //backgroundColor: "#fff",
     marginTop: 0,
     marginBottom: 0,
-    maxHeight: 600, // Adjust the maximum height as needed
+    maxHeight: 540, // Adjust the maximum height as needed
     padding: 8,
+    minHeight: 110,
   },
 });
 export default ViewGoalsButton;

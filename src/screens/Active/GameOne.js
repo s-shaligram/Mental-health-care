@@ -136,3 +136,74 @@ const Active = () => {
 };
 
 export default Active;
+//Check if it's 10:00 PM and show the completion notification
+// const checkTimeAndShowNotification = async () => {
+//   const currentTime = new Date().getTime();
+//   const notificationTime = new Date();
+//   notificationTime.setHours(16, 28, 0); // Set the notification time to 10:00 PM
+//   console.log("Current time", currentTime);
+//   console.log(notificationTime.getTime());
+//   if (true) {
+//     // Get the user's goals from AsyncStorage
+//     const storedData = await AsyncStorage.getItem("userGoals");
+//     if (storedData) {
+//       const { goals: storedGoals } = JSON.parse(storedData);
+//       setGoalsState(storedGoals);
+//     }
+
+//     // Schedule the completion notification
+//     await scheduleNotification(
+//       "Completion",
+//       "Goal Completion",
+//       "Have you completed your goals for today?",
+//       3
+//     );
+//   }
+// };
+// // Schedule the repeating notification
+// await setRepeating({
+//   content: {
+//     title: "Daily Goal",
+//     body: "Have you completed your goals for today?",
+//   },
+//   trigger: { seconds: Math.ceil(delay / 1000) }, // Convert delay to seconds
+//   repeats: true,
+// });
+// Schedule a test notification with a delay of 5 seconds
+// useEffect(() => {
+//   const checkTimeAndShowNotification = async () => {
+//     const now = new Date();
+//     const targetTime = new Date(now); // Create a new date object for today
+//     targetTime.setHours(16, 45, 0, 0); // Set the target time to 10:00 PM today
+
+//     if (now >= targetTime) {
+//       // The current time has already passed the target time for today.
+//       // Set the target time to 10:00 PM tomorrow.
+//       targetTime.setDate(targetTime.getDate() + 1);
+//     }
+
+//     // Calculate the delay (in milliseconds) from now to the target time
+//     const delay = targetTime.getTime() - now.getTime();
+//     console.log("Now", now);
+//     console.log("TargetTime", targetTime);
+//     console.log("Delay", delay);
+
+//     await scheduleNotification({
+//       content: {
+//         title: "Test Notification",
+//         body: "This is a test notification with a 5-second delay!",
+//       },
+//       trigger: {
+//         seconds: 5,
+//       },
+//     })
+//       .then(() => {
+//         console.log("Test notification scheduled with a 5-second delay.");
+//       })
+//       .catch((error) => {
+//         console.error("Error scheduling test notification:", error);
+//       });
+
+//     checkTimeAndShowNotification();
+//   };
+// }, []);

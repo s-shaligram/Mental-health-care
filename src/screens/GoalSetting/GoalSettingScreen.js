@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -10,12 +10,52 @@ import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { connect } from "react-redux";
 import { setGoals } from "../././../../redux/actions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import {
+  NotificationProvider,
+  NotificationContext,
+} from "../../hooks/useNotificationContext";
+//import { Notifications } from "expo";
+import { Notifications } from "expo-notifications";
 
 const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
   const [goals, setGoals] = useState("");
   const [checkedItems, setCheckedItems] = useState([]);
   const [showCancelModal, setShowCancelModal] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const { scheduleNotification } = useContext(NotificationContext);
+
+  useEffect(() => {
+    // Schedule the end-of-day notification at 9:00 PM
+    scheduleEndOfDayNotification();
+  }, []);
+
+  const scheduleEndOfDayNotification = async () => {
+    try {
+      const endOfDay = new Date();
+      endOfDay.setHours(21, 36, 0, 0); // Set the notification time to 6:00 PM
+      const currentTime = new Date();
+      console.log("Current Time", currentTime);
+      console.log("EndOfTime", endOfDay.setHours(21, 10, 0, 0));
+      if (endOfDay < currentTime) {
+        // If endOfDay is before the current time, schedule the notification for tomorrow
+        endOfDay.setDate(endOfDay.getDate() + 1);
+      }
+
+      // const secondsUntilEndOfDay =
+      //   (endOfDay.getTime() - currentTime.getTime()) / 1000;
+      // console.log("timeInterval:", secondsUntilEndOfDay);
+      await scheduleNotification(
+        "EOG", // Activity key for end-of-day notification
+        "Daily Goals",
+        "Have you completed your daily scheduled goals?",
+        3
+      );
+
+      console.log("End-of-day notification scheduled.");
+    } catch (error) {
+      console.error("Error scheduling end-of-day notification:", error);
+    }
+  };
 
   const handleFinish = async () => {
     try {
@@ -27,7 +67,13 @@ const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
 
       // Save the data to AsyncStorage
       await AsyncStorage.setItem("userGoals", JSON.stringify(data));
-
+      //Notification
+      await scheduleNotification(
+        "GS",
+        "Goal Set",
+        "Congratulations..you have set the today's goals",
+        3
+      );
       // Call the onFinishGoalSetting callback with the goals
       onFinishGoalSetting(data);
     } catch (error) {
