@@ -32,7 +32,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
-  const [showGoalSetting, setShowGoalSetting] = useState(false);
+  const [showGoalSetting, setShowGoalSetting] = useState(true);
   const [animation, setAnimation] = useState(new Animated.Value(0));
   const [userGoals, setUserGoals] = useState(null);
   // const [theme, setTheme] = useState(false);
