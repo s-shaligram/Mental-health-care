@@ -15,7 +15,7 @@ import {
   NotificationContext,
 } from "../../hooks/useNotificationContext";
 //import { Notifications } from "expo";
-import { Notifications } from "expo-notifications";
+//import { Notifications } from "expo-notifications";
 
 const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
   const [goals, setGoals] = useState("");
@@ -32,24 +32,36 @@ const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
   const scheduleEndOfDayNotification = async () => {
     try {
       const endOfDay = new Date();
-      endOfDay.setHours(21, 36, 0, 0); // Set the notification time to 6:00 PM
+      endOfDay.setHours(21, 0, 0, 0); // Set the notification time to 11:00 pm
       const currentTime = new Date();
       console.log("Current Time", currentTime);
-      console.log("EndOfTime", endOfDay.setHours(21, 10, 0, 0));
+      console.log("EndOfTime", endOfDay.setHours(3, 47, 0, 0));
       if (endOfDay < currentTime) {
         // If endOfDay is before the current time, schedule the notification for tomorrow
         endOfDay.setDate(endOfDay.getDate() + 1);
       }
 
-      // const secondsUntilEndOfDay =
-      //   (endOfDay.getTime() - currentTime.getTime()) / 1000;
-      // console.log("timeInterval:", secondsUntilEndOfDay);
+      const secondsUntilEndOfDay = Math.round(
+        (endOfDay.getTime() - currentTime.getTime()) / 1000
+      );
+      console.log("timeInterval:", secondsUntilEndOfDay);
       await scheduleNotification(
         "EOG", // Activity key for end-of-day notification
         "Daily Goals",
         "Have you completed your daily scheduled goals?",
-        3
+        secondsUntilEndOfDay
       );
+      // await scheduleNotification({
+      //   content: {
+      //     title: "Daily Goals",
+      //     body: "Have you completed your daily scheduled goals?",
+      //     // Any additional data you want to include with the notification
+      //   },
+      //   trigger: {
+      //     seconds: secondsUntilEndOfDay,
+      //     //repeats: false,
+      //   },
+      // });
 
       console.log("End-of-day notification scheduled.");
     } catch (error) {
@@ -110,9 +122,14 @@ const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}> Set Your Daily Goal</Text>
+          <Text style={styles.title}>Set Your Daily Goal</Text>
           <TouchableOpacity onPress={handleClose} style={styles.closeButton}>
-            <AntDesign name="close" size={24} color="black" />
+            <AntDesign
+              name="close"
+              size={24}
+              color="white"
+              backgroundColor="red"
+            />
           </TouchableOpacity>
         </View>
         <View style={styles.content}>
@@ -310,20 +327,15 @@ const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
 
 const styles = StyleSheet.create({
   container: {
-    position: "absolute",
-    bottom: 0,
-    top: 55,
-    margin: 10,
-    width: "100%",
-    height: "100%",
     backgroundColor: "#fff",
-    borderRadius: 20,
-    paddingHorizontal: 20,
-    paddingTop: 20,
+    borderRadius: 10,
+    padding: 20,
+    marginBottom: 20,
+    marginTop: 160,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: -2,
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
@@ -331,41 +343,46 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: "row",
+    alignItems: "center",
     marginBottom: 20,
-    justifyContent: "space-between",
-  },
-  closeButton: {},
-  content: {
-    flex: 1,
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
+    color: "#333",
+    flex: 1,
   },
-  input: {
-    width: "100%",
-    height: 40,
-    borderColor: "#ccc",
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingHorizontal: 10,
+  closeButton: {
+    padding: 5,
+  },
+  content: {},
+  checklistHeader: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 15,
+  },
+  checklistItemContainer: {
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 10,
+  },
+  checklistItem: {
+    fontSize: 16,
+    marginLeft: 10,
   },
   button: {
     backgroundColor: "#FFA500",
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: 12,
     borderRadius: 5,
-    marginTop: 30,
+    marginTop: 20,
+    alignItems: "center",
   },
   buttonText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
-    textAlign: "center",
-
-    marginTop: 5,
   },
+
   checklistHeader: {
     fontSize: 18,
     fontWeight: "bold",
@@ -384,19 +401,20 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   modalContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    //backgroundColor: "rgba(0, 0, 0, 0.5)",
-    backgroundColor: "white",
-    shadowColor: "grey",
-    marginTop: 600,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    padding: 20,
+    marginBottom: 60,
+    marginTop: 250,
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
     },
     shadowOpacity: 0.25,
-    shadowRadius: 4,
+    shadowRadius: 3.84,
+    elevation: 5,
+    height: 250,
   },
   modalContent: {
     backgroundColor: "white",

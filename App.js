@@ -39,7 +39,8 @@ export default function App() {
   const [animation, setAnimation] = useState(new Animated.Value(0));
   const [userGoals, setUserGoals] = useState(null);
   const [showNotificationModal, setShowNotificationModal] = useState(false);
-  const [notificationData, setNotificationData] = useState(null);
+  const [receivedEndOfDayNotification, setReceivedEndOfDayNotification] =
+    useState(false);
   const [userInteractedWithNotification, setUserInteractedWithNotification] =
     useState(false);
 
@@ -56,32 +57,62 @@ export default function App() {
   //   };
   // }, [theme]);
 
-  useEffect(() => {
-    // Register notification handler
-    const notificationListener =
-      Notifications.addNotificationResponseReceivedListener(handleNotification);
+  // useEffect(() => {
+  //   // Register notification handler
+  //   const notificationListener =
+  //     Notifications.addNotificationResponseReceivedListener(handleNotification);
 
-    return () => {
-      // Clean up notification listener when the component unmounts
-      notificationListener.remove();
-    };
-  }, []);
+  //   return () => {
+  //     // Clean up notification listener when the component unmounts
+  //     notificationListener.remove();
+  //   };
+  // }, []);
 
-  const handleNotification = (notification) => {
-    console.log("Received notification:", notification);
-    // Set the state to indicate that the user has interacted with the notification
-    //setNotificationData(notification.request.content.data);
-    // Handle the notification here, open a modal or a separate screen to handle the user's response.
-    // if (
-    //   notification.request.trigger &&
-    //   notification.request.trigger === "selected"
-    // ) {
-    setUserInteractedWithNotification(true);
-    console.log("demo:", setUserInteractedWithNotification);
-    // Open the notification modal
-    setShowNotificationModal(true);
-    //}
-  };
+  // const handleNotification = (notification) => {
+  //   console.log("Received notification:", notification);
+  //   // Set the state to indicate that the user has interacted with the notification
+  //   //setNotificationData(notification.request.content.data);
+  //   // Handle the notification here, open a modal or a separate screen to handle the user's response.
+  //   // if (
+  //   //   notification.request.trigger &&
+  //   //   notification.request.trigger === "selected"
+  //   // ) {
+  //   try {
+  //     // Check if the notification is from Expo notifications
+  //     if (
+  //       notification &&
+  //       notification.request &&
+  //       notification.request.content
+  //     ) {
+  //       console.log("Received Expo notification:", notification);
+  //       const notificationContent = notification.request.content;
+
+  //       // // Check if it is the end-of-day notification
+  //       // if (notificationContent.title === "Daily Goals") {
+  //       //   setReceivedEndOfDayNotification(true);
+  //       // }
+  //       // setUserInteractedWithNotification(true);
+  //       // console.log("demo:", setUserInteractedWithNotification);
+  //       // // Open the notification modal
+  //       // setShowNotificationModal(true);
+  //       //}
+  //     } else {
+  //       // Handle non-Expo notifications here (if needed)
+  //       console.log("Received non-Expo notification:", notification);
+  //       const notificationContent = notification.request.content;
+  //       // Check if it is the end-of-day notification
+  //       if (notificationContent.title === "Daily Goals") {
+  //         setReceivedEndOfDayNotification(true);
+  //       }
+  //       setUserInteractedWithNotification(true);
+  //       console.log("demo:", setUserInteractedWithNotification);
+  //       // Open the notification modal
+  //       setShowNotificationModal(true);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error handling notification:", error);
+  //   }
+  // };
 
   useEffect(() => {
     async function prepare() {
@@ -220,7 +251,7 @@ export default function App() {
             </Animated.View>
           )}
         </Provider>
-        {userInteractedWithNotification && (
+        {receivedEndOfDayNotification && userInteractedWithNotification && (
           <NotificationModal
             visible={showNotificationModal}
             onClose={() => setShowNotificationModal(false)}
