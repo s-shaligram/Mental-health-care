@@ -96,6 +96,120 @@ const useHook = () => {
             sleepHours: 0
         }
     ]);
+    const [dataEmpty, setDataEmpty] = useState(false);
+
+    const clearData = () => {
+        // clear mood records
+        setMoodRecords([
+            {
+                date: (moment().day()-6),
+                mood: undefined
+            },
+            {
+                date: (moment().day()-5),
+                mood: undefined
+            },
+            {
+                date: (moment().day()-4),
+                mood: undefined
+            },
+            {
+                date: (moment().day()-3),
+                mood: undefined
+            },
+            {
+                date: (moment().day()-2),
+                mood: undefined
+            },
+            {
+                date: (moment().day()-1),
+                mood: undefined
+            },
+            {
+                date: (moment().day()),
+                mood: undefined
+            }
+        ])
+
+        // clear medical records
+        setMedicalRecords([
+            {
+                date: (moment().day()-6),
+                medicineTaken: undefined
+            },
+            {
+                date: (moment().day()-5),
+                medicineTaken: undefined
+            },
+            {
+                date: (moment().day()-4),
+                medicineTaken: undefined
+            },
+            {
+                date: (moment().day()-3),
+                medicineTaken: undefined
+            },
+            {
+                date: (moment().day()-2),
+                medicineTaken: undefined
+            },
+            {
+                date: (moment().day()-1),
+                medicineTaken: undefined
+            },
+            {
+                date: (moment().day()),
+                medicineTaken: undefined
+            }
+        ]);
+
+        // clear sleep records
+        setSleepRecords([
+            {
+                date: (moment().day()-6),
+                sleepHours: 0
+            },
+            {
+                date: (moment().day()-5),
+                sleepHours: 0
+            },
+            {
+                date: (moment().day()-4),
+                sleepHours: 0
+            },
+            {
+                date: (moment().day()-3),
+                sleepHours: 0
+            },
+            {
+                date: (moment().day()-2),
+                sleepHours: 0
+            },
+            {
+                date: (moment().day()-1),
+                sleepHours: 0
+            },
+            {
+                date: (moment().day()),
+                sleepHours: 0
+            }
+        ]);
+
+        // clear other records
+
+        setDataEmpty(true)
+    }
+
+    function compareArrays(array1, array2) {
+        // Check if the arrays have the same length
+        if (array1.length !== array2.length) {
+            return false;
+        }
+
+        // Compare each element in the arrays
+        return array1.every((element, index) => element === array2[index]);
+    }
+
     return {
         medicalRecords,
         setMedicalRecords,
@@ -108,7 +222,10 @@ const useHook = () => {
         sleepRecords,
         setSleepRecords,
         theme,
-        setTheme
+        setTheme,
+        clearData,
+        dataEmpty,
+        setDataEmpty
     };
 };
 

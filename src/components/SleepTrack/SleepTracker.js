@@ -11,7 +11,7 @@ const SleepTracker = () => {
     const [showResponse, setShowResponse] = useState(false);
     const responseText = `Hours were recorded..!`;
     const fadeAnim = useRef(new Animated.Value(1)).current;
-    const {setSleepRecords, theme} = useGlobalContext();
+    const {setSleepRecords, theme, setDataEmpty} = useGlobalContext();
     const [sliderValue, setSliderValue] = useState(0);
 
     useEffect(() => {
@@ -43,6 +43,7 @@ const SleepTracker = () => {
 
     const recordData = () => {
         setIntakeState(true);
+        setDataEmpty(false)
         let rec = {
             date: moment().day(),
             sleepHours: sliderValue

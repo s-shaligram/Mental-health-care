@@ -30,7 +30,6 @@ const ViewGoalsButton = () => {
         setGoals(goalsArray);
         setGoalText(goalTextValue);
       } else {
-        console.log("No goals found.");
         setGoals([]);
         setGoalText("");
       }

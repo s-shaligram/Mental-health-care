@@ -22,10 +22,12 @@ const styles = StyleSheet.create({
     width: 140, // Customize the width as per your requirement
     height: 140, // Customize the height as per your requirement
     borderRadius: 25, // Customize the borderRadius as per your preference
-    marginBottom: 60,
-    padding: 30,
-    marginTop: 10,
-    marginHorizontal: 10,
+    marginBottom: 80,
+    //padding: 30,
+    // marginTop: 10,
+    // marginHorizontal: 15,
+    margin: 30,
+    // justifyContent: "center",
   },
   progressBar: {
     position: "absolute",
@@ -45,6 +47,9 @@ const styles = StyleSheet.create({
   buttonText: {
     // color: "white",
     fontSize: 16,
+  },
+  buttonDisabled: {
+    opacity: 0.6,
   },
 });
 export default styles;
