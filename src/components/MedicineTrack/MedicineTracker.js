@@ -10,7 +10,7 @@ const MedicineTracker = () => {
     const [showResponse, setShowResponse] = useState(false);
     const responseText = `Response was recorded..!`;
     const fadeAnim = useRef(new Animated.Value(1)).current;
-    const {setMedicalRecords, theme} = useGlobalContext();
+    const {setMedicalRecords, theme, setDataEmpty} = useGlobalContext();
     // const theme = useContext(themeContext);
 
     const randomWelcomeMessage = () => {
@@ -53,6 +53,7 @@ const MedicineTracker = () => {
     }, [showResponse]);
 
     const recordData = (taken) => {
+        setDataEmpty(false)
         setIntakeState(true);
         let rec = {
             date: moment().day(),
