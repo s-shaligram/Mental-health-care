@@ -26,6 +26,13 @@ const NotificationList = () => {
         }
 
     }
+
+    const deleteSingleItem = async (id)=>{
+        Alert.alert("Are you sure!", "Your notification will be deleted", [
+            { text: "Cancel", style: "cancel" },
+            { text: "Yes", onPress: () => deleteData(id) },
+        ])
+    }
     const renderListItem = ({ item }) => (
         <View style={styles.listItem}>
             <View style={styles.notificationContent}>
@@ -33,7 +40,7 @@ const NotificationList = () => {
                 <Text>{item.body}</Text>
                 <Text>{item.currentDate}</Text>
             </View>
-            <TouchableOpacity style={styles.deleteButton} onPress={() => deleteData(item.id)}>
+            <TouchableOpacity style={styles.deleteButton} onPress={() => deleteSingleItem(item.id)}>
                 <Text style={styles.deleteButtonText}>Delete</Text>
             </TouchableOpacity>
         </View>
