@@ -3,7 +3,7 @@ import { Text, ScrollView, View, StyleSheet, Switch } from "react-native";
 import { EventRegister } from "react-native-event-listeners";
 import { useGlobalContext } from "../../hooks/useGlobalContext";
 import darkMode from "../../../styles/darkMode";
-
+//import DarkModeToggle from "react-native-dark-mode-toggle";
 // import themeContext from "../../../styles/themeContext";
 
 function ChangeTheme() {

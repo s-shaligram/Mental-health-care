@@ -8,14 +8,12 @@ import {useGlobalContext} from "../../hooks/useGlobalContext";
 const MoodTracker = () => {
   const [mood, setMood] = useState(null);
   const [moodText, setMoodText] = useState("");
-  const {setMoodRecords} = useGlobalContext();
+  const {setMoodRecords, setDataEmpty} = useGlobalContext();
   // const [moodData, setMoodData] = useState([]);
 
   const handleMoodSelection = async (selectedMood) => {
-    console.log(selectedMood)
     recordData(selectedMood)
     setMood(selectedMood);
-    // await saveMood(selectedMood);
     handleMoodText(selectedMood);
   };
 
@@ -32,6 +30,7 @@ const MoodTracker = () => {
   };
 
   const recordData = (emoji) => {
+    setDataEmpty(false)
     let rec = {
       date: moment().day(),
       mood: emoji

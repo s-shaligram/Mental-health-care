@@ -74,9 +74,9 @@ export default function App() {
     }
   };
 
-  useEffect(() => {
+  useEffect(async () => {
     //registerForPushNotificationsAsync();
-    loadGoalsFromStorage();
+    await loadGoalsFromStorage();
     console.log("App mounted.....")
   }, []);
 
