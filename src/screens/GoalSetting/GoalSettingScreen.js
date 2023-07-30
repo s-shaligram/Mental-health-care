@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import {
   StyleSheet,
   View,
@@ -10,12 +10,14 @@ import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { connect } from "react-redux";
 import { setGoals } from "../././../../redux/actions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { NotificationContext } from "../../hooks/useNotificationContext";
 
 const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
   const [goals, setGoals] = useState("");
   const [checkedItems, setCheckedItems] = useState([]);
   const [showCancelModal, setShowCancelModal] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const {scheduleNotification} = useContext(NotificationContext);
 
   const handleFinish = async () => {
     try {
@@ -27,6 +29,14 @@ const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
 
       // Save the data to AsyncStorage
       await AsyncStorage.setItem("userGoals", JSON.stringify(data));
+
+      //Notification
+      await scheduleNotification(
+        "GS",
+        "Goal Set",
+        "Congratulations..you have set the today's goals",
+        3
+      );
 
       // Call the onFinishGoalSetting callback with the goals
       onFinishGoalSetting(data);
