@@ -129,7 +129,7 @@ export const NotificationProvider = ({ children }) => {
       console.log(notification.request.content);
 
       // Trigger the handleUserResponse function with the notification identifier
-      handleUserResponse(notification.request.identifier);
+      //handleUserResponse(notification.request.identifier);
 
       console.log("Before set");
       console.log(notification.request.identifier);
@@ -212,8 +212,11 @@ export const NotificationProvider = ({ children }) => {
       console.log("Inside If");
       const notificationData = response.notification.request.content;
       if (notificationData) {
-        setModalNotificationData(notificationData);
-        setModalVisible(true);
+        console.log("Data:", notificationData);
+        if (notificationData.activityKey == "GS") {
+          setModalNotificationData(notificationData);
+          setModalVisible(true);
+        }
       }
     } else {
       console.log("inside else");
