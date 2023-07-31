@@ -9,7 +9,6 @@ function ActiveHome({navigation}) {
     } = useGlobalContext();
     return (
         <ScrollView style={{backgroundColor: theme.background}}>
-            <SelectionTile name={"🎲 Calm down game"} routeTo={'GameOne'} navigation={navigation}/>
             <SelectionTile name={"🥅 View Daily Goals"} routeTo={'ViewGoalsButton'} navigation={navigation}/>
         </ScrollView>
     );
