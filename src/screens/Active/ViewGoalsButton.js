@@ -108,12 +108,12 @@ const ViewGoalsButton = () => {
                                 color: theme.color,
                             }}
                         >
-                            Your Today's Goals:
+                            Today's Goals:
                         </Text>
                     </View>
 
                     <View style={styles.container1}>
-                        <Text>{goalText}</Text>
+                        {goalText && <Text>{goalText}</Text>}
                         {goals.map((goal, index) => (
                             <Text key={index} style={{fontSize: 18, fontWeight: "bold"}}>
                                 {index + 1}.{goal}
