@@ -110,6 +110,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         margin: 8,
+        marginBottom: 0,
+        padding: 10,
+        borderRadius: 10,
         backgroundColor: '#FFA500'
     },
     notificationContent: {
@@ -123,9 +126,10 @@ const styles = StyleSheet.create({
         color: '#2196F3',
     },
     deleteAllButton: {
+        marginBottom: 10,
         alignSelf: 'flex-end', // Align the button to the right
         marginRight: 10, // Add some right margin for spacing
-        marginTop: 10, // Add some top margin for spacing
+        marginTop: 20, // Add some top margin for spacing
         backgroundColor: '#dc3545', // Example background color
         padding: 10, // Example padding
         borderRadius: 5, // Make the button rounded
