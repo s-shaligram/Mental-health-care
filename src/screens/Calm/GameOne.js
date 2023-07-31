@@ -1,6 +1,5 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useContext } from "react";
 import {
-  StyleSheet,
   View,
   Text,
   TouchableOpacity,
@@ -9,7 +8,7 @@ import {
   Dimensions,
   Platform,
 } from "react-native";
-import styles from "./style";
+import styles from "../Active/style";
 import { useGlobalContext } from "../../hooks/useGlobalContext";
 import { NotificationContext } from "../../hooks/useNotificationContext";
 const { width, height } = Dimensions.get("window");
@@ -28,22 +27,21 @@ const randomTexts = [
   "You are awesome",
 ];
 const avatars = [
-  require("./../../../assets/Avatar/one.png"),
-  require("./../../../assets/Avatar/two.png"),
-  require("./../../../assets/Avatar/three.png"),
-  require("./../../../assets/Avatar/four.png"),
-  require("./../../../assets/Avatar/five.png"),
-  require("./../../../assets/Avatar/six.png"),
-  require("./../../../assets/Avatar/seven.png"),
-  require("./../../../assets/Avatar/eight.png"),
-  require("./../../../assets/Avatar/nine.png"),
-  require("./../../../assets/Avatar/ten.png"),
+  require("../../../assets/Avatar/one.png"),
+  require("../../../assets/Avatar/two.png"),
+  require("../../../assets/Avatar/three.png"),
+  require("../../../assets/Avatar/four.png"),
+  require("../../../assets/Avatar/five.png"),
+  require("../../../assets/Avatar/six.png"),
+  require("../../../assets/Avatar/seven.png"),
+  require("../../../assets/Avatar/eight.png"),
+  require("../../../assets/Avatar/nine.png"),
+  require("../../../assets/Avatar/ten.png"),
 ];
 
-const Active = () => {
+const GameOne = () => {
   const [count, setCount] = useState(0);
   const [randomIndex, setRandomIndex] = useState(0);
-  const countRef = useRef(count);
   const { theme } = useGlobalContext();
   const { scheduleNotification } = useContext(NotificationContext);
 
@@ -136,4 +134,4 @@ const Active = () => {
   );
 };
 
-export default Active;
+export default GameOne;
