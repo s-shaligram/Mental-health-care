@@ -36,8 +36,9 @@ const styles = StyleSheet.create({
     },
     answerOptions: {
       flexDirection: 'row',
-      alignItems: 'center',
-      marginBottom: 10,
+      justifyContent: 'space-between', // Add this to distribute elements evenly
+      margin: 5,
+        marginBottom: 10,
     },
     answerText: {
       marginRight: 10,
