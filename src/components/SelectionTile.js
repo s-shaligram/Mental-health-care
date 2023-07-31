@@ -1,17 +1,30 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
+import { useGlobalContext } from "../hooks/useGlobalContext";
 
 const SelectionTile = (props) => {
   const {name, routeTo, navigation} = props;
+
+  const {
+    theme
+} = useGlobalContext();
+
   return (
     <TouchableOpacity
-        style={styles.container}
+        style={[styles.container, {backgroundColor: theme.theme === "dark" ? "black" : "white", 
+      borderColor: theme.theme === "dark" ? "#1D741B" : "white",
+      borderWidth: 2
+    } ]}
       onPress={() => {
         navigation.navigate(routeTo);
       }}
     >
       <View>
-        <Text>{name}</Text>
+        <Text style = {
+          {
+            color: theme.theme === "dark" ? "white" : "black"
+          }
+        }>{name}</Text>
       </View>
     </TouchableOpacity>
   );

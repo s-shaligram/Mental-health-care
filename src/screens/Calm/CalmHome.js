@@ -11,7 +11,7 @@ function CalmHome({ navigation }) {
   return (
     <ScrollView style={{ backgroundColor: theme.background }}>
       <SelectionTile
-        name={"⚫ Change Theme"}
+        name={ theme.theme === "light" ? "⚫ Change Theme" : "⚪ Change Theme"}
         routeTo={"ChangeTheme"}
         navigation={navigation}
       />
