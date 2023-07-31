@@ -85,7 +85,7 @@ const Questionnaire = () => {
 
   return (
     <View style={styles.container}>
-        <Text style={styles.heading}>Health Checkup</Text>
+        {/* <Text style={styles.heading}>Health Checkup</Text> */}
       {!startQuestionnaire ? (
         <View style={styles.startContainer}>
           <Text style={styles.confirmationText}>Start quick health checkup questionnaire?</Text>
