@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
     color: "#838383",
     marginHorizontal: 5,
     fontWeight: "bold",
-    color: "black",
+    //color: "black",
   },
   chart: {
     marginVertical: 8,
