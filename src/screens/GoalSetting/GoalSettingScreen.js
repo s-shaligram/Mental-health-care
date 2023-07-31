@@ -11,11 +11,8 @@ import { connect } from "react-redux";
 import { setGoals } from "../././../../redux/actions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
-  NotificationProvider,
   NotificationContext,
 } from "../../hooks/useNotificationContext";
-//import { Notifications } from "expo";
-//import { Notifications } from "expo-notifications";
 
 const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
   const [goals, setGoals] = useState("");
@@ -51,18 +48,6 @@ const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
         "Have you completed your daily scheduled goals?",
         secondsUntilEndOfDay
       );
-      // await scheduleNotification({
-      //   content: {
-      //     title: "Daily Goals",
-      //     body: "Have you completed your daily scheduled goals?",
-      //     // Any additional data you want to include with the notification
-      //   },
-      //   trigger: {
-      //     seconds: secondsUntilEndOfDay,
-      //     //repeats: false,
-      //   },
-      // });
-
       console.log("End-of-day notification scheduled.");
     } catch (error) {
       console.error("Error scheduling end-of-day notification:", error);
@@ -357,16 +342,11 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   content: {},
-  checklistHeader: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 15,
-  },
-  checklistItemContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-  },
+  // checklistItemContainer: {
+  //   flexDirection: "row",
+  //   alignItems: "center",
+  //   marginBottom: 10,
+  // },
   checklistItem: {
     fontSize: 16,
     marginLeft: 10,
@@ -397,10 +377,10 @@ const styles = StyleSheet.create({
     marginTop: 1,
     marginVertical: 15,
   },
-  checklistItem: {
-    fontSize: 16,
-    marginLeft: 10,
-  },
+  // checklistItem: {
+  //   fontSize: 16,
+  //   marginLeft: 10,
+  // },
   modalContainer: {
     backgroundColor: "#fff",
     borderRadius: 10,
