@@ -35,7 +35,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
-  const [showGoalSetting, setShowGoalSetting] = useState(false);
+  const [showGoalSetting, setShowGoalSetting] = useState(true);
   const [animation, setAnimation] = useState(new Animated.Value(0));
   const [userGoals, setUserGoals] = useState(null);
   const [showNotificationModal, setShowNotificationModal] = useState(false);
@@ -163,9 +163,9 @@ export default function App() {
       const lastSetDate = await AsyncStorage.getItem("lastSetDate");
       console.log(lastSetDate);
       if (lastSetDate && moment().isSame(moment(lastSetDate), "day")) {
-        setShowGoalSetting(false);
-      } else {
         setShowGoalSetting(true);
+      } else {
+        setShowGoalSetting(false);
       }
     } catch (error) {
       console.error("Error checking goal setting status:", error);
