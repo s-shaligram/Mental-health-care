@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.expo.Mind2.0",
@@ -20,7 +22,7 @@
       }
     },
     "android": {
-      "package": "mentalhealthcare.mindapp",
+      "package": "com.kavin256.Mind20",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -29,8 +31,7 @@
         "googleMaps": {
           "apiKey": "AIzaSyBERtCzGMk0NwOswtH6-4ReY9r2OSc3-qA"
         }
-      },
-      "package": "com.kavin256.Mind20"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
