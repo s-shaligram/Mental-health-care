@@ -8,14 +8,12 @@ import {useGlobalContext} from "../../hooks/useGlobalContext";
 const MoodTracker = () => {
   const [mood, setMood] = useState(null);
   const [moodText, setMoodText] = useState("");
-  const {setMoodRecords} = useGlobalContext();
+  const {setMoodRecords, setDataEmpty} = useGlobalContext();
   // const [moodData, setMoodData] = useState([]);
 
   const handleMoodSelection = async (selectedMood) => {
-    console.log(selectedMood)
     recordData(selectedMood)
     setMood(selectedMood);
-    // await saveMood(selectedMood);
     handleMoodText(selectedMood);
   };
 
@@ -32,6 +30,7 @@ const MoodTracker = () => {
   };
 
   const recordData = (emoji) => {
+    setDataEmpty(false)
     let rec = {
       date: moment().day(),
       mood: emoji
@@ -46,23 +45,23 @@ const MoodTracker = () => {
     }));
   };
 
-  const retrieveMoodData = async () => {
-    try {
-      const currentDate = new Date().toISOString().split("T")[0]; // Get the current date
-      const existingData = await AsyncStorage.getItem(currentDate); // Retrieve existing data for the current date
+  // const retrieveMoodData = async () => {
+  //   try {
+  //     const currentDate = new Date().toISOString().split("T")[0]; // Get the current date
+  //     const existingData = await AsyncStorage.getItem(currentDate); // Retrieve existing data for the current date
 
-      if (existingData) {
-        const parsedData = JSON.parse(existingData);
-        setMoodData(parsedData);
-      }
-    } catch (error) {
-      console.log("Error retrieving mood data:", error);
-    }
-  };
+  //     if (existingData) {
+  //       const parsedData = JSON.parse(existingData);
+  //       setMoodData(parsedData);
+  //     }
+  //   } catch (error) {
+  //     console.log("Error retrieving mood data:", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    retrieveMoodData();
-  }, []);
+  // useEffect(() => {
+  //   retrieveMoodData();
+  // }, []);
 
   const renderMoodSelection = () => {
     if (mood === null) {

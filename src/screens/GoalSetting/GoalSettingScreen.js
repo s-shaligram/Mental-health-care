@@ -86,6 +86,7 @@ const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
       );
       // Save the data to AsyncStorage
       await AsyncStorage.setItem("userGoals", JSON.stringify(data));
+
       // Call the onFinishGoalSetting callback with the goals
       onFinishGoalSetting(data);
     } catch (error) {
