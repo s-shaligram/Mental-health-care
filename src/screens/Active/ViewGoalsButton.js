@@ -125,10 +125,7 @@ const ViewGoalsButton = () => {
             ) : (
                 <>
                     <Text style={{fontSize: 18, marginTop: 20, textAlign: 'center'}}>
-                        Oops!!
-                    </Text>
-                    <Text style={{fontSize: 18, marginTop: 5, textAlign: 'center', margin: 20}}>
-                        It looks either you haven't set any goals or deleted them.
+                        Oops..! No goals found ☹️
                     </Text>
                 </>
             )}

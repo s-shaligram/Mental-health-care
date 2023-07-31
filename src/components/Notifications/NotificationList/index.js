@@ -3,7 +3,7 @@ import { View, FlatList, StyleSheet, Text, TouchableOpacity, Alert } from "react
 import Notification from "../Notification";
 import { NotificationContext } from "../../../hooks/useNotificationContext";
 
-const NotificationList = () => {
+const NotificationList = ({navigation}) => {
     const { loadNotification, notificationData, deleteNotification, clearNotificationList } = useContext(NotificationContext);
 
     useEffect(() => {
@@ -56,7 +56,8 @@ const NotificationList = () => {
     }
 
     const clearNotifications = async () => {
-        await clearNotificationList()
+        await clearNotificationList();
+        navigation.goBack();
     }
 
     return (
