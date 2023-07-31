@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState,useContext } from "react";
+import React, { useCallback, useEffect, useState, useContext } from "react";
 import {
   StyleSheet,
   View,
@@ -26,8 +26,11 @@ import darkMode from "./styles/darkMode";
 import * as Notifications from "expo-notifications";
 import * as Permissions from "expo-permissions";
 import LocalNotification from "./src/components/Notifications/LocalNotification";
-
-import {NotificationProvider} from './src/hooks/useNotificationContext'
+import NotificationModal from "./src/screens/GoalSetting/GoalNotificationModal";
+import {
+  NotificationProvider,
+  NotificationContext,
+} from "./src/hooks/useNotificationContext";
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
@@ -35,6 +38,12 @@ export default function App() {
   const [showGoalSetting, setShowGoalSetting] = useState(true);
   const [animation, setAnimation] = useState(new Animated.Value(0));
   const [userGoals, setUserGoals] = useState(null);
+  const [showNotificationModal, setShowNotificationModal] = useState(false);
+  const [receivedEndOfDayNotification, setReceivedEndOfDayNotification] =
+    useState(false);
+  const [userInteractedWithNotification, setUserInteractedWithNotification] =
+    useState(false);
+
   // const [theme, setTheme] = useState(false);
 
   // useEffect(() => {
@@ -47,6 +56,63 @@ export default function App() {
   //     EventRegister.removeAllListeners(listener);
   //   };
   // }, [theme]);
+
+  // useEffect(() => {
+  //   // Register notification handler
+  //   const notificationListener =
+  //     Notifications.addNotificationResponseReceivedListener(handleNotification);
+
+  //   return () => {
+  //     // Clean up notification listener when the component unmounts
+  //     notificationListener.remove();
+  //   };
+  // }, []);
+
+  // const handleNotification = (notification) => {
+  //   console.log("Received notification:", notification);
+  //   // Set the state to indicate that the user has interacted with the notification
+  //   //setNotificationData(notification.request.content.data);
+  //   // Handle the notification here, open a modal or a separate screen to handle the user's response.
+  //   // if (
+  //   //   notification.request.trigger &&
+  //   //   notification.request.trigger === "selected"
+  //   // ) {
+  //   try {
+  //     // Check if the notification is from Expo notifications
+  //     if (
+  //       notification &&
+  //       notification.request &&
+  //       notification.request.content
+  //     ) {
+  //       console.log("Received Expo notification:", notification);
+  //       const notificationContent = notification.request.content;
+
+  //       // // Check if it is the end-of-day notification
+  //       // if (notificationContent.title === "Daily Goals") {
+  //       //   setReceivedEndOfDayNotification(true);
+  //       // }
+  //       // setUserInteractedWithNotification(true);
+  //       // console.log("demo:", setUserInteractedWithNotification);
+  //       // // Open the notification modal
+  //       // setShowNotificationModal(true);
+  //       //}
+  //     } else {
+  //       // Handle non-Expo notifications here (if needed)
+  //       console.log("Received non-Expo notification:", notification);
+  //       const notificationContent = notification.request.content;
+  //       // Check if it is the end-of-day notification
+  //       if (notificationContent.title === "Daily Goals") {
+  //         setReceivedEndOfDayNotification(true);
+  //       }
+  //       setUserInteractedWithNotification(true);
+  //       console.log("demo:", setUserInteractedWithNotification);
+  //       // Open the notification modal
+  //       setShowNotificationModal(true);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error handling notification:", error);
+  //   }
+  // };
 
   useEffect(() => {
     async function prepare() {
@@ -76,8 +142,8 @@ export default function App() {
 
   useEffect(async () => {
     //registerForPushNotificationsAsync();
-    await loadGoalsFromStorage();
-    console.log("App mounted.....")
+    loadGoalsFromStorage();
+    console.log("App mounted.....");
   }, []);
 
   const saveGoalsToStorage = async (goals, checkedItems) => {
@@ -105,8 +171,6 @@ export default function App() {
       console.error("Error checking goal setting status:", error);
     }
   };
-
-
 
   const onFinishGoalSetting = useCallback((goals, checkedItems) => {
     if (goals) {
@@ -157,43 +221,43 @@ export default function App() {
 
   return (
     <NotificationProvider>
-    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-      
-      <Provider store={store}>
-        
-        <CommonProvider>
-          {/* <themeContext.Provider value={darkMode === true ? darkMode.dark : darkMode.light}>
+      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+        <Provider store={store}>
+          <CommonProvider>
+            {/* <themeContext.Provider value={darkMode === true ? darkMode.dark : darkMode.light}>
                     <NavigationContainer theme={darkMode === true ? DarkTheme : DefaultTheme}> */}
-          {/*<themeContext.Provider value={theme ? darkMode.dark : darkMode.light}>*/}       
-          <NavigationContainer>
-            <Tabs></Tabs>
-          </NavigationContainer>
-          {/*</themeContext.Provider>*/}
-       
-        </CommonProvider>
-        <TouchableOpacity style={styles.drawerHandle} onPress={toggleDrawer}>
-          <View style={styles.handleBar} />
-        </TouchableOpacity>
-        {showGoalSetting && (
-          <Animated.View
-            style={[
-              StyleSheet.absoluteFill,
-              styles.drawerContainer,
-              { transform: [{ translateY: drawerTranslateY }] },
-            ]}
-          >
-            
-            <GoalSettingScreen
-              onFinishGoalSetting={onFinishGoalSetting}
-              onCancelGoalSetting={cancelGoalSetting}
-              setShowGoalSetting={animateDrawer}
-            />
-          </Animated.View>
+            {/*<themeContext.Provider value={theme ? darkMode.dark : darkMode.light}>*/}
+            <NavigationContainer>
+              <Tabs></Tabs>
+            </NavigationContainer>
+            {/*</themeContext.Provider>*/}
+          </CommonProvider>
+          <TouchableOpacity style={styles.drawerHandle} onPress={toggleDrawer}>
+            <View style={styles.handleBar} />
+          </TouchableOpacity>
+          {showGoalSetting && (
+            <Animated.View
+              style={[
+                StyleSheet.absoluteFill,
+                styles.drawerContainer,
+                { transform: [{ translateY: drawerTranslateY }] },
+              ]}
+            >
+              <GoalSettingScreen
+                onFinishGoalSetting={onFinishGoalSetting}
+                onCancelGoalSetting={cancelGoalSetting}
+                setShowGoalSetting={animateDrawer}
+              />
+            </Animated.View>
+          )}
+        </Provider>
+        {receivedEndOfDayNotification && userInteractedWithNotification && (
+          <NotificationModal
+            visible={showNotificationModal}
+            onClose={() => setShowNotificationModal(false)}
+          />
         )}
-       
-      </Provider>
-    
-    </View>
+      </View>
     </NotificationProvider>
   );
 }

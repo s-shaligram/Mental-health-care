@@ -39,19 +39,23 @@ const avatars = [
   require("./../../../assets/Avatar/nine.png"),
   require("./../../../assets/Avatar/ten.png"),
 ];
+
 const Active = () => {
   const [count, setCount] = useState(0);
   const [randomIndex, setRandomIndex] = useState(0);
   const countRef = useRef(count);
   const { theme } = useGlobalContext();
   const { scheduleNotification } = useContext(NotificationContext);
+
   const incrementCount = async () => {
     if (count < 10) {
       setCount(count + 1);
       setRandomIndex(Math.floor(Math.random() * randomTexts.length));
-    } else if (count === 9) {
-      setCount(count + 1);
     }
+  };
+
+  const handlePlayAgain = () => {
+    resetCount();
   };
 
   const handlePress = async () => {
@@ -67,7 +71,7 @@ const Active = () => {
         "Great job! Do you want to start the count again?",
         [
           { text: "Cancel", style: "cancel" },
-          { text: "Yes", onPress: resetCount },
+          { text: "Yes", onPress: handlePlayAgain },
         ]
       );
     }
@@ -114,20 +118,17 @@ const Active = () => {
         <View>{renderAvatars()}</View>
         <Text style={styles.count}>{count}</Text>
         <Text style={styles.text}>{randomTexts[randomIndex]}</Text>
-        <TouchableOpacity
-          onPress={incrementCount}
-          disabled={count >= 10}
-          style={[styles.button, count >= 10 && styles.buttonDisabled]}
-        >
-          <Text style={styles.buttonText}>
-            {count === 10 ? "Great Job!" : "Press Me"}
-          </Text>
-        </TouchableOpacity>
-        {count === 10 && (
-          <TouchableOpacity onPress={handlePress} style={styles.resetButton}>
-            <Text style={{ ...styles.buttonText, color: "#FFA500" }}>
-              Reset Count
-            </Text>
+        {count === 10 ? (
+          <TouchableOpacity onPress={handlePress} style={styles.button}>
+            <Text style={styles.buttonText}>Play Again</Text>
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={incrementCount}
+            disabled={count >= 10}
+            style={[styles.button, count >= 10 && styles.buttonDisabled]}
+          >
+            <Text style={styles.buttonText}>Press Me</Text>
           </TouchableOpacity>
         )}
       </View>
