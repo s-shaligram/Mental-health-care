@@ -22,7 +22,7 @@ const Track = () => {
     sleepRecords,
     medicalRecords,
     moodRecords,
-    theme
+    theme,
   } = useGlobalContext();
   const screenWidth = Dimensions.get("window").width;
   const screenHeight = Dimensions.get("window").height;
@@ -81,8 +81,9 @@ const Track = () => {
   }, []);
 
   return (
-    <ScrollView style={{...styles.container, backgroundColor: theme.background}}>
-
+    <ScrollView
+      style={{ ...styles.container, backgroundColor: theme.background }}
+    >
       {/* Mood Tracker */}
       <View style={styles.separator}>
         <View style={styles.line} />
@@ -93,35 +94,23 @@ const Track = () => {
       <View style={styles.trackerContainer}>
         {moodRecords.map((state, index) => {
           const dayName = moment()
-              .subtract(6 - index, "days")
-              .format("ddd");
+            .subtract(6 - index, "days")
+            .format("ddd");
 
           if (state.mood === undefined) {
             return (
-                <View style={styles.dayContainer} key={index}>
-                  <Feather name="circle" size={22} color={"#dadada"} />
-                  <Text
-                      style={[
-                        styles.dayText,
-                      ]}
-                  >
-                    {dayName}
-                  </Text>
-                </View>
+              <View style={styles.dayContainer} key={index}>
+                <Feather name="circle" size={22} color={"#dadada"} />
+                <Text style={[styles.dayText]}>{dayName}</Text>
+              </View>
             );
           }
 
           return (
-              <View style={styles.dayContainer} key={index}>
-                <Text>{state.mood}</Text>
-                <Text
-                    style={[
-                      styles.dayText,
-                    ]}
-                >
-                  {dayName}
-                </Text>
-              </View>
+            <View style={styles.dayContainer} key={index}>
+              <Text>{state.mood}</Text>
+              <Text style={[styles.dayText]}>{dayName}</Text>
+            </View>
           );
         })}
       </View>
@@ -145,13 +134,7 @@ const Track = () => {
               return (
                 <View style={styles.dayContainer} key={index}>
                   <Feather name="square" size={34} color={"#dadada"} />
-                  <Text
-                    style={[
-                      styles.dayText,
-                    ]}
-                  >
-                    {dayName}
-                  </Text>
+                  <Text style={[styles.dayText]}>{dayName}</Text>
                 </View>
               );
             }
@@ -163,13 +146,7 @@ const Track = () => {
                   size={34}
                   color={state.medicineTaken ? "#2aa627" : "#ff5959"}
                 />
-                <Text
-                  style={[
-                    styles.dayText,
-                  ]}
-                >
-                  {dayName}
-                </Text>
+                <Text style={[styles.dayText]}>{dayName}</Text>
               </View>
             );
           })}
@@ -296,6 +273,8 @@ const styles = StyleSheet.create({
   title: {
     color: "#838383",
     marginHorizontal: 5,
+    fontWeight: "bold",
+    color: "black",
   },
   chart: {
     marginVertical: 8,
