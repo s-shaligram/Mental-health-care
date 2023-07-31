@@ -14,11 +14,14 @@ const styles = StyleSheet.create({
     heading: {
       fontSize: 24,
       marginBottom: 20,
+      fontWeight: "bold",
       color: '#333333', // Customize the text color
+      textAlign: 'center'
     },
     confirmationText: {
-      fontSize: 18,
+      fontSize: 15,
       marginBottom: 20,
+      fontWeight: "bold",
       textAlign: 'center',
     },
     startButton: {
@@ -27,17 +30,19 @@ const styles = StyleSheet.create({
     card: {
       width: '100%',
       marginBottom: 20,
+      fontWeight: "bold",
       elevation: 2, // Customize the card elevation (shadow)
     },
     question: {
-      fontSize: 18,
+      fontSize: 15,
       marginBottom: 10,
       color: '#333', // Customize the text color
     },
     answerOptions: {
       flexDirection: 'row',
-      alignItems: 'center',
-      marginBottom: 10,
+      justifyContent: 'space-between', // Add this to distribute elements evenly
+      margin: 5,
+        marginBottom: 10,
     },
     answerText: {
       marginRight: 10,

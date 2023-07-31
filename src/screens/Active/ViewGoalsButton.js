@@ -22,7 +22,7 @@ const ViewGoalsButton = () => {
     retrieveGoals();
   }, []);
 
- 
+
 
   const retrieveGoals = async () => {
     try {
@@ -98,7 +98,7 @@ const ViewGoalsButton = () => {
   };
 
   return (
-    <View style={{ backgroundColor: theme.background }}>
+    <View style={[styles.container2, { backgroundColor: theme.background }]}>
       {goals.length > 0 ? (
         <TouchableOpacity>
           <View
@@ -115,12 +115,12 @@ const ViewGoalsButton = () => {
                 color: theme.color,
               }}
             >
-              Your Today's Goals:
+              Today's Goals:
             </Text>
           </View>
 
           <View style={styles.container1}>
-            <Text>{goalText}</Text>
+            {goalText && <Text>{goalText}</Text>}
             {goals.map((goal, index) => (
               <Text key={index} style={{ fontSize: 18, fontWeight: "bold" }}>
                 {index + 1}.{goal}
@@ -129,48 +129,61 @@ const ViewGoalsButton = () => {
           </View>
         </TouchableOpacity>
       ) : (
-        <Text style={{ fontSize: 18, marginTop: 20 }}>
-          Oops!! It looks either you haven't set any goals or deleted it.
-        </Text>
+        <>
+          <Text style={{ fontSize: 18, marginTop: 20, textAlign: 'center' }}>
+            Oops!!
+          </Text>
+          <Text style={{ fontSize: 18, marginTop: 5, textAlign: 'center', margin: 20 }}>
+            It looks either you haven't set any goals or deleted them.
+          </Text>
+        </>
       )}
 
-      <Button title="Delete Goals" onPress={deleteGoals} color={"#FFA500"} />
-      <Button
-        title="Goal Breakdown"
-        onPress={handleViewGoals}
-        color={"#1D741B"}
-      />
+      <View style={{ margin: 20 }}>
+        <Button
+          color={"#FFA500"}
+          title="Delete Goals" onPress={deleteGoals} />
+        <View style={{ marginTop: 20 }}>
+          <Button style={{ margin: 20 }}
+            color={"#1D741B"}
+            title="Goal Breakdown"
+            onPress={handleViewGoals}
+          />
+        </View>
+      </View>
 
-      <ScrollView style={{ ...styles.scrollView,height: screenHeight }}>
-        {isListVisible && (
-          <View>
-            {goalInfo.map((goal, index) => (
-              <View key={index}>
-                <Text
-                  style={{
-                    fontWeight: "bold",
-                    fontSize: 18,
-                    color: theme.color,
-                  }}
-                >
-                  {goal.title}
-                </Text>
-                <Text
-                  style={{ fontSize: 16, marginTop: 10, color: theme.color }}
-                >
-                  {goal.description}
-                </Text>
-                <View
-                  style={{
-                    borderBottomWidth: 1,
-                    marginVertical: 10,
-                  }}
-                />
-              </View>
-            ))}
-          </View>
-        )}
-      </ScrollView>
+      <View style={styles.container2}>
+        <ScrollView style={{ ...styles.scrollView }}>
+          {isListVisible && (
+            <View>
+              {goalInfo.map((goal, index) => (
+                <View key={index}>
+                  <Text
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: 18,
+                      color: theme.color,
+                    }}
+                  >
+                    {goal.title}
+                  </Text>
+                  <Text
+                    style={{ fontSize: 16, marginTop: 10, color: theme.color }}
+                  >
+                    {goal.description}
+                  </Text>
+                  <View
+                    style={{
+                      borderBottomWidth: 1,
+                      marginVertical: 10,
+                    }}
+                  />
+                </View>
+              ))}
+            </View>
+          )}
+        </ScrollView>
+      </View>
     </View>
   );
 };
@@ -195,6 +208,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
     elevation: 3,
+  },
+  container2: {
+    flex: 1, // Make the container fill the entire screen
   },
   // container1: {
   //   backgroundColor: "#fff",
@@ -237,9 +253,8 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
-
   scrollView: {
-    //backgroundColor: "#fff",
+    // backgroundColor: "red",
     marginTop: 0,
     marginBottom: 0,
     maxHeight: 540, // Adjust the maximum height as needed
