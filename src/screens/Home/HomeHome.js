@@ -11,6 +11,7 @@ function HomeHome({navigation}) {
     const {medicineTrackerEnabled, sleepTrackerEnabled, theme} = useGlobalContext();
 
     return (
+        <View style={{flex: 1, backgroundColor: 'white'}}>
         <ScrollView>
             {sleepTrackerEnabled && <View style={{...styles.container2, backgroundColor: theme.background}}>
                 <SleepTracker/>
@@ -25,6 +26,7 @@ function HomeHome({navigation}) {
             <Questionnaire />
             </View>
         </ScrollView>
+        </View>
     );
 }
 
