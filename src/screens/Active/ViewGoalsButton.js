@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
+  Dimensions
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useGlobalContext } from "../../hooks/useGlobalContext";
@@ -15,10 +16,13 @@ const ViewGoalsButton = () => {
   const [goalText, setGoalText] = useState("");
   const [goalInfo, setGoalInfo] = useState([]);
   const [isListVisible, setListVisible] = useState(false);
+  const [screenHeight, setScreenHeight] = useState(Dimensions.get('window').height);
   const { theme } = useGlobalContext();
   useEffect(() => {
     retrieveGoals();
   }, []);
+
+ 
 
   const retrieveGoals = async () => {
     try {
@@ -77,6 +81,7 @@ const ViewGoalsButton = () => {
       },
     ]);
     setListVisible(!isListVisible);
+    setScreenHeight(Dimensions.get('window').height)
   };
 
   const deleteGoals = async () => {
@@ -85,6 +90,8 @@ const ViewGoalsButton = () => {
       console.log("Successfully deleted goals.");
       setGoals([]);
       setGoalText("");
+      setScreenHeight(Dimensions.get('window').height)
+
     } catch (error) {
       console.error("Error deleting goals:", error);
     }
@@ -134,7 +141,7 @@ const ViewGoalsButton = () => {
         color={"#1D741B"}
       />
 
-      <ScrollView style={{ ...styles.scrollView }}>
+      <ScrollView style={{ ...styles.scrollView,height: screenHeight }}>
         {isListVisible && (
           <View>
             {goalInfo.map((goal, index) => (
