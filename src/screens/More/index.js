@@ -28,7 +28,7 @@ function More() {
             <Stack.Screen
                 name="Notifications"
                 component={NotificationList}
-                options={{headerShown: false}}
+                options={{headerShown: true, headerTitle: "More"}}
             />
         </Stack.Navigator>
     );

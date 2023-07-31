@@ -3,7 +3,7 @@ import { View, FlatList, StyleSheet, Text, TouchableOpacity, Alert } from "react
 import Notification from "../Notification";
 import { NotificationContext } from "../../../hooks/useNotificationContext";
 
-const NotificationList = () => {
+const NotificationList = ({navigation}) => {
     const { loadNotification, notificationData, deleteNotification, clearNotificationList } = useContext(NotificationContext);
 
     useEffect(() => {
@@ -26,6 +26,13 @@ const NotificationList = () => {
         }
 
     }
+
+    const deleteSingleItem = async (id)=>{
+        Alert.alert("Are you sure!", "Your notification will be deleted", [
+            { text: "Cancel", style: "cancel" },
+            { text: "Yes", onPress: () => deleteData(id) },
+        ])
+    }
     const renderListItem = ({ item }) => (
         <View style={styles.listItem}>
             <View style={styles.notificationContent}>
@@ -33,7 +40,7 @@ const NotificationList = () => {
                 <Text>{item.body}</Text>
                 <Text>{item.currentDate}</Text>
             </View>
-            <TouchableOpacity style={styles.deleteButton} onPress={() => deleteData(item.id)}>
+            <TouchableOpacity style={styles.deleteButton} onPress={() => deleteSingleItem(item.id)}>
                 <Text style={styles.deleteButtonText}>Delete</Text>
             </TouchableOpacity>
         </View>
@@ -49,7 +56,8 @@ const NotificationList = () => {
     }
 
     const clearNotifications = async () => {
-        await clearNotificationList()
+        await clearNotificationList();
+        navigation.goBack();
     }
 
     return (
@@ -103,6 +111,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         margin: 8,
+        marginBottom: 0,
+        padding: 10,
+        borderRadius: 10,
         backgroundColor: '#FFA500'
     },
     notificationContent: {
@@ -116,9 +127,10 @@ const styles = StyleSheet.create({
         color: '#2196F3',
     },
     deleteAllButton: {
+        marginBottom: 10,
         alignSelf: 'flex-end', // Align the button to the right
         marginRight: 10, // Add some right margin for spacing
-        marginTop: 10, // Add some top margin for spacing
+        marginTop: 20, // Add some top margin for spacing
         backgroundColor: '#dc3545', // Example background color
         padding: 10, // Example padding
         borderRadius: 5, // Make the button rounded

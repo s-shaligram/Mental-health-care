@@ -25,8 +25,8 @@ function ChangeTheme() {
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        // justifyContent: "center",
+        // alignItems: "center",
         paddingHorizontal: 20,
         backgroundColor: theme.background,
       }}

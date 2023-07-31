@@ -4,11 +4,14 @@ import MoodTracker from "../../components/MoodTrack/moodtracker";
 import MedicineTracker from "../../components/MedicineTrack/MedicineTracker";
 import {useGlobalContext} from "../../hooks/useGlobalContext";
 import SleepTracker from "../../components/SleepTrack/SleepTracker";
+import Questionnaire from "../../components/Questionnaire/QuestionnaireScreen";
+import { Provider as PaperProvider } from 'react-native-paper';
 
 function HomeHome({navigation}) {
     const {medicineTrackerEnabled, sleepTrackerEnabled, theme} = useGlobalContext();
 
     return (
+        <View style={{flex: 1, backgroundColor: 'white'}}>
         <ScrollView>
             {sleepTrackerEnabled && <View style={{...styles.container2, backgroundColor: theme.background}}>
                 <SleepTracker/>
@@ -19,7 +22,11 @@ function HomeHome({navigation}) {
             {medicineTrackerEnabled && <View style={{...styles.container2, backgroundColor: theme.background}}>
                 <MedicineTracker/>
             </View>}
+            <View>
+            <Questionnaire />
+            </View>
         </ScrollView>
+        </View>
     );
 }
 
