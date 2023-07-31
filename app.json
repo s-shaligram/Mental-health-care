@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Mind2.0",
-    "slug": "Mind2.0",
+    "name": "Mind20",
+    "slug": "Mind20",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,7 +16,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier":"com.expo.Mind2.0",
+      "bundleIdentifier": "com.expo.Mind2.0",
       "config": {
         "googleMapsApiKey": "AIzaSyBIzcdSK_WvyncEetqauVSLIhBjhMOMHTE"
       }
@@ -30,10 +30,16 @@
         "googleMaps": {
           "apiKey": "AIzaSyBERtCzGMk0NwOswtH6-4ReY9r2OSc3-qA"
         }
-      }
+      },
+      "package": "com.kavin256.Mind20"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b06ca79a-201a-4f80-93bc-97c661c2755f"
+      }
     }
   }
 }

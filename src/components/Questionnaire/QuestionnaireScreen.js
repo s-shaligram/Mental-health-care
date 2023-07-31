@@ -64,9 +64,11 @@ const Questionnaire = () => {
             </Card.Content>
           </Card>
         ))}
+        <View style={{bottom: 20}}>
         <Button mode="contained" onPress={handleSubmit} style={styles.submitButton}>
           Submit
         </Button>
+        </View>
       </View>
     );
   };

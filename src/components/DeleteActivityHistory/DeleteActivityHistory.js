@@ -48,6 +48,7 @@ const DeleteActivityHistory = ({navigation}) => {
 
                     <View style={styles.buttonContainer}>
                         <TouchableOpacity
+                            onPress={() => navigation.goBack()}
                             style={[styles.button, {backgroundColor: 'silver'}]}
                         >
                             <Text style={styles.buttonText}>

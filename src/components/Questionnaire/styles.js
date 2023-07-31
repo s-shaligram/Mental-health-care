@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
     submitButton: {
       backgroundColor: '#FFA500', // Customize the button background color
-      marginTop: 20,
+      marginTop: 20
     },
     congratulationsContainer: {
         alignItems: 'center',
