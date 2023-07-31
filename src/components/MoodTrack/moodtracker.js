@@ -45,23 +45,23 @@ const MoodTracker = () => {
     }));
   };
 
-  const retrieveMoodData = async () => {
-    try {
-      const currentDate = new Date().toISOString().split("T")[0]; // Get the current date
-      const existingData = await AsyncStorage.getItem(currentDate); // Retrieve existing data for the current date
+  // const retrieveMoodData = async () => {
+  //   try {
+  //     const currentDate = new Date().toISOString().split("T")[0]; // Get the current date
+  //     const existingData = await AsyncStorage.getItem(currentDate); // Retrieve existing data for the current date
 
-      if (existingData) {
-        const parsedData = JSON.parse(existingData);
-        setMoodData(parsedData);
-      }
-    } catch (error) {
-      console.log("Error retrieving mood data:", error);
-    }
-  };
+  //     if (existingData) {
+  //       const parsedData = JSON.parse(existingData);
+  //       setMoodData(parsedData);
+  //     }
+  //   } catch (error) {
+  //     console.log("Error retrieving mood data:", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    retrieveMoodData();
-  }, []);
+  // useEffect(() => {
+  //   retrieveMoodData();
+  // }, []);
 
   const renderMoodSelection = () => {
     if (mood === null) {
