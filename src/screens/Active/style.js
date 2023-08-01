@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
   count: {
     fontSize: 70,
-    marginBottom: 40,
+    marginBottom: 20,
     fontWeight: "bold",
     color: "#1D741B", // Green
     textShadowColor: "#000000",
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     width: 140, // Customize the width as per your requirement
     height: 140, // Customize the height as per your requirement
     borderRadius: 25, // Customize the borderRadius as per your preference
-    marginBottom: 80,
+    marginBottom: 60,
     //padding: 30,
     // marginTop: 10,
     // marginHorizontal: 15,
