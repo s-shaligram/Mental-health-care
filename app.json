@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Mind20",
-    "slug": "Mind20",
+    "slug": "mind20",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -38,8 +38,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "c0f3897f-e416-4922-9117-2a5f277ed99a"
+        "projectId": "cc3f9fb4-ab5f-44f8-8f93-f5b1106af38f"
       }
-    }
+    },
+    "owner": "darkheaven007"
   }
 }

@@ -10,9 +10,7 @@ import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { connect } from "react-redux";
 import { setGoals } from "../././../../redux/actions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import {
-  NotificationContext,
-} from "../../hooks/useNotificationContext";
+import { NotificationContext } from "../../hooks/useNotificationContext";
 
 const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
   const [goals, setGoals] = useState("");
@@ -313,11 +311,12 @@ const GoalSettingScreen = ({ onFinishGoalSetting, setShowGoalSetting }) => {
 
 const styles = StyleSheet.create({
   container: {
+    alignSelf: "center",
     backgroundColor: "#fff",
     borderRadius: 10,
     padding: 20,
-    marginBottom: 20,
-    marginTop: 160,
+    //marginBottom: 20,
+    //marginTop: 160,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

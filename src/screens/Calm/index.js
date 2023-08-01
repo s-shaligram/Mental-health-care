@@ -4,6 +4,7 @@ import ChangeTheme from "./ChangeTheme";
 import ScreenB from "./ScreenB";
 import CalmHome from "./CalmHome";
 import GameOne from "./GameOne";
+import GoalSettingScreen from "./GoalSettingScreen";
 const Stack = createStackNavigator();
 
 function Calm() {
@@ -19,16 +20,16 @@ function Calm() {
       {/*  component={ChangeTheme}*/}
       {/*  options={{ headerShown: true, headerTitle: "Calm" }}*/}
       {/*/>*/}
-        <Stack.Screen
-            name="GameOne"
-            component={GameOne}
-            options={{ headerShown: true, headerTitle: "Calm" }}
-        />
-      {/* <Stack.Screen
-        name="ScreenB"
-        component={ScreenB}
+      <Stack.Screen
+        name="GameOne"
+        component={GameOne}
+        options={{ headerShown: true, headerTitle: "Calm" }}
+      />
+      <Stack.Screen
+        name="DailyGoals"
+        component={GoalSettingScreen}
         options={{ headerShown: false }}
-      /> */}
+      />
     </Stack.Navigator>
   );
 }
