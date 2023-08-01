@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text,Linking,ActivityIndicator } from 'react-native';
-import MapView, { PROVIDER_GOOGLE, Marker,Callout } from 'react-native-maps';
+import { StyleSheet, View, Text, Linking, ActivityIndicator,Image } from 'react-native';
+import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
 import * as Location from 'expo-location';
 import { readJSONFile } from '../../utils/FileUtils';
 //import intMarkers from '../../dataSources/nearByMedicalLocation.json'
-import customMarkerImage from'../../../assets/medical_center.png'
+import customMarkerImage from '../../../assets/medical_center.png'
 
 const NearByMedicalCenter = () => {
   const [locationPermission, setLocationPermission] = useState(false);
   const [currentLocation, setCurrentLocation] = useState(null);
   const [layout, setLayout] = useState({ width: 0, height: 0 });
   const [markers, setmarkers] = useState([])
-  
-  
+
+
 
   // useEffect (()=>{
   //   setmarkers(intMarkers)
   // },[])
 
-console.log(markers)
+  console.log(markers)
   const onLayout = (event) => {
     const { width, height } = event.nativeEvent.layout;
     setLayout({ width, height });
@@ -37,18 +37,18 @@ console.log(markers)
     if (locationPermission) {
       console.log("got permission........")
       const getCurrentLocation = async () => {
-       await Location.getCurrentPositionAsync().then(
-          ({coords})=>{
+        await Location.getCurrentPositionAsync().then(
+          ({ coords }) => {
             setCurrentLocation(coords);
-            console.log("Cords>>>>>>>>>",coords)
-            fetchNearbyHospitals(coords.latitude,coords.longitude);
+            console.log("Cords>>>>>>>>>", coords)
+            fetchNearbyHospitals(coords.latitude, coords.longitude);
           }
         ).catch(
-          (error)=>{
+          (error) => {
             console.log("Error retrieving current location:", error);
           }
         )
-      
+
       };
       getCurrentLocation();
     }
@@ -59,16 +59,16 @@ console.log(markers)
     return null;
   }
 
-  const fetchNearbyHospitals = async (lat,long) => {
+  const fetchNearbyHospitals = async (lat, long) => {
     try {
-     // const { coords } = await Location.getCurrentPositionAsync();
+      // const { coords } = await Location.getCurrentPositionAsync();
       //const { latitude, longitude } = coords;
-      console.log("On Calling....",currentLocation)
+      console.log("On Calling....", currentLocation)
       const response = await fetch(
         `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${long}&radius=15000&type=hospital&key=AIzaSyBERtCzGMk0NwOswtH6-4ReY9r2OSc3-qA`
         //'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=42.9937805,-81.1696604&radius=15000&type=hospital&key=AIzaSyBERtCzGMk0NwOswtH6-4ReY9r2OSc3-qA'
 
-        );
+      );
       const data = await response.json();
       //console.log("map_data",data);
       const hospitalMarkers = data.results.map((result) => ({
@@ -80,7 +80,7 @@ console.log(markers)
         title: result.name,
         mobileNumber: result.formatted_phone_number || generateRandomMobileNumber(),
       }));
-      console.log("hosptial_markers_",hospitalMarkers)
+      console.log("hosptial_markers_", hospitalMarkers)
       setmarkers(hospitalMarkers);
     } catch (error) {
       console.log('Error fetching nearby hospitals:', error);
@@ -89,72 +89,75 @@ console.log(markers)
 
   const initialRegion = currentLocation
     ? {
-        latitude: currentLocation.latitude,
-        longitude: currentLocation.longitude,
-        latitudeDelta: 0.3,
-        longitudeDelta: 0.3,
-      }
+      latitude: currentLocation.latitude,
+      longitude: currentLocation.longitude,
+      latitudeDelta: 0.3,
+      longitudeDelta: 0.3,
+    }
     : {
-        latitude: 42.9938722,
-        longitude: -81.1722225,
-        latitudeDelta: 0.5,
-        longitudeDelta: 0.5,
-      };
+      latitude: 42.9938722,
+      longitude: -81.1722225,
+      latitudeDelta: 0.5,
+      longitudeDelta: 0.5,
+    };
 
-      const handlePhoneNumberLongPress = (mobileNumber) => {
-       console.log("on long press/......")
-        const url = `tel:${mobileNumber}`;
-        Linking.openURL(url);
-      };    
-      function generateRandomMobileNumber() {
-        const pattern = "2262682221";
-        let randomNumber = "";
-      
-        for (let i = 0; i < pattern.length; i++) {
-          if (pattern[i] === "2") {
-            randomNumber += Math.floor(Math.random() * 10); // Generate a random digit between 0 and 9
-          } else {
-            randomNumber += pattern[i];
-          }
-        }
-      
-        return randomNumber;
+  const handlePhoneNumberLongPress = (mobileNumber) => {
+    console.log("on long press/......")
+    const url = `tel:${mobileNumber}`;
+    Linking.openURL(url);
+  };
+  function generateRandomMobileNumber() {
+    const pattern = "2262682221";
+    let randomNumber = "";
+
+    for (let i = 0; i < pattern.length; i++) {
+      if (pattern[i] === "2") {
+        randomNumber += Math.floor(Math.random() * 10); // Generate a random digit between 0 and 9
+      } else {
+        randomNumber += pattern[i];
       }
-      return (
-        <View style={styles.container} onLayout={onLayout}>
-          {layout.width > 0 ? (
-            markers.length > 0 ? (
-              <MapView
-                provider={PROVIDER_GOOGLE}
-                style={styles.map}
-                initialRegion={initialRegion}
-                region={initialRegion}
-              >
-                {currentLocation && (
-                  markers.map((marker) => (
-                    <Marker
-                      key={marker.id}
-                      coordinate={marker.coordinate}
-                      title={marker.title}
-                      image={customMarkerImage}
-                    >
-                      <Callout onLongPress={() => handlePhoneNumberLongPress(marker.mobileNumber)}>
-                        <View style={styles.calloutStyles}>
-                          <Text>{marker.title}</Text>
-                          <Text>Phone:{marker.mobileNumber}</Text>
-                        </View>
-                      </Callout>
-                    </Marker>
-                  ))
-                )}
-              </MapView>
-            ) : (
-              <ActivityIndicator size="large"  style = {{top:100}}color="#FFA500" />
-            )
-          ) : null}
-        </View>
-      );
-      
+    }
+
+    return randomNumber;
+  }
+  return (
+    <View style={styles.container} onLayout={onLayout}>
+      {layout.width > 0 ? (
+        markers.length > 0 ? (
+          <MapView
+            provider={PROVIDER_GOOGLE}
+            style={styles.map}
+            initialRegion={initialRegion}
+            region={initialRegion}
+          >
+            {currentLocation && (
+              markers.map((marker) => (
+                <Marker
+                  key={marker.id}
+                  coordinate={marker.coordinate}
+                  title={marker.title}
+                >
+                  <Image
+                    source={customMarkerImage}
+                    style={{ width: 50, height: 50 }} // Adjust the width and height to resize the image
+                  />
+                  <Callout onLongPress={() => handlePhoneNumberLongPress(marker.mobileNumber)}>
+                    <View style={styles.calloutStyles}>
+                      <Text>{marker.title}</Text>
+                      <Text>Phone:{marker.mobileNumber}</Text>
+                    </View>
+                  </Callout>
+                </Marker>
+              ))
+            )}
+          </MapView>
+        ) : (
+          <ActivityIndicator size="large" style={{ top: 100 }} color="#FFA500" />
+        )
+      ) : null}
+    </View>
+  );
+
 };
 
 const styles = StyleSheet.create({
@@ -165,9 +168,9 @@ const styles = StyleSheet.create({
   map: {
     flex: 1,
   },
-  calloutStyles:{
+  calloutStyles: {
     width: 200, // Customize the width according to your needs
-   height:80,
+    height: 80,
   }
 });
 

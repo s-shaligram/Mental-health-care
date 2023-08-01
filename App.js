@@ -250,7 +250,6 @@ import {
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
-  const [showGoalSettingModal, setShowGoalSettingModal] = useState(false);
   const [userGoals, setUserGoals] = useState(null);
   const [showNotificationModal, setShowNotificationModal] = useState(false);
   const [receivedEndOfDayNotification, setReceivedEndOfDayNotification] =
@@ -284,67 +283,14 @@ export default function App() {
     }
   };
 
-  useEffect(() => {
-    //registerForPushNotificationsAsync();
-    loadGoalsFromStorage();
+  useEffect(async () => {
+    await loadGoalsFromStorage();
     console.log("App mounted.....");
   }, []);
 
-  const saveGoalsToStorage = async (goals, checkedItems) => {
-    try {
-      const data = {
-        goals: goals,
-        checkedItems: checkedItems,
-      };
-      await AsyncStorage.setItem("userGoals", JSON.stringify(data));
-    } catch (error) {
-      console.error("Error saving goals to storage:", error);
-    }
-  };
-
-  const checkGoalSettingStatus = async () => {
-    try {
-      const lastSetDate = await AsyncStorage.getItem("lastSetDate");
-      console.log(lastSetDate);
-      if (lastSetDate && moment().isSame(moment(lastSetDate), "day")) {
-        setShowGoalSettingModal(true);
-      } else {
-        setShowGoalSettingModal(false);
-      }
-    } catch (error) {
-      console.error("Error checking goal setting status:", error);
-    }
-  };
-
-  const onFinishGoalSetting = (goals, checkedItems) => {
-    if (goals) {
-      store.dispatch(setGoals(goals));
-      setUserGoals(goals);
-      saveGoalsToStorage(goals, checkedItems);
-      AsyncStorage.setItem("lastSetDate", moment().format());
-    }
-    setShowGoalSettingModal(false);
-  };
-
-  const cancelGoalSetting = () => {
-    setShowGoalSettingModal(false);
-  };
-
-  const onCancelGoalSetting = () => {
-    setShowGoalSettingModal(false);
-  };
-  const onBackgroundPress = () => {
-    // Close the GoalSettingScreen modal when tapping outside the text fields and floating button
-    Keyboard.dismiss();
-    onCancelGoalSetting();
-  };
-
   const onLayoutRootView = async () => {
     if (appIsReady) {
-      // Hide the splash screen
-      // await SplashScreen.hideAsync();
-      // Show the goal setting modal if needed
-      checkGoalSettingStatus();
+      // checkGoalSettingStatus();
     }
   };
 
@@ -361,28 +307,6 @@ export default function App() {
               <Tabs />
             </NavigationContainer>
           </CommonProvider>
-          {/*<TouchableOpacity*/}
-          {/*  style={styles.floatingButton}*/}
-          {/*  onPress={() => setShowGoalSettingModal(true)}*/}
-          {/*  hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} // Add hitSlop to reduce the touchable area*/}
-          {/*>*/}
-            {/* Icon for the floating button */}
-          {/*</TouchableOpacity>*/}
-          {/*<Modal*/}
-          {/*  visible={showGoalSettingModal}*/}
-          {/*  animationType="slide"*/}
-          {/*  transparent={true}*/}
-          {/*  onRequestClose={onCancelGoalSetting}*/}
-          {/*>*/}
-          {/*  <TouchableWithoutFeedback onPress={onBackgroundPress}>*/}
-          {/*    <View style={styles.modalContainer}>*/}
-          {/*      <GoalSettingScreen*/}
-          {/*        onFinishGoalSetting={onFinishGoalSetting}*/}
-          {/*        onCancelGoalSetting={onCancelGoalSetting}*/}
-          {/*      />*/}
-          {/*    </View>*/}
-          {/*  </TouchableWithoutFeedback>*/}
-          {/*</Modal>*/}
         </Provider>
         {receivedEndOfDayNotification && userInteractedWithNotification && (
           <NotificationModal
@@ -394,25 +318,3 @@ export default function App() {
     </NotificationProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  modalContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-  },
-  floatingButton: {
-    position: "absolute",
-    bottom: 60,
-    right: 16,
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: "#007AFF",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 1, // Add zIndex property to make the floating button above other components
-  },
-  // Other styles remain the same...
-});

@@ -61,7 +61,7 @@ const NotificationList = ({navigation}) => {
     }
 
     return (
-        <View>
+        <View style={{marginBottom:80}}>
             {notificationData.length > 0 && (<TouchableOpacity
                 style={styles.deleteAllButton}
                 onPress={deleteAllNotifications}

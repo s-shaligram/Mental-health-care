@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     alignItems: "center",
-    backgroundColor: "#FFA500", //Orange
+    backgroundColor: "#ff3d11", //Orange
   },
   deleteButtonText: {
     color: "white",

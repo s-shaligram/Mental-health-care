@@ -107,8 +107,8 @@ const GameOne = () => {
         style={{
           borderRadius: 40,
           backgroundColor: theme.background,
-          height: android ? height * 0.6 : height * 0.5,
-          width: width * 0.5,
+         // height: android ? height * 0.6 : height * 0.5,
+         // width: width * 0.5,
           justifyContent: "center",
           alignItems: "center",
         }}
