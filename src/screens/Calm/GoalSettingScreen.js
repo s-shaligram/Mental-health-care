@@ -1,22 +1,21 @@
 import React, {useState, useContext, useEffect} from "react";
 import {StyleSheet, View, Text, TouchableOpacity} from "react-native";
-import {AntDesign, FontAwesome} from "@expo/vector-icons";
+import {FontAwesome} from "@expo/vector-icons";
 import {connect} from "react-redux";
-import {setGoals} from "../././../../redux/actions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {NotificationContext} from "../../hooks/useNotificationContext";
-import CancelDialog from "./CancelDialog"; // Import the new CancelDialog component
+import store from "../../../redux/store";
+import {setGoals} from "./../../../redux/actions";
+import moment from "moment/moment";
 
-const GoalSettingScreen = ({onFinishGoalSetting, setShowGoalSetting}) => {
-    const [goals, setGoals] = useState("");
+const GoalSettingScreen = ({navigation}) => {
+    const [userGoals, setUserGoals] = useState("");
     const [checkedItems, setCheckedItems] = useState([]);
-    const [showCancelModal, setShowCancelModal] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
     const {scheduleNotification} = useContext(NotificationContext);
 
-    useEffect(() => {
+    useEffect(async () => {
         // Schedule the end-of-day notification at 9:00 PM
-        scheduleEndOfDayNotification();
+        await scheduleEndOfDayNotification();
     }, []);
 
     const scheduleEndOfDayNotification = async () => {
@@ -38,49 +37,55 @@ const GoalSettingScreen = ({onFinishGoalSetting, setShowGoalSetting}) => {
                 "Have you completed your daily scheduled goals?",
                 secondsUntilEndOfDay
             );
-            console.log("End-of-day notification scheduled.");
         } catch (error) {
             console.error("Error scheduling end-of-day notification:", error);
         }
     };
 
-    const handleFinish = async () => {
+    const onFinishGoalSetting = async (userGoals, checkedItems) => {
+        if (userGoals) {
+            store.dispatch(setGoals(userGoals));
+            setUserGoals(userGoals);
+            await saveGoalsToStorage(userGoals, checkedItems);
+            await AsyncStorage.setItem("lastSetDate", moment().format());
+        }
+    };
+    const saveGoalsToStorage = async (goals, checkedItems) => {
         try {
-            // Create an object to store the goals and checkedItems
             const data = {
                 goals: goals,
                 checkedItems: checkedItems,
             };
+            await AsyncStorage.setItem("userGoals", JSON.stringify(data));
+        } catch (error) {
+            console.error("Error saving goals to storage:", error);
+        }
+    };
+    const handleFinish = async () => {
+        try {
+            // Create an object to store the userGoals and checkedItems
+            const data = {
+                goals: userGoals,
+                checkedItems: checkedItems,
+            };
 
-            //Notification
+            // Notification
             await scheduleNotification(
                 "GS",
                 "Goal Set",
                 "Congratulations..you have set today's goals",
                 3
             );
+
             // Save the data to AsyncStorage
             await AsyncStorage.setItem("userGoals", JSON.stringify(data));
 
             // Call the onFinishGoalSetting callback with the goals
-            onFinishGoalSetting(data);
+            await onFinishGoalSetting(data);
         } catch (error) {
             console.error("Error saving goals and checkedItems to storage:", error);
         }
-    };
-
-    const handleClose = () => {
-        setShowCancelModal(true);
-    };
-
-    const handleCancelOption = (option) => {
-        setSelectedOption(option);
-        setShowCancelModal(false);
-        if (option === "continue") {
-            setShowGoalSetting(true);
-        } else if (option === "exit") {
-            onFinishGoalSetting(null);
-        }
+        navigation.goBack();
     };
 
     const handleCheckItem = (item) => {
@@ -243,9 +248,8 @@ const GoalSettingScreen = ({onFinishGoalSetting, setShowGoalSetting}) => {
                             Monitor and Challenge Negative Thoughts
                         </Text>
                     </TouchableOpacity>
-                    {/* Add other checklist items here */}
                     <TouchableOpacity style={styles.button} onPress={handleFinish}>
-                        <Text style={styles.buttonText}>Finish</Text>
+                        <Text style={styles.buttonText}>Done</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -254,10 +258,7 @@ const GoalSettingScreen = ({onFinishGoalSetting, setShowGoalSetting}) => {
 
     return (
         <View style={{backgroundColor: '#ffff', flex: 1}}>
-            {!showCancelModal && <GoalList/>}
-            {showCancelModal && (
-                <CancelDialog handleCancelOption={handleCancelOption}/>
-            )}
+            <GoalList/>
         </View>
     );
 };
@@ -311,4 +312,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default connect(null, {setGoals})(GoalSettingScreen);
+export default connect(null, )(GoalSettingScreen);

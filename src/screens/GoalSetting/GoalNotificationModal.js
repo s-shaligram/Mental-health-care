@@ -51,7 +51,7 @@ const NotificationModal = ({ visible, onClose }) => {
 
             <View style={styles.container1}>
               <Text>{goalText}</Text>
-              {goals.map((goal, index) => (
+              {goals && goals.map((goal, index) => (
                 <Text
                   key={index}
                   style={{

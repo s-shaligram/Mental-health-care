@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="61c8dc3d-7206-4ad4-b800-2bc3297f9945" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MoodTrack/moodtracker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MoodTrack/moodtracker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SleepTrack/SleepTracker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SleepTrack/SleepTracker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useGlobalContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useGlobalContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Active/ViewGoalsButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Active/ViewGoalsButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/Calm/GoalSettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Calm/GoalSettingScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Calm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Calm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Track/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Track/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/GoalSetting/GoalNotificationModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/GoalSetting/GoalNotificationModal.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

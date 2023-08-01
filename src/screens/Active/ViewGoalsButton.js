@@ -93,7 +93,7 @@ const ViewGoalsButton = () => {
     };
     return (
         <View style={[styles.container2, {backgroundColor: theme.background}]}>
-            {goals.length > 0 ? (
+            {goals && goals.length > 0 ? (
                 <TouchableOpacity>
                     <View
                         style={{
