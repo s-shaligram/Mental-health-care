@@ -361,28 +361,28 @@ export default function App() {
               <Tabs />
             </NavigationContainer>
           </CommonProvider>
-          <TouchableOpacity
-            style={styles.floatingButton}
-            onPress={() => setShowGoalSettingModal(true)}
-            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} // Add hitSlop to reduce the touchable area
-          >
+          {/*<TouchableOpacity*/}
+          {/*  style={styles.floatingButton}*/}
+          {/*  onPress={() => setShowGoalSettingModal(true)}*/}
+          {/*  hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} // Add hitSlop to reduce the touchable area*/}
+          {/*>*/}
             {/* Icon for the floating button */}
-          </TouchableOpacity>
-          <Modal
-            visible={showGoalSettingModal}
-            animationType="slide"
-            transparent={true}
-            onRequestClose={onCancelGoalSetting}
-          >
-            <TouchableWithoutFeedback onPress={onBackgroundPress}>
-              <View style={styles.modalContainer}>
-                <GoalSettingScreen
-                  onFinishGoalSetting={onFinishGoalSetting}
-                  onCancelGoalSetting={onCancelGoalSetting}
-                />
-              </View>
-            </TouchableWithoutFeedback>
-          </Modal>
+          {/*</TouchableOpacity>*/}
+          {/*<Modal*/}
+          {/*  visible={showGoalSettingModal}*/}
+          {/*  animationType="slide"*/}
+          {/*  transparent={true}*/}
+          {/*  onRequestClose={onCancelGoalSetting}*/}
+          {/*>*/}
+          {/*  <TouchableWithoutFeedback onPress={onBackgroundPress}>*/}
+          {/*    <View style={styles.modalContainer}>*/}
+          {/*      <GoalSettingScreen*/}
+          {/*        onFinishGoalSetting={onFinishGoalSetting}*/}
+          {/*        onCancelGoalSetting={onCancelGoalSetting}*/}
+          {/*      />*/}
+          {/*    </View>*/}
+          {/*  </TouchableWithoutFeedback>*/}
+          {/*</Modal>*/}
         </Provider>
         {receivedEndOfDayNotification && userInteractedWithNotification && (
           <NotificationModal

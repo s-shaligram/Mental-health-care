@@ -28,7 +28,7 @@ function Calm() {
       <Stack.Screen
         name="DailyGoals"
         component={GoalSettingScreen}
-        options={{ headerShown: false }}
+        options={{ eaderShown: true, headerTitle: "Calm"  }}
       />
     </Stack.Navigator>
   );
