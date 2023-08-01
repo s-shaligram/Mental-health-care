@@ -1,6 +1,13 @@
 // src/screens/EmergencyContactScreen.js
 import React, { useState } from "react";
-import { View, TextInput, Button, StyleSheet, Alert } from "react-native";
+import {
+  View,
+  TextInput,
+  Button,
+  StyleSheet,
+  Alert,
+  KeyboardAvoidingView,
+} from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const EmergencyContactScreen = () => {
@@ -55,7 +62,10 @@ const EmergencyContactScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
       <TextInput
         placeholder="Name"
         value={name}
@@ -80,7 +90,7 @@ const EmergencyContactScreen = () => {
         onPress={handleSaveContact}
         color={"#1D741B"}
       />
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

@@ -13,7 +13,16 @@ function CalmHome({ navigation }) {
       {/*  routeTo={"ChangeTheme"}*/}
       {/*  navigation={navigation}*/}
       {/*/>*/}
-        <SelectionTile name={"🎲 Calm down game"} routeTo={'GameOne'} navigation={navigation}/>
+      <SelectionTile
+        name={"🎲 Calm down game"}
+        routeTo={"GameOne"}
+        navigation={navigation}
+      />
+      <SelectionTile
+        name={"🎲 Set daily goals"}
+        routeTo={"DailyGoals"}
+        navigation={navigation}
+      />
     </ScrollView>
   );
 }
