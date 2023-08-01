@@ -92,7 +92,7 @@ const ViewGoalsButton = () => {
         }
     };
     return (
-        <View style={[styles.container2, {backgroundColor: theme.background}]}>
+        <ScrollView style={[styles.container2, {backgroundColor: theme.background}]}>
             {goals && goals.length > 0 ? (
                 <TouchableOpacity>
                     <View
@@ -115,8 +115,8 @@ const ViewGoalsButton = () => {
 
                     <View style={styles.container1}>
                         {goalText && <Text>{goalText}</Text>}
-                        {goals.map((goal, index) => (
-                            <Text key={index} style={{fontSize: 18, fontWeight: "bold"}}>
+                        {goals && goals.map((goal, index) => (
+                            <Text key={index} style={{fontSize: 15,marginBottom:5}}>
                                 {index + 1}. {goal}
                             </Text>
                         ))}
@@ -177,7 +177,7 @@ const ViewGoalsButton = () => {
                     )}
                 </ScrollView>
             </View>
-        </View>
+        </ScrollView>
     );
 };
 
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 5,
         flexDirection: "column",
-        alignItems: "center",
+        //alignItems: "center",
         marginBottom: 0,
         marginHorizontal: 20,
         elevation: 5,

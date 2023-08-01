@@ -19,7 +19,7 @@ function CalmHome({ navigation }) {
         navigation={navigation}
       />
       <SelectionTile
-        name={"🎲 Set daily goals"}
+        name={"🥅 Set daily goals"}
         routeTo={"DailyGoals"}
         navigation={navigation}
       />

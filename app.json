@@ -36,11 +36,11 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "owner": "shiwanv",
     "extra": {
       "eas": {
-        "projectId": "ce268868-7e78-4aae-b1ff-bf174a186d1d"
+        "projectId": "7cc2f01f-a886-4acd-96a4-e7fc732a8ea6"
       }
-    },
-    "owner": "darkheaven007"
+    }
   }
 }
