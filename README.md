@@ -1,7 +1,7 @@
-#Course - INFO-6134 Capstone project
-###Group - 18
+# Course - INFO-6134 Capstone project
+## Group - 18
 
-Group members-
+## Group members-
 
 1. Name - Sameer Shaligram
    Student ID - 1121367
@@ -17,14 +17,14 @@ Group members-
 5. Name - Pushpraj Rajan
    Student ID - 1120214
 
-App name - Mind2.0
+# App name - Mind2.0
 
-App description -
+## App description -
 
-"Discover a Better You with mind2.0".
+### "Discover a Better You with mind2.0".
 Introducing our mobile app for improving mental health—a thorough resource for anyone wishing to do so. Our app offers daily mood tracking, self-evaluation, and individualised treatment recommendations for mental illnesses. Utilise our app to take charge of your mental health right now.
 
-List of features-
+## List of features-
 
 1. Users can use our simple game GUI which can offer user to take control on his anger like starting count from 1 to 10 while after every count he will see some tips to get his anger in control.	
 2. Users will be able to find medical centres nearby for mental health needs.	
@@ -50,7 +50,7 @@ List of features-
 22. Users will get notified from mental health app.	
 23. Users can keep track of medicine intake.
 
-Getting Started
+## Getting Started
 To run the Mind2.0 app on your device, follow these steps:
 
 * Clone the repository: git clone https://github.com/s-shaligram/Mental-health-care
@@ -58,8 +58,8 @@ To run the Mind2.0 app on your device, follow these steps:
 * Start the development server: npm start
 * Use Expo Go app or an emulator to test the app on your device.
 
-Contributing
+## Contributing
 We welcome contributions to improve the Mind2.0 app. If you find any bugs or have suggestions for new features, please feel free to raise an issue or submit a pull request.
 
-Acknowledgments
+## Acknowledgments
 Special thanks to all the team members for their dedication and hard work in developing the Mind2.0 app, making a positive impact on mental health.
