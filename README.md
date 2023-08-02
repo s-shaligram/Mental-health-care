@@ -1,5 +1,5 @@
-Course - INFO-6134 Capstone project
-Group - 18
+#Course - INFO-6134 Capstone project
+###Group - 18
 
 Group members-
 
@@ -53,10 +53,10 @@ List of features-
 Getting Started
 To run the Mind2.0 app on your device, follow these steps:
 
-Clone the repository: git clone https://github.com/s-shaligram/Mental-health-care
-Install dependencies: npm install
-Start the development server: npm start
-Use Expo Go app or an emulator to test the app on your device.
+* Clone the repository: git clone https://github.com/s-shaligram/Mental-health-care
+* Install dependencies: npm install
+* Start the development server: npm start
+* Use Expo Go app or an emulator to test the app on your device.
 
 Contributing
 We welcome contributions to improve the Mind2.0 app. If you find any bugs or have suggestions for new features, please feel free to raise an issue or submit a pull request.
