@@ -49,3 +49,17 @@ List of features-
 21. Users can track sleep.	
 22. Users will get notified from mental health app.	
 23. Users can keep track of medicine intake.
+
+Getting Started
+To run the Mind2.0 app on your device, follow these steps:
+
+Clone the repository: git clone https://github.com/s-shaligram/Mental-health-care
+Install dependencies: npm install
+Start the development server: npm start
+Use Expo Go app or an emulator to test the app on your device.
+
+Contributing
+We welcome contributions to improve the Mind2.0 app. If you find any bugs or have suggestions for new features, please feel free to raise an issue or submit a pull request.
+
+Acknowledgments
+Special thanks to all the team members for their dedication and hard work in developing the Mind2.0 app, making a positive impact on mental health.
