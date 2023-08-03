@@ -11,12 +11,12 @@ const NearByMedicalCenter = () => {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [layout, setLayout] = useState({ width: 0, height: 0 });
   const [markers, setmarkers] = useState([])
-  
+  const a = 'test';
   
 
   // useEffect (()=>{
   //   setmarkers(intMarkers)
-  // },[])
+  // },[])//
 
 console.log(markers)
   const onLayout = (event) => {
